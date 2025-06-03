@@ -1,0 +1,156 @@
+<template>
+    <div class="page page-journal-article" data-name="journal-article">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="button button-fill color-white button-44 back">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="title">
+                    <div class="logo-small text-color-white">
+                        <h5>Article Details<span class="text-secondary fw-light"></span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="block medium-inset medium-margin-top no-hairlines no-margin-vertical">
+                <div class="card margin-bottom">
+                    <div class="card-header">
+                        <h3 id="article-title">${article.Title}</h3>
+                    </div>
+                    <div class="card-content card-content-padding">
+                        <div class="block">
+                            <p class="text-muted">Authors: <span id="article-authors">${article.Author}</span></p>
+                            <p class="text-muted">DOI: <span id="article-doi">${article.DOI || 'N/A'}</span></p>
+                            <p class="text-muted">Pages: <span id="article-pages">${article.PageInPublication}</span></p>
+                            <p class="text-muted">Downloads: <span id="article-downloads">${article.DownloadCount}</span></p>
+                        </div>
+                        
+                        <div class="block-title">Abstract</div>
+                        <div class="block">
+                            <div id="article-abstract" class="text-justify">${stripHtmlTags(article.Abstract)}</div>
+                        </div>
+                        
+                        <div class="block">
+                            <a href="#" id="download-button" class="button button-fill button-large button-raised" @click="${() => downloadArticle(article)}">
+                                <i class="icon material-icons font-size-20 margin-right-half">file_download</i>
+                                Download Article
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Citation</h4>
+                    </div>
+                    <div class="card-content card-content-padding">
+                        <div id="article-citation" class="text-justify">
+                            ${article.CitedBy || 'No citation information available'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        let article = null;
+        
+        // Helper function to strip HTML tags
+        const stripHtmlTags = (html) => {
+            if (!html) return '';
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || '';
+        };
+        
+        // Function to download the article
+        const downloadArticle = (article) => {
+            if (article && article.Attachment) {
+                const baseUrl = 'https://boldscholar.com';
+                const pdfUrl = `${baseUrl}${article.Attachment}`;
+                
+                try {
+                    // Open in new window/tab
+                    const newWindow = window.open(pdfUrl, '_blank');
+                    
+                    if (!newWindow) {
+                        // Popup was blocked or failed
+                        showErrorMessage('Please enable popups to download this article');
+                    }
+                } catch (error) {
+                    // Handle any errors in opening the URL
+                    console.error('Error opening URL:', error);
+                    showErrorMessage('Unable to download article. Please try again.');
+                }
+                
+                // Increment download count in the background
+                updateDownloadCount(article.Id);
+            } else {
+                showErrorMessage('No attachment available for this article');
+            }
+        };
+        
+        // Function to update download count
+        const updateDownloadCount = (articleId) => {
+            if (!articleId) return;
+            
+            // Call API to update download count
+            $f7.request({
+                url: `https://boldscholar.com/api/general/UpdateArticleDownloadCount?articleId=${articleId}`,
+                method: 'GET',
+                dataType: 'json',
+            })
+            .then(response => {
+                console.log('Download count updated successfully');
+            })
+            .catch(error => {
+                console.error('Error updating download count:', error);
+            });
+        };
+        
+        // Show error message
+        const showErrorMessage = (message) => {
+            $f7.dialog.alert(message, 'Error');
+        };
+        
+        $on('pageInit', () => {
+            // Get article data from route params or local storage
+            const articleId = $f7route.params.id;
+            const journalData = JSON.parse(localStorage.getItem("currentJournalArticles") || "[]");
+            
+            article = journalData.find(a => a.Id == articleId);
+            
+            if (!article) {
+                // If article not found, try to load it from the API
+                $f7.request({
+                    url: `https://boldscholar.com/api/general/GetArticleById?id=${articleId}`,
+                    method: 'GET',
+                    dataType: 'json',
+                })
+                .then(response => {
+                    if (response.data) {
+                        article = response.data;
+                        $update();
+                    } else {
+                        showErrorMessage('Article not found');
+                        $f7router.back();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading article:', error);
+                    showErrorMessage('Failed to load article details');
+                    $f7router.back();
+                });
+            }
+        });
+        
+        return $render;
+    }
+</script>

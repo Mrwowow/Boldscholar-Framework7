@@ -1,0 +1,104 @@
+.button {
+    border-radius: calc(var(--finwallapp-rounded) - 5px);
+    padding: calc(var(--finwallapp-padding) - 10px) var(--finwallapp-padding);
+    line-height: 30px;
+    height: auto;
+
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    &.button-raised {
+        box-shadow: 0 0.125rem 0.35rem rgba(0, 0, 0, 0.1) !important;
+    }
+    &.color-white {
+        color: var(--finwallapp-theme-text-secondary);
+    }
+
+    i {
+        font-size: 17px;
+    }
+    &.button-small {
+        padding: 0 calc(var(--finwallapp-padding)/2);
+    }
+    &.button-large{
+        padding: var(--finwallapp-padding);
+    }
+}
+.elevation-2 {
+    box-shadow: 0 0.125rem 0.35rem rgba(0, 0, 0, 0.1) !important;
+}
+.button-44 {
+    height: 44px;
+    width: 44px;
+    padding: 0;
+    line-height: 44px;
+}
+
+.button-28{
+    height: 28px;
+    width: 28px !important;
+    padding: 0 !important;
+    line-height: 28px;
+    min-width: 28px;
+}
+
+.accordion-item {
+    .bar-more {
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        background-color: transparent;
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+
+        & > span {
+            height: 6px;
+            width: 60px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            margin: 0 auto;
+            display: inline-block;
+            vertical-align: bottom;
+            @extend .transition-05;
+        }
+    }
+
+    &.accordion-item-opened {
+        .bar-more {
+            & > span {
+                height: 4px;
+                width: 80%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+}
+
+.counter-number {
+    border: 1px solid var(--finwallapp-theme-text);
+    background: var(--finwallapp-theme-text);
+    border-radius: 20px;
+    padding: 1px;
+    display: inline-block;
+    & > span {
+        min-width: 18px;
+        display: inline-block;
+        text-align: center;
+    }
+
+    & .button {
+        border: 1px solid var(--finwallapp-theme-text-secondary-light);
+        background-color: var(--finwallapp-theme-text);
+        color: var(--finwallapp-theme-color);
+        min-width: 28px;
+        
+        i{
+            vertical-align: top;
+            line-height: 33px;
+        }
+
+    }
+}

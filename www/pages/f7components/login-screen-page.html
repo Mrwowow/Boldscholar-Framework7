@@ -1,0 +1,193 @@
+<template>
+  <div  class="page no-toolbar  no-swipeback login-screen-page" data-name="login-screen-page" style="background:#0149D1;">
+       <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <div class="logo-home">
+            <img src="img/mainlogo1.png" width="100%" alt=""/>
+          </div>
+        </div>
+        <div class="right" style="color:#ff9500;">
+          <a href="/register/" class="button button-fill button-raised color-orange text-color-black">Sign up</a>
+        </div>
+      </div>
+    </div>
+    <div class="page-content login-screen-content" style="background:#0149D1!important;">
+             <div class="row h-100 justify-content-center">
+          <div class="col-90 medium-50 large-40">
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-90 medium-50 large-40 align-self-center padding-vertical">
+            <h1 class="margin-bottom"><span class="text-secondary fw-light">Sign in to</span><br/>your account</h1>
+            <br />
+            <form name="login" class="was-validated needs-validation" validate>
+              <div class="list form-list no-margin margin-bottom">
+                <ul>
+    
+                  <li class="item-content item-input item-input-outline">
+                      <div class="item-inner">
+                          <div class="item-title item-floating-label"></div>
+									<div class="item-input-wrap">
+										<input type="text" name="email" placeholder="Username" id="username" class="input-with-value phonenumber input_color" required />
+										<div class="item-input-info input-error-message"></div>
+                                        
+                                        <span id="error-msg" class="hide"></span>
+                                        <div id="countrylist"></div>
+									</div>
+								</div>
+                      
+                   
+                  </li>
+                </ul>
+              </div>
+              <div class="list form-list no-margin margin-bottom">
+                <ul>
+                  <li class="item-content item-input item-input-outline">
+                    <div class="item-inner">
+                      <div class="item-title item-floating-label">Password</div>
+                      <div class="item-input-wrap"><input type="password" name="password" id="demo-password-2" class="input-with-value password input_color"
+                          required validate />
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <p class="margin-bottom text-align-right">
+                <a href="/forgotpassword/" class="">
+                  Forgot your password?
+                </a>
+              </p>
+               <div class="clearfix"></div>
+          <div class="col-90 medium-50 large-40 text-align-center margin-top-auto padding-vertical">
+            <a href="#" @click=${signIn} class="button button-fill button-large button-raised color-black text-color-orange">
+              Sign in
+            </a>
+               <div class="line-divider">
+                            <span class="font-size-12">OR</span>
+                        </div>
+
+                        <div class="margin-vertical margin-bottom">
+                            <button class="button button-large button-fill button-social" style="--f7-button-bg-color: rgb(var(--f7-color-mono-rgb)); --f7-button-hover-bg-color: rgba(var(--brand-color-facebook), 0.75); --f7-button-pressed-bg-color: rgba(var(--brand-color-facebook), 0.875); --f7-button-text-color: rgb(var(--f7-color-mono-invert-rgb));">
+<i class="icon bi bi-facebook"></i>                                
+                                <span>Continue with Facebook</span>
+                            </button>
+                            <button class="button button-large button-fill button-social margin-top" style="--f7-button-bg-color: rgb(var(--brand-color-google)); --f7-button-hover-bg-color: rgba(var(--brand-color-google), 0.75); --f7-button-pressed-bg-color: rgba(var(--brand-color-google), 0.875);">
+                                <i class="icon bi bi-google"></i>
+                                <span>Continue with Google</span>
+                            </button>
+                           
+                        </div>
+          </div> 
+            
+            </form>
+           
+          </div>
+          
+      </div>
+   
+    </div>
+  </div>
+</template>
+<style>
+#valid-msg{
+        
+        color: green;
+    }
+    
+    #error-msg{
+        
+        color: red;
+    }
+.hide {
+  display: none; }
+    
+    pre {
+  margin: 0 !important;
+  display: inline-block; 
+    }
+
+.list .item-input-outline .item-floating-label {
+    background:#0149D1!important;
+}
+    .input_color {
+        
+        color: #fff!important;
+    }
+</style>
+<script>
+  export default (props,{ $, $f7, $f7router }) => {
+   
+    const signIn = () => {
+         app.preloader.show('color-orange');
+
+     let username = $('input#username').val();
+      let password = $('input#demo-password-2').val();
+      //let getCode  =   localStorage.getItem("WaoCardUserCountrycode");
+      // let intphone = getCode + phonenumber ; 
+       
+var data = new FormData();
+//data.append("server_key", window.config.app.server_key);
+data.append("Username", username);
+data.append("Password", password);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+        app.preloader.hide();
+console.log(this.responseText);
+        const res = JSON.parse(this.responseText);
+      console.log(res.Message);
+      	 	if (res.Message === "Login successful")
+				{
+					const token = false;
+                    //var expire = res.document.expires_in;
+                    //var phone = res.user.phonenumber;
+                   
+
+				//	localStorage.setItem("WaoCardUserToken", token);
+                    localStorage.setItem("BoldScholarUserPassword", password);
+                    console.log(res.User);
+               localStorage.setItem("BoldScholarUserData", JSON.stringify(res.User));
+               localStorage.setItem("BoldScholarUserName", res.User.UserName);
+					        app.toast.show({
+					text: 'Welcome',
+					position: 'middle',
+					cssClass: 'toast-round bg-color-black'
+				});
+				app.views.current.router.navigate('/shop/');
+            
+                    
+                  					
+					
+					}
+					else
+					{
+                      			     
+                        $f7.dialog.alert(' ' + res.Message, function () {
+        //$f7.loginScreen.close();
+
+      })  
+                        
+					}
+ 
+  }
+});
+
+xhr.open("POST", "https://boldscholar.com/api/auth/login?Username=" + username +  "&Password=" + password );
+
+xhr.send(data);
+       
+  
+        		
+        
+      
+    }
+   
+
+
+    return $render;
+  };
+
+</script>

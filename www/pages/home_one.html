@@ -1,0 +1,1618 @@
+<template>
+  <div class="page page-home_one no-swipeback" data-name="home_one">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner">
+        <div class="left">
+    <a href="#" class="panel-open button button-fill color-white button-44">
+<i class="bi bi-list "></i>   
+          </a>
+        </div>
+        <div class="title">
+             <h5><span class="text-secondary fw-light">Hi,</span> ${name} ${$f7.renderUnicode('1F44B')}</h5>
+            </div>
+        <div class="right">
+             <a href="/users-single/" class="color-white button-45" data-panel="left">
+ <div class="avatar avatar-50 shadow rounded-10">
+            <img src="${avatar}" alt="" />
+     <span class="count-indicator"></span>
+          </div>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content no-swipeout">
+        
+         <!-- welcome user -->
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col-auto">
+          <div class="avatar avatar-50 shadow rounded-10">
+            <img src="${avatar}" alt="" />
+          </div>
+        </div>
+        <div class="col align-self-center no-padding-left">
+          <h4 class="text-color-theme"><span class="fw-normal">Hi</span>, ${name}  ${$f7.renderUnicode('1F44B')}</h4>
+         
+          <p class="text-muted greet-message">Good Morning </p>
+        
+        </div>
+          <div class="col-auto align-self-center no-padding-left">
+            <span class="greet-icon" style="float:right;">
+					<img src="img/dawn.svg" height="72" alt="" />
+				</span>
+        
+        
+        </div>
+      </div>
+         <!-- balance -->
+    <div class="row margin-vertical text-align-center">
+      <div class="col-100">
+        <h1 class="fw-light margin-bottom-half">₦ ${userwallet}</h1>
+        <p class="text-secondary"><a href="/addmoney/">+ Add Money</a></p>
+      </div>
+    </div>
+        
+     <!-- categories list -->
+      <div class="row margin-bottom">
+        <div class="col-100">
+          <div class="card bg-theme text-color-black">
+            <div class="card-content card-content-padding no-padding-bottom accordion-item">
+              <div class="row justify-content-between no-margin-horizontal padding-bottom">
+                   <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="/bills/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-receipt-cutoff size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Aitime & Bills</p>
+                </div>
+                  <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="/events-list/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-orange text-color-black rounded-12 bg-opac">
+                      <img src="img/conferenceb.svg" width="30"/>
+                    </div>
+                  </a>
+                  <p class="size-10">Events</p>
+                </div>
+               
+                 <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="/parking-lots/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                 <img src="img/parking-areab.svg" width="30"/>
+                    </div>
+                  </a>
+                  <p class="size-10">Parking Lots</p>
+                </div>
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="/withdraw/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                   <i class="bi bi-airplane size-22"></i>                
+                      </div>
+                  </a>
+                  <p class="size-10">Travel & Hotel</p>
+                </div>
+               
+             
+                  
+               </div>
+
+              <div class="row justify-content-between no-margin-horizontal accordion-item-content"
+                id="collpasemorelink">
+                  
+                    <div class="col-auto text-align-center no-padding-horizontal text-color-black" >
+                  <a href="#"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <img src="img/hospitalb.svg" width="30"/>
+                    </div>
+                  </a>
+                  <p class="size-10">Hospital</p>
+                </div>
+                  
+                   <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="#"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-orange text-color-black rounded-12 bg-opac">
+                     <img src="img/tourismb.svg" width="30"/>                   
+                      </div>
+                  </a>
+                  <p class="size-10">Parks & Resorts</p>
+                </div>
+               
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="#"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <img src="img/gymb.svg" width="30"/>
+                    </div>
+                  </a>
+                  <p class="size-10">Wellness & Fitness</p>
+                </div>
+              
+               
+               <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="/myestate/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-buildings size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">My Estate</p>
+                </div>
+              
+                 </div>
+
+              <button class="button button-fill no-margin-top bar-more accordion-item-toggle" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collpasemorelink" aria-expanded="false"
+                aria-controls="collpasemorelink">
+                <span class=""><i class="icon icon-down"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <!-- WaoCard Wallet -->
+      <div class="row margin-bottom margin-top" style="display:none;">
+        <div class="col-auto  align-content-center">
+          <div class="card" style="width:85mm; height:50mm; background: ${cardcolor}; background-image: url('https://app.waocard.co/${cardbg}'); background-size: fit; background-position:center;">
+                  <div class="card-content card-content-padding ">
+                    <div class="row margin-bottom ">
+                     <div class="col-auto align-self-center">
+                                            <img src="img/blogo.svg" width="80" alt="" />
+                                        </div>
+                      <div class="col align-self-center text-align-right">
+                                        ${dva && $h`
+                                            <p class="small">
+                                                <span class="text-muted size-10">${bankname}</span><br />
+                                                <span class="">${dva} <img src="img/copy-icon.svg" class="copy-icon" style="padding-left:2px;" width="4%" alt="copy-icon"/></span>
+                                            </p>
+                                           `}
+                                           ${!dva && $h` 
+                                          <p class="small">
+                                                <span class="text-muted size-10">Wallet ID</span><br />
+                                                <span class="">@${username} <img src="img/copy-icon.svg" class="copy-icon" style="padding-left:2px;" width="4%" alt="copy-icon"/></span>
+                                            </p>
+                                            `}
+                                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-80">
+                        <h4 class="fw-normal margin-bottom-half">
+                            
+                          
+                                      <div class="list form-list no-margin margin-bottom-half">
+                    <ul>
+                        <li class="item-content item-input item-input-with-value">
+                            <div class="item-inner" >
+                                <div class="row margin-vertical text-align-center">
+      <div class="col-100">
+        <h1 class="fw-light margin-bottom-half">₦ ${userwallet} <img src="img/hide-icon.svg" id="show-hide-icon" @click=${showhidebalance} class="show-hide-icon" style="margin-left:0px;"  width="30px" alt="hide-icon"/></h1>
+        <p class="text-secondary"><a href="/addmoney/">+ Add Fund</a></p>
+      </div>
+    </div>
+                               
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </div> 
+                               
+                        </h4>
+                     
+                      </div>
+                          <div class="col-20 align-self-center">
+                       <a href="#" class="button button-28 button-raised" @click=${userdata}>
+                                    <i class="bi bi-arrow-clockwise"></i>
+                                </a>
+                        
+                      </div>
+                      
+                    </div>
+                       
+                  </div>
+              <div class="card-footer text-color-theme" style="display:none;">                       <div class="row">
+                <div class="col">
+                    <a href="/receive/" class="wizard-link">
+                        <i class="icons bi bi-arrow-down-left"></i>
+                        <span class="wizard-text">Add</span>
+                    </a>
+                </div>
+                <div class="col-auto align-content-right">
+                    <a href="/send/" class="wizard-link">
+                        <i class="icons bi bi-arrow-up-right"></i>
+                        <span class="wizard-text">Send</span>
+                    </a>
+                </div>
+               
+            </div>
+</div>
+                </div>
+        </div>
+      </div>
+<!-- swiper credit cards -->
+        
+      <!-- Companies -->
+      <div class="row margin-bottom-half">
+        <div class="col">
+          <h6 class="title"><i class="bi bi-gift"></i> Giftcards</h6>
+        <p style="font-size:10px">Reload Voucher or Send Gift</p>
+
+        </div>
+        <div class="col-auto">
+          <a href="/rewards/" class="small">Add New</a>
+        </div>
+      </div>
+        <div class="row margin-bottom">
+        <div class="col-100 no-padding-horizontal">
+          <div class="swiper-container giftcardswiper">
+            <div class="swiper-wrapper">
+                 <div class="swiper-slide" style="width:180px;">
+               
+                <div class="card theme-radial-gradient border-0" style="background: #EAF9DE;
+ color:#fff; width: 180px; height:100%;  border-radius: 16pximportant; color:#664B55;
+">
+                  <div class="card-content card-content-padding ">
+                      <a href="/giftcard/" style="decoration:none;">
+                    <div class="row margin-bottom">
+                      <div class="col-auto align-self-center">
+                        <i class="bi">                        
+</i> GB
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="small">
+                          <img src="img/gbicon.png" width="20%" alt="" />
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-100">
+                        <h4 class="fw-normal margin-bottom-half" style="color:#008A00;
+">
+                         <span>₦</span>10,000.00
+                          
+                        </h4>
+                        <p><span data-progress="100"  class="progressbar color-green" style="background:#fff; height: 5px;"></span></p>
+                          <p class="no-margin-bottom text-muted" style="font-size:12px"><i class="bi bi-gift"></i> To-up or Gift from <span>₦500 </span></p>
+                      </div>
+                    </div>
+                           </a>
+                  </div>
+                   
+                </div>
+                   
+              </div>
+             
+                  <div class="swiper-slide" style="width:180px;">
+                <div class="card theme-radial-gradient border-0" style="background: #30355d;
+ color:#fff; width: 180px; height:100%;  border-radius: 16pximportant;
+">
+                  <div class="card-content card-content-padding ">
+                        <a href="/blogdetails/" style="decoration:none;">
+
+                    <div class="row margin-bottom">
+                      <div class="col-auto align-self-center">
+                        <i class="bi">                        
+</i> Enyo
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="small">
+                          <img src="img/logo-white.png" width="50%" alt="" />
+                        </p>
+                      </div>
+                    </div>
+                      
+                    <div class="row">
+                      <div class="col-100">
+                        <h4 class="fw-normal margin-bottom-half" style="color:#EAAC30;
+">
+                         <span>₦</span>800.00
+                          
+                        </h4>
+                        <p><span data-progress="40"  class="progressbar color-orange" style="background:#fff; color:#EAAC30!important; height: 5px;"></span></p>
+                          <p class="no-margin-bottom text-muted" style="font-size:12px">Load as low as <span>₦500 </span></p>
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+             
+                     <div class="swiper-slide" style="width:180px;">
+                <div class="card theme-radial-gradient border-0" style="background: #ffc244;
+ color:#fff; width: 180px; height:100%;  border-radius: 16pximportant; color:#664B55;
+">
+                  <div class="card-content card-content-padding ">
+                    <div class="row margin-bottom">
+                      <div class="col-auto align-self-center">
+                        <i class="bi">                        
+</i> Glovo
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="small">
+                          <img src="img/glovo.svg" width="50%" alt="" />
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-100">
+                        <h4 class="fw-normal margin-bottom-half" style="color:#00a082;
+">
+                         <span>₦</span>800.00
+                          
+                        </h4>
+                        <p><span data-progress="40"  class="progressbar" style="background:#fff; color:#00a082; height: 5px;"></span></p>
+                         <p class="no-margin-bottom text-muted" style="font-size:12px">Load as low as <span>₦500 </span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+             <div class="swiper-slide" style="width:180px;">
+                <div class="card theme-radial-gradient border-0" style="background: #000;;
+ color:#fff; width: 180px; height:100%;  border-radius: 16px!important; color:#664B;
+">   
+                
+             <div class="card-content card-content-padding ">
+                    <div class="row margin-bottom">
+                      <div class="col-auto align-self-center">
+                        <i class="bi">                        
+</i> i-Fitness
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="small">
+                          <img src="img/i-fitness-logo.svg" alt="" />
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-100">
+                        <h4 class="fw-normal margin-bottom-half" style="color:#f60c01;
+;
+">
+                         <span>₦</span>00.00
+                          
+                        </h4>
+                        <p><span data-progress="0"  class="progressbar color-red" style="background:#fff; height: 5px;"></span></p>
+                         <p class="no-margin-bottom text-muted" style="font-size:12px">Load as low as <span>₦14,000 </span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  <div class="swiper-slide" style="width:180px;">
+                <div class="card theme-radial-gradient border-0" style="background: #ff9500; width: 180px; height:100%;  border-radius: 16px; color:#fff;
+">
+                  <div class="card-content card-content-padding ">
+                    <div class="row margin-bottom">
+                      <div class="col-auto align-self-center">
+                        <i class="bi">                        
+</i> Codefest
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="small">
+                          <img src="img/CodefestLogo.png" alt="" width="25px" />
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-100">
+                        <h4 class="fw-normal margin-bottom-half" style="color:#2B141D;
+">
+                         <span>₦</span>800.00
+                          
+                        </h4>
+                        <p><span data-progress="40"  class="progressbar color-black" style="background:#fff; height: 5px;"></span></p>
+                        <p class="no-margin-bottom text-muted" style="font-size:12px">Load as low as <span>₦5,000 </span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col-100 no-padding-horizontal">
+          <div class="swiper-container cardswiper">
+            <div class="swiper-wrapper">
+                 <div class="swiper-slide" >
+                <div class="card theme-radial-gradient border-0" style="background-color: #000000;
+background-image: linear-gradient(315deg, #000000 0%, #414141 74%); background-repeat: no-repeat; background-position:top cover; color:#fff; width:100%; height:100%;  border-radius: 16px;">
+                  <div class="card-content card-content-padding ">
+                    <div class="row margin-bottom">
+                      <div class="col-auto align-self-center">
+                        <i class="bi cardlogo">                        <img src="img/logo2.png" alt="" width="30%" />
+</i> 
+                      </div>
+                    
+                    </div>
+                    <div class="row">
+                      <div class="col-70">
+                        <h4 class="fw-normal margin-bottom-half">
+                          100.00
+                          <span class="small text-muted">NGN</span>
+                        </h4>
+                        <p class="no-margin-bottom text-muted size-12 account_number">08100853150</p>
+                        <p class="text-muted size-12 bankname" >Wallet</p>
+                      </div>
+                        <div class="col-30">
+                                            <img src="img/icon.png" width="80%" style="float:right;" alt="Logo" />
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="card-content card-content-padding ">
+                    <div class="row margin-bottom ">
+                      <div class="col-auto align-self-center"><i class="cardlogo">
+                        <img src="img/blacklogo.png" width="30%" alt="" />
+                          </i>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-70">
+                        <h4 class="fw-normal margin-bottom-half">
+                         ₦ ${userwallet}
+                          <span class="small text-muted">NGN</span>
+                        </h4>
+                        <p class="no-margin-bottom text-muted size-12 account"></p>
+                        <p class="text-muted size-12 bank"></p>
+                      </div>
+                        <div class="col-30">
+                                            <img class="rotateimg180" src="img/icon.png" width="80%" style="float:right;" alt="Logo" />
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card dark-bg">
+                  <div class="card-content card-content-padding ">
+                    <div class="row margin-bottom">
+                      <div class="col-auto align-self-center">
+                        <img src="img/maestro.png" alt="" />
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="small">
+                          <span class="text-uppercase size-10">Validity</span><br />
+                          <span class="text-muted">06/25</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-100">
+                        <h4 class="fw-normal margin-bottom-half">
+                          56040.00
+                          <span class="small text-muted">NGN</span>
+                        </h4>
+                        <p class="no-margin-bottom text-muted size-12">10141 0021 0001 0154</p>
+                        <p class="text-muted size-12">Debit Card</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- balance -->
+      <div class="row margin-vertical text-align-center" style="display:none;">
+        <div class="col-100">
+          <h1 class="fw-light margin-bottom-half">$ 1,050.00</h1>
+          <p class="text-secondary">Total Balance</p>
+        </div>
+      </div>
+        <!-- Block Card -->
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col-100">
+          <div class="card">
+            <div class="card-content card-content-padding ">
+              <div class="row">
+                <div class="col align-self-center">Block Card</div>
+                <div class="col-auto">
+                  <label class="toggle toggle-init color-black">
+                    <input type="checkbox" id="blockcard" />
+                    <span class="toggle-icon" id="toggleid"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- Dark mode switch -->
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col-100">
+          <div class="card">
+            <div class="card-content card-content-padding ">
+              <div class="row">
+                <div class="col align-self-center">Black Panther Mode</div>
+                <div class="col-auto">
+                  <label class="toggle toggle-init color-black">
+                    <input type="checkbox" id="darkmodeswitch" />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>blockcard
+        </div>
+      </div>
+      <!-- income expense-->
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col-50">
+          <div class="card">
+            <div class="card-content card-content-padding">
+              <div class="row">
+                <div class="col-auto">
+                  <div class="avatar avatar-40 padding-half-sm elevation-2 elevation-green rounded-15">
+                    <div class="icons bg-color-green text-color-white rounded-12">
+                      <i class="bi bi-arrow-down-left"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col align-self-center no-padding-left">
+                  <p class="size-10 text-secondary no-margin-bottom">Income</p>
+                  <p>1542k</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-50">
+          <div class="card">
+            <div class="card-content card-content-padding">
+              <div class="row">
+                <div class="col-auto">
+                  <div class="avatar avatar-40 padding-half-sm elevation-2 elevation-red rounded-15">
+                    <div class="icons bg-color-red text-color-white rounded-12">
+                      <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col align-self-center no-padding-left">
+                  <p class="size-10 text-secondary no-margin-bottom">Expense</p>
+                  <p>1212k</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <!-- People -->
+      <div class="row margin-bottom-half">
+        <div class="col">
+          <h6 class="title"><i class="icon bi bi-people"></i> Nework</h6>
+            <p style="font-size:10px">Contacts Nearby</p>
+        </div>
+        <div class="col-auto">
+          <a href="/users-list/" class="small">View More</a>
+        </div>
+      </div>
+      <div class="row margin-bottom">
+        <div class="col-100 no-padding-horizontal">
+          <!-- swiper users connections -->
+        
+          <div class="swiper-container connectionswiper">
+            <div class="swiper-wrapper contancts-slide">
+                
+           
+             
+         
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Companies -->
+      <div class="row margin-bottom-half">
+        <div class="col">
+          <h6 class="title"><i class="bi bi-briefcase"></i> Benefit Partners</h6>
+        <p style="font-size:10px">Nearby</p>
+
+        </div>
+        <div class="col-auto">
+          <a href="/businesses-list/"  class="small">View More</a>
+        </div>
+      </div>
+
+      <div class="row margin-bottom-half">
+        <div class="col-100 no-padding-horizontal">
+          <!-- swiper categories -->
+          <div class="swiper-container partnerscatswiper">
+            <div class="swiper-wrapper ">
+              <div class="swiper-slide">
+                <div class="chip border active">
+                  <i class="chip-media bi bi-building bg-color-black"></i>
+                  <span class="chip-label text-uppercase">All</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="chip border">
+                  <i class="chip-media bi bi-cart bg-color-black"></i>
+                  <span class="chip-label text-uppercase">Shopping</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="chip border ">
+                  <i class="chip-media bi bi-truck bg-color-black"></i>
+                  <span class="chip-label text-uppercase">Transport</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="chip border ">
+                    
+                  <i class="chip-media bi bi-fuel-pump bg-color-black"></i>
+                  <span class="chip-label text-uppercase">Fuel Station</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="chip border ">
+                    
+                  <i class="chip-media bi bi-building-add bg-color-black"></i>
+                  <span class="chip-label text-uppercase">Hospital</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="chip border ">
+                  <i class="chip-media bi bi-wallet2 bg-color-black"></i>
+                  <span class="chip-label text-uppercase">Hotels & Resorts</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="chip border ">
+                  <i class="chip-media bi bi-camera bg-color-black"></i>
+                  <span class="chip-label text-uppercase">Fitness</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="chip border ">
+                  <i class="chip-media bi bi-gem bg-color-black"></i>
+                  <span class="chip-label text-uppercase">Bars & Restaurants</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row margin-bottom">
+        <div class="col-100 no-padding-horizontal">
+          <!-- swiper Companies -->
+              ${partners ? $h`
+            ${partners == 'error' ? $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'data-load-error.json'}" autoplay loop background="transparent" speed="1" style="height: 128px; transform: scale(2);"></lottie-player>
+                </div>
+                <div class="empty-state-title">Oops...</div>
+                <div class="empty-state-text">An error occured while loading data.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-mono-invert" @click="${getBoostedPartners}">Retry</button>
+                </div>
+            </div>
+            ` : $h`
+            ${partners.length ? $h`
+             <div id="swiper-partner" class="companyswiper swiper  swiper-init" data-loop="true" data-slides-per-view="auto" data-space-between="10" style="overflow: hidden!important;"> 
+                        <div class="swiper-wrapper companies-slide">
+
+             ${partners.map((item, index) => $h`
+              
+               <div class="swiper-slide"><a href="#" @click="${() => business_page(item)}"  class="card text-align-center"><div class="card-content card-content-padding padding-half-sm"><figure class="avatar avatar-80 elevation-2 rounded-18"><img src="${item.avatar}" alt="" /></figure></div></a></div> 
+                 
+            
+                `)}
+          </div>
+                    </div>
+
+           
+            ` : $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'no-data-found.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                </div>
+                <div class="empty-state-title">No Data Found</div>
+                <div class="empty-state-text">There is no data available at the moment.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-mono-invert" @click="${getBoostedPartners}">Retry</button>
+                </div>
+            </div>
+            `}
+            `}
+            ` : $h`
+            <div class="block margin-vertical text-align-center">
+                <div key="preloader" class="preloader"></div>
+            </div>
+            `}
+         
+        </div>
+      </div>
+
+      <!-- My Goals and Targets -->
+      <div class="row margin-bottom-half" style="display:none;">
+        <div class="col">
+          <h6 class="title">My Goals and Targets</h6>
+        </div>
+
+      </div>
+      <div class="row" style="display:none;">
+        <div class="col-100 medium-50 large-33 margin-bottom">
+          <div class="card text-align-center overflow-hidden">
+            <figure class="no-margin no-padding position-absolute no-padding left-0 w-100 h-100 coverimg">
+              <img src="img/image1.png" alt="" />
+            </figure>
+            <div class="card-content card-content-padding">
+              <div class="row">
+                <div class="col-50 medium-33 large-25">
+                  <div class="card text-align-center elevation-2">
+                    <div class="card-content card-content-padding">
+                      <div
+                        class="avatar avatar-80 rounded-circle elevation-red elevation-2 padding-half-sm margin-bottom">
+                        <div id="circlesaving"></div>
+                      </div>
+                      <p class="text-secondary size-10 no-margin-bottom">Dream Car</p>
+                      <p>15402k<span class="text-secondary size-10"> Saving</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-100 medium-50 large-33 margin-bottom">
+          <div class="card text-align-center overflow-hidden">
+            <figure class="no-margin no-padding position-absolute no-padding left-0 w-100 h-100 coverimg">
+              <img src="img/image4.jpg" alt="" />
+            </figure>
+            <div class="card-content card-content-padding">
+              <div class="row justify-content-end">
+                <div class="col-50 medium-33 large-25">
+                  <div class="card text-align-center elevation-2">
+                    <div class="card-content card-content-padding">
+                      <div
+                        class="avatar avatar-80 rounded-circle elevation-yellow elevation-2 padding-half-sm margin-bottom">
+                        <div id="circlesaving2"></div>
+                      </div>
+                      <p class="text-secondary size-10 no-margin-bottom">Dream Home</p>
+                      <p>55402k<span class="text-secondary size-10"> Saving</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col-100">
+          <div class="card">
+            <div class="card-content card-content-padding">
+              <p>Click below button to install PWA app & experience app your device.</p>
+              <p class="margin-bottom">
+                <small class="text-muted">To open link in device just scan QR code from your device in preview
+                  page.</small>
+              </p>
+              <button type="button" class="button button-fill color-theme button-large button-raised"
+                id="addtohome">Install
+                & Experience PWA</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+
+      <!-- Transactions -->
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col">
+          <h6 class="title">Transactions<br /><small class="fw-normal text-muted">Today, 24 Aug 2021</small>
+          </h6>
+        </div>
+        <div class="col-auto align-self-center">
+          <a href="/#" class="small">View all</a>
+        </div>
+      </div>
+      <div class="row margin-bottom" style="display:none;">
+        <div class="col-100">
+          <div class="card">
+            <div class="card-content card-content-padding">
+              <div class="list list-group-flush">
+                <ul>
+                  <li class="list-item">
+                    <div class="row">
+                      <div class="col-auto">
+                        <div class="avatar avatar-60 elevation-2 card rounded-15 padding-half-sm">
+                          <img src="img/company4.jpg" alt="" class="rounded-15" />
+                        </div>
+                      </div>
+                      <div class="col align-self-center no-padding-left">
+                        <p class="text-secondary size-10 no-margin-bottom">Food</p>
+                        <p>Zomato</p>
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="text-secondary text-muted size-10 no-margin-bottom">15-10-2021 | 10:20am</p>
+                        <p>-25.00</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <div class="row">
+                      <div class="col-auto">
+                        <div class="avatar avatar-60 elevation-2 card rounded-15 padding-half-sm">
+                          <img src="img/company5.png" alt="" class="rounded-15" />
+                        </div>
+                      </div>
+                      <div class="col align-self-center no-padding-left">
+                        <p class="text-secondary size-10 no-margin-bottom">Travel</p>
+                        <p>Uber</p>
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="text-secondary text-muted size-10 no-margin-bottom">15-10-2021 | 10:20am</p>
+                        <p>-26.00</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <div class="row">
+                      <div class="col-auto">
+                        <div class="avatar avatar-60 elevation-2 card rounded-15 padding-half-sm">
+                          <img src="img/company2.png" alt="" class="rounded-15" />
+                        </div>
+                      </div>
+                      <div class="col align-self-center no-padding-left">
+                        <p class="text-secondary size-10 no-margin-bottom">Food</p>
+                        <p>Starbucks</p>
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="text-secondary text-muted size-10 no-margin-bottom">15-10-2021 | 10:20am</p>
+                        <p>-18.00</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <div class="row">
+                      <div class="col-auto">
+                        <div class="avatar avatar-60 elevation-2 card rounded-15 padding-half-sm">
+                          <img src="img/company3.jpg" alt="" class="rounded-15" />
+                        </div>
+                      </div>
+                      <div class="col align-self-center no-padding-left">
+                        <p class="text-secondary size-10 no-margin-bottom">Clothing</p>
+                        <p>Walmart</p>
+                      </div>
+                      <div class="col align-self-center text-align-right">
+                        <p class="text-secondary text-muted size-10 no-margin-bottom">15-10-2021 | 10:20am</p>
+                        <p>-105.00</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blogs -->
+      <div class="row margin-bottom" style="display:none">
+        <div class="col">
+          <h6 class="title">News and Upcomming</h6>
+        </div>
+        <div class="col-auto align-self-center">
+          <a href="/blog/" class="small">Read more</a>
+        </div>
+      </div>
+      <div class="row" style="display:none">
+        <div class="col-100 medium-50 large-33">
+          <a href="/blogdetails/" class="card margin-bottom">
+            <div class="card-content card-content-padding">
+              <div class="row">
+                <div class="col-auto">
+                  <div class="avatar avatar-60 elevation-2 rounded-10 coverimg">
+                    <img src="img/news.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="col align-self-center no-padding-left">
+                  <p class="margin-bottom-half">Do share and Earn a lot</p>
+                  <p class="text-muted size-12">Get $10 instant as reward while your friend or invited
+                    member joinWaoPay</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-100 medium-50 large-33">
+          <a href="/blogdetails/" class="card margin-bottom">
+            <div class="card-content card-content-padding">
+              <div class="row">
+                <div class="col-auto">
+                  <div class="avatar avatar-60 elevation-2 rounded-10 coverimg">
+                    <img src="img/news1.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="col align-self-center no-padding-left">
+                  <p class="margin-bottom-half">Walmart news latest picks</p>
+                  <p class="text-muted size-12">Get $10 instant as reward while your friend or invited
+                    member joinWaoPay</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-100 medium-50 large-33">
+          <a href="/blogdetails/" class="card margin-bottom">
+            <div class="card-content card-content-padding">
+              <div class="row">
+                <div class="col-auto">
+                  <div class="avatar avatar-60 elevation-2 rounded-10 coverimg">
+                    <img src="img/news2.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="col align-self-center no-padding-left">
+                  <p class="margin-bottom-half">Do share and Help us</p>
+                  <p class="text-muted size-12">Get $10 instant as reward while your friend or invited
+                    member join WaoCard</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" >
+      <div class="container">
+        <ul class="nav nav-pills nav-justified">
+              <li class="nav-item ">
+            <a class="nav-link active" href="/home_one/">
+              <span>
+                <i class="nav-icon bi bi-house"></i>
+                <span class="nav-text">Home</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" @click=${home_landing}>
+              <span>
+                  <i class="nav-icon bi bi-credit-card-fill"></i>
+                <span class="nav-text">Cards</span>
+              </span>
+            </a>
+          </li>
+        
+          <li class="nav-item centerbutton">
+            <button type="button" class="nav-link popup-open" data-popup=".popup-menu">
+              <span class="theme-radial-gradient" style="background:#000;">
+                <i class="bi size-22"><img src="img/icon_white.svg" width="50%" alt=""/></i>
+              </span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/activity-feed/">
+              <span>
+                  <i class="nav-icon bi bi-person-plus"></i>
+                <span class="nav-text">Nework</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/wallet/">
+              <span>
+                <i class="nav-icon bi bi-wallet2"></i>
+                <span class="nav-text">Wallet</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+<div class="sheet-modal sheet-modal-push waoride"  style="height:auto;">
+      <div class="toolbar">
+        <div class="toolbar-inner">
+        
+          <div class="left" style="font-family: 'Outfit';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height */
+padding-left:10px;
+
+/* Grayscale/Body */
+"><h5>Wao<span class="text-secondary fw-light">Ride</span></h5></div>
+          <div class="right">
+            <a class="link sheet-close"><img src="img/closeb.svg" alt="" width="25px" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-modal-inner">
+        <div class="page-content">
+          <div class="block">
+        
+               <div class="row margin-bottom margin-top">
+             <div class="col">      
+ <div class="list form-list no-margin margin-bottom">
+                <ul>
+                    <li class="item-content item-input item-input-outline">
+         
+          <div class="item-inner">
+            <div class="item-title item-floating-label">Where are you?</div>
+            <div class="item-input-wrap">
+                <div class="item-media">
+                                                <i class="bi bi-geo-alt"></i>
+                                            </div>
+              <input  name="pickup" id="pickup" class="input-with-value" required validate data-error-message="Required" placeholder="Enter current location"/>
+              <span class="input-clear-button"></span>
+            </div>
+          </div>
+        </li>
+                 </ul>
+              </div>
+                   </div>
+              </div>
+     <div class="row">
+     <div class="col">
+          <div class="list form-list no-margin margin-bottom">
+                <ul>
+                    <li class="item-content item-input item-input-outline">
+         
+          <div class="item-inner">
+            <div class="item-title item-floating-label">Where are you going?</div>
+            <div class="item-input-wrap">
+              <input type="text"  name="destination" id="destination" class="input-with-value " required validate data-error-message="Required" placeholder="Enter Destination"/>
+              <span class="input-clear-button"></span>
+            </div>
+          </div>
+        </li>
+                 </ul>
+              </div>
+   </div>  
+           </div>        
+           
+              <a style="display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 14px 24px;
+gap: 12px;
+margin-left:auto;
+margin-right:auto;
+background:#000;
+width: 80%;
+height: 30px;
+left: 16px;
+top: 204px;
+
+/* Primary/Default */
+color:#ff9500;
+border-radius: 12px;" href="https://taxi.waocard.ng" target="${$f7.getExternalUrlTarget()}" class="item-link external" id="paybutton">Find Taxi  <i class="icon" style="padding-left:10px">🚖</i></a>
+           
+            
+        
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="popup popup-menu elevation-2 popup-swipe-to-close">
+      <div class="row h-100 justify-content-center align-item-center">
+        <div class="col-100 align-self-center">
+          <h1 class="margin-bottom" style="display:none;"><span class="text-secondary fw-light">Quick</span><br />Actions!</h1>
+          <div class="text-align-center" style="display:none;">
+                    <div id="qrcode"></div>
+              <p class="small text-secondary margin-bottom">Ask to scan this QR-Code or use your id: <strong>${phone}</strong> <br />to accept money</p>
+          </div>
+          <div class="row justify-content-center margin-bottom">
+            <div class="col-auto text-align-center">
+              <a href="/bills/"
+                class="avatar avatar-70 elevation-2 elevation-black rounded-20 bg-opac bg-black margin-bottom-half popup-close">
+                <div class="icons text-color-orange">
+                  <i class="bi bi-receipt-cutoff size-24"></i>
+                </div>
+              </a>
+              <p class="size-10 text-secondary">Aitime & Bills</p>
+            </div>
+
+            <div class="col-auto text-align-center">
+              <a href="/sendmoney/"
+                class="avatar avatar-70 elevation-2 elevation-black rounded-20 bg-opac bg-black margin-bottom-half popup-close">
+                <div class="icons text-color-orange">
+                  <i class="bi bi-arrow-up-right size-24"></i>
+                </div>
+              </a>
+              <p class="size-10 text-secondary">Send Money</p>
+            </div>
+
+            <div class="col-auto text-align-center">
+              <a href="#" data-sheet=".waoride" 
+                class="avatar avatar-70 elevation-2 elevation-black rounded-20 bg-opac bg-black margin-bottom-half popup-close sheet-open">
+                <div class="icons text-color-orange">
+                
+                  <i class="bi bi-taxi-front size-24"></i>
+                </div>
+              </a>
+              <p class="size-10 text-secondary">Ride</p>
+            </div>
+          </div>
+          <div class="row justify-content-center margin-bottom-half">
+            <div class="col-auto text-align-center">
+              <a href="/events-list/"
+                class="avatar avatar-70 elevation-2 elevation-secondary rounded-20 bg-opac margin-bottom-half popup-close">
+                <div class="icons text-color-orange">
+                 <img src="img/conference.svg" width="30"/>
+                  </div>
+              </a>
+              <p class="size-10 text-secondary">Events</p>
+            </div>
+
+            <div class="col-auto text-align-center">
+              <a href="/parking-lots/"
+                class="avatar avatar-70 elevation-2 elevation-secondary rounded-20 bg-opac margin-bottom-half popup-close">
+                <div class="icons text-color-orange">
+                 <img src="img/parking-area.svg" width="30"/>
+                </div>
+              </a>
+              <p class="size-10 text-secondary">Parking Lots</p>
+            </div>
+
+            <div class="col-auto text-align-center">
+              <a href="/events-list/"
+                class="avatar avatar-70 elevation-2 elevation-secondary rounded-20 bg-opac  margin-bottom-half popup-close">
+                <div class="icons text-color-orange">
+                 <img src="img/calendar.svg" width="30"/>
+                  </div>
+              </a>
+              <p class="size-10 text-secondary">Time Attendance</p>
+            </div>
+          </div>
+           <div class="row justify-content-center margin-bottom-half">
+            <div class="col-auto text-align-center">
+              <a href="/withdraw/"
+                class="avatar avatar-70 elevation-2 elevation-secondary rounded-20 bg-opac margin-bottom-half popup-close" >
+                <div class="icons text-secondary">
+                 <img src="img/tourism.svg" width="30"/>
+                </div>
+              </a>
+              <p class="size-10 text-secondary">Parks & Resorts</p>
+            </div>
+
+            <div class="col-auto text-align-center">
+              <a href="/services/"
+                class="avatar avatar-70 elevation-2 elevation-secondary rounded-20 bg-opac margin-bottom-half popup-close">
+                <div class="icons text-color-black">
+                  <img src="img/gym.svg" width="30"/>
+                </div>
+              </a>
+              <p class="size-10 text-secondary">Wellness & Fitness</p>
+            </div>
+
+            <div class="col-auto text-align-center">
+              <a href="/events-list/"
+                class="avatar avatar-70 elevation-2 elevation-secondary rounded-20 bg-opac margin-bottom-half popup-close">
+                <div class="icons text-color-black">
+                  <img src="img/hospital.svg" width="30"/>
+                </div>
+              </a>
+              <p class="size-10 text-secondary">Hospital</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer ends-->
+
+
+
+  </div>
+</template>
+<style>
+.card-footer:before {
+    content: "";
+    position: absolute;
+    display: block;
+    z-index: 15;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    height: 0px;
+    width: 100%;
+    transform-origin: 50% 0%;
+    transform: scaleY(calc(1 / var(--f7-device-pixel-ratio)));
+}
+.swiper-slide {
+  position: relative;
+  width: var(--swiper-width);
+  opacity: 1;
+  transform: scale(.84);
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+  border-radius: 0.4285rem;
+}
+.footer .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* display: flex; */
+    align-items: center;
+}
+input.trasparent-input {
+    font-size: 30px !important;
+    line-height: initial;
+    height: auto;
+    font-weight: bold;
+    border: 0;
+    width: auto;
+    background-color: transparent !important;
+    display: block;
+    border-radius: var(--finwallapp-rounded);
+}
+.list .item-media {
+    display: block;
+    flex-shrink: 1;
+    width: auto !important;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: var(--f7-list-item-padding-vertical);
+    padding-top: var(--f7-list-item-padding-vertical);
+     background-color: transparent !important;
+
+}
+</style>
+<script>
+      export default (props,{ $, $el, $on, $f7, $f7router, $update }) => {
+         let taxisheetPush;
+       var token = localStorage.getItem("WaoCardUserToken");
+      var getdata = localStorage.getItem("WaoCardUserData");
+        const user = JSON.parse(getdata);
+      
+          const username = user.username;
+          const name = user.first_name;
+          const email = user.email;
+          const city =  user.city;
+          const userstate =  user.state;
+          const address =  user.address;
+          const userid =  user.user_id;
+          const phone =  user.phone_number;
+          const userwallet = user.wallet;
+          const avatar = user.avatar;
+          let cardtype = user.pro_type;
+          const account_number = user.account_number;
+          let dva = null;
+          let bankname = null;     
+          let waocard = null;
+          let cardbg = null;
+          let cardcolor = null;
+          let partners = null;
+         let swiperPartner = null;
+          
+      let initializeSwiperPartner = function() {
+            swiperPartner = $f7.swiper.create($el.value.find('#swiper-partner'), {
+                freeMode: true,
+                grabCursor: true,
+                loop: true,
+                spaceBetween: 16,
+                slidesPerView: 3,
+                watchSlidesProgress: true
+            });
+            
+            
+        }
+
+          
+          if(account_number === "0") {
+           var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+   
+      const res = JSON.parse(this.responseText);
+       console.log(res);
+      if (res.status === true)
+				{
+                    console.log(res.data.dedicated_account.account_number);
+       dva = res.data.dedicated_account.account_number;
+      bankname = res.data.dedicated_account.bank.name;
+    $update();
+    // $('.account').html(dva);
+    //$('.bank').html(bankname);
+  }
+  }
+});
+
+xhr.open("GET", "https://api.paystack.co/customer/" + email);
+xhr.setRequestHeader("Authorization", "Bearer "+ window.config.app.paystack_sk_live);
+
+xhr.send();   
+                 
+          }
+ const home_landing = () =>{
+          
+      app.views.current.router.navigate('/home_landing/', {
+                    reloadCurrent: true, // Refresh the current page
+                    ignoreCache: true // Ignore caching for the new page
+});	    
+          
+          
+          
+      }  
+  const business_page = (item) =>{
+      console.log(item);
+       localStorage.setItem("WaoCardPageData",JSON.stringify(item));   
+      app.views.current.router.navigate('/businesses-single/', {
+                    reloadCurrent: true, // Refresh the current page
+                    ignoreCache: true // Ignore caching for the new page
+});	    
+          
+          
+          
+      }
+   const business_list = () =>{      app.views.current.router.navigate('/businesses-list/', {
+    reloadCurrent: true, // Refresh the current page
+    ignoreCache: true // Ignore caching for the new page
+     });	    
+        
+      }
+    const userdata = () => {
+    // WARNING: For POST requests, body is set to null by browsers.
+var data = new FormData();
+data.append("server_key", window.config.app.server_key);
+data.append("fetch","user_data");
+data.append("user_id", userid);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+      const userdata = JSON.parse(this.responseText);
+      localStorage.setItem("WaoCardUserData",JSON.stringify(userdata.user_data));
+         
+          $update();
+  }
+});
+
+xhr.open("POST", "https://app.waocard.co/api/get-user-data?access_token=" + token);
+
+xhr.send(data);
+   
+        
+        
+        
+    }
+ getBoostedPartners = () => {
+     
+     partners = null;
+     var data = new FormData();
+data.append("server_key",  window.config.app.server_key);
+data.append("type", "page");
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    
+         var res = JSON.parse(this.responseText); 
+      console.log(res);
+    if (res.api_status === 200)
+				{
+       partners = res.data.length ? res.data : [];  
+      companyswiper();
+      $update();
+      console.log(partners);  
+      
+                         
+                }else{
+                 partners = 'error';
+                  $update()   
+                  console.log('ERROR');
+                    
+                }
+  }
+});
+
+xhr.open("POST", "https://app.waocard.co/api/get_boost?access_token="+ token);
+
+
+xhr.send(data);
+  }  
+ 
+ /* swiper carousel company */
+ let companyswiper = () => {
+   var swiper3 = new Swiper(".companyswiper", {
+    slidesPerView: "auto",
+ spaceBetween: 10,
+   pagination: false
+  });    
+     
+ }
+
+  getUsersNearby = () => {
+     var data = new FormData();
+data.append("server_key",  window.config.app.server_key);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    
+         var res = JSON.parse(this.responseText); 
+    if (res.api_status === 200)
+				{
+    const waocards = res.nearby_users;         
+                    
+        for( card in waocards)
+            if(waocards.length){
+                  $(".contancts-slide").append('<div class="swiper-slide user-profile"><a href="#" class="card text-align-center"><div class="card-content card-content-padding padding-half-sm"><div class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status"></div><figure class="avatar avatar-80 elevation-2 rounded-18"><img src="'+ waocards[card].avatar + '" alt="" /></figure></div></a></div>');
+                }else{
+                    
+                  console.log('ERROR');
+                    
+                }
+                         
+                }
+  }
+});
+
+xhr.open("POST", "https://app.waocard.co/api/get-nearby-users?access_token="+ token);
+
+
+xhr.send(data);
+  }        
+          
+let isBalanceVisible = true;
+const showhidebalance = () => {
+              	
+				var input = $('input#balance');
+				if (input.attr('type') === 'password') {
+					input.attr('type', 'text');
+                      document.getElementById("show-hide-icon").src = "img/hide-icon.svg";
+
+
+						isBalanceVisible: true;
+				       $update();
+                    console.log(isBalanceVisible);
+				}
+				else {
+					input.attr('type', 'password');
+					
+						isBalanceVisible: false;
+                     document.getElementById("show-hide-icon").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
+					$update();
+                     console.log(isBalanceVisible);
+				}
+  
+    
+    
+    
+}
+
+const getGifts = () => {
+    
+var data = new FormData();
+data.append("server_key", window.config.app.server_key);
+data.append("type", "fetch");
+data.append("limit", 2);
+data.append("offset", 1);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "https://app.waocard.co/api/gift?access_token="+ token);
+
+xhr.send(data);    
+    
+    
+    
+    
+    
+}
+
+const cardinfo = (cardtype) => {
+    
+  waocard = null;
+   if ( cardid != 0 ) {
+    var cardid = parseInt(cardtype);
+var data = new FormData();
+data.append("cardtype", cardid);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+      const carddata = JSON.parse(this.responseText);
+          cardbg = carddata[0].image;
+          cardcolor = carddata[0].color;
+          localStorage.setItem('cardbg',cardbg);  
+          localStorage.setItem('cardcolor',cardcolor); 
+          $update();
+  }
+});
+
+xhr.open("POST", "https://waocard.ng/api/get_userpackage.php");
+
+xhr.send(data);  
+       } else {
+           
+       app.views.current.router.navigate('/create_card/');	    
+           
+       }
+    
+}
+
+     $on('pageInit', () => {
+        
+        taxisheetPush = $f7.sheet.create({
+        el: '.waotaxi',
+        push: true,
+        backdrop: true,
+      });
+      getUsersNearby();    
+      getGifts();
+      cardinfo(cardtype);
+      getBoostedPartners();
+     companyswiper();
+         initializeSwiperPartner();
+
+         
+    const qrCodeEl = document.getElementById("qrcode");
+
+  QRCode.toCanvas(phone, { width: 150 }, function (error, canvas) {
+    if (error) console.error(error);
+    else qrCodeEl.appendChild(canvas);
+  });   
+        
+         
+       
+     });
+      $on('pageBeforeIn', function() {
+         // loadMap();
+            
+        });
+  
+
+    return $render;
+  
+  };
+    
+
+</script>

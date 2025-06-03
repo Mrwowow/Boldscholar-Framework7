@@ -1,0 +1,687 @@
+<div class="page page-stats" data-name="stats">
+    <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="button button-fill color-white button-44 panel-open" data-panel="left">
+                    <i class="bi bi-list"></i>
+                </a>
+            </div>
+            <div class="title">
+                <div class="logo-small">
+                    <img src="img/logo.svg" alt="" />
+                    <h5><span class="text-secondary fw-light">Wao</span>Card</h5>
+                </div>
+            </div>
+            <div class="right">
+                <a href="/profile/" class="button button-fill color-white button-44">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="count-indicator"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- main page content -->
+    <div class="page-content has-footer">
+        <!-- chart js areachart-->
+        <div class="row">
+            <div class="col-100 overflow-hidden">
+                <!-- calendar -->
+                <div class="row">
+                    <div class="col position-relative align-self-center">
+                        <h6 class="">Expense</h6>
+                        <input type="text" placeholder="Select date range" readonly="readonly" id="daterange"
+                            class="calendar-daterange no-border" />
+                    </div>
+                    <div class="col-auto align-self-center">
+                        <button class="button button-fill color-white button-44 daterange-btn">
+                            <i class="bi bi-calendar-range size-22"></i>
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <canvas id="areachart" class="margin-bottom"></canvas>
+            </div>
+        </div>
+
+        <!-- income expense -->
+        <div class="row">
+            <div class="col-50 medium-25">
+                <div class="card margin-bottom">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="circle-small">
+                                    <div id="circleprogresstwo"></div>
+                                    <div class="avatar avatar-30 bg-color-green text-color-white rounded-circle">
+                                        <i class="bi bi-arrow-down-left"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto align-self-center no-padding-left">
+                                <p class="size-10 no-margin-bottom text-secondary">Income</p>
+                                <p>1542k</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="smallchart">
+                        <canvas id="smallchart2" class="mw-100 margin-bottom-half"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-50 medium-25">
+                <div class="card margin-bottom">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="circle-small">
+                                    <div id="circleprogressthree"></div>
+                                    <div class="avatar avatar-30 bg-color-red text-color-white rounded-circle">
+                                        <i class="bi bi-arrow-up-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto align-self-center no-padding-left">
+                                <p class="size-10 no-margin-bottom text-secondary">Expense</p>
+                                <p>1212k</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="smallchart">
+                        <canvas id="smallchart3" class="mw-100 margin-bottom-half"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- cards expense data  -->
+        <div class="row margin-bottom-half">
+            <div class="col">
+                <h6 class="title">My Credit Cards</h6>
+            </div>
+            <div class="col-auto align-self-center">
+                <a href="" class="small">Add New</a>
+            </div>
+        </div>
+        <!-- swiper credit cards -->
+        <div class="row margin-bottom">
+            <div class="col-100 no-padding-horizontal">
+                <div class="swiper-container cardswiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card theme-bg elevation-2 shadow-purple margin-bottom">
+                                <img src="img/card-bg.png" alt="" class="cardimg" />
+                                <div class="card-content card-content-padding">
+                                    <div class="row margin-bottom">
+                                        <div class="col-auto align-self-center">
+                                            <img src="img/maestro.png" alt=""/>
+                                        </div>
+                                        <div class="col align-self-center text-align-right">
+                                            <p class="small">
+                                                <span class="text-muted size-10">City Bank</span><br/>
+                                                <span class="">Credit Card</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h6 class="fw-normal margin-bottom">
+                                        000 0000 0001 546598
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <p class="no-margin-bottom text-muted size-10">Expiry</p>
+                                            <p>09/023</p>
+                                        </div>
+                                        <div class="col text-align-right">
+                                            <p class="no-margin-bottom text-muted size-10">Card Holder</p>
+                                            <p>Morgan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <p class="no-margin-bottom text-secondary size-10">Expense</p>
+                                    <p>1500.00
+                                        <small class="text-color-green">18.2
+                                            <i class="bi bi-arrow-up"></i>
+                                        </small>
+                                    </p>
+                                </div>
+                                <div class="col text-align-right">
+                                    <p class="no-margin-bottom text-secondary size-10">Limit Remain</p>
+                                    <p>13500.00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card bg-color-red elevation-2 elevation-red margin-bottom">
+                                <div class="card-content card-content-padding">
+                                    <div class="row margin-bottom">
+                                        <div class="col-auto align-self-center">
+                                            <img src="img/visa.png" alt=""/>
+                                        </div>
+                                        <div class="col align-self-center text-align-right">
+                                            <p class="small">
+                                                <span class="text-muted size-10">City Bank</span><br/>
+                                                <span class="">Credit Card</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h6 class="fw-normal margin-bottom">
+                                        000 0000 0001 546598
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <p class="no-margin-bottom text-muted size-10">Expiry</p>
+                                            <p>09/023</p>
+                                        </div>
+                                        <div class="col text-align-right">
+                                            <p class="no-margin-bottom text-muted size-10">Card Holder</p>
+                                            <p>Morgan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <p class="no-margin-bottom text-secondary size-10">Expense</p>
+                                    <p>3500.00
+                                        <small class="text-color-red">10.2
+                                            <i class="bi bi-arrow-down"></i>
+                                        </small>
+                                    </p>
+                                </div>
+                                <div class="col text-align-right">
+                                    <p class="no-margin-bottom text-secondary size-10">Limit Remain</p>
+                                    <p>13500.00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card theme-radial-gradient border-0 margin-bottom">
+                                <div class="card-content card-content-padding">
+                                    <div class="row margin-bottom">
+                                        <div class="col-auto align-self-center">
+                                            <img src="img/maestro.png" alt=""/>
+                                        </div>
+                                        <div class="col align-self-center text-align-right">
+                                            <p class="small">
+                                                <span class="text-muted size-10">City Bank</span><br/>
+                                                <span class="">Credit Card</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h6 class="fw-normal margin-bottom">
+                                        000 0000 0001 546598
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <p class="no-margin-bottom text-muted size-10">Expiry</p>
+                                            <p>09/023</p>
+                                        </div>
+                                        <div class="col text-align-right">
+                                            <p class="no-margin-bottom text-muted size-10">Card Holder</p>
+                                            <p>Morgan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <p class="no-margin-bottom text-secondary size-10">Expense</p>
+                                    <p>1254.00
+                                        <small class="text-color-green">18.2
+                                            <i class="bi bi-arrow-up"></i>
+                                        </small>
+                                    </p>
+                                </div>
+                                <div class="col text-align-right">
+                                    <p class="no-margin-bottom text-secondary size-10">Limit Remain</p>
+                                    <p>13500.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Frequent Payments -->
+        <div class="row margin-bottom">
+            <div class="col">
+                <h6 class="title">My Frequent Payments</h6>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-100 medium-50">
+                <div class="card overflow-hidden margin-bottom">
+                    <figure class="no-margin no-padding position-absolute no-padding right-0 w-50 h-100 coverimg">
+                        <img src="img/image2.jpg" alt=""/>
+                    </figure>
+                    <div class="card-content card-content-padding no-padding">
+                        <div class="row no-margin-horizontal">
+                            <div class="col-70 padding-vertical aftercircle">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <a href="/profile/" class="card text-align-center">
+                                            <div class="card-content card-content-padding padding-half-sm">
+                                                <div
+                                                    class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                                </div>
+                                                <figure class="avatar avatar-70 elevation-2 rounded-18">
+                                                    <img src="img/user4.jpg" alt=""/>
+                                                </figure>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col align-self-center no-padding-horizontal">
+                                        <p class="text-secondary size-10 no-margin-bottom">Send Money</p>
+                                        <p class="margin-bottom-half">John Winsels</p>
+                                        <p>1500.00
+                                            <small class="text-color-green">18.2
+                                                <i class="bi bi-arrow-up"></i>
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-100 medium-50">
+                <div class="card overflow-hidden margin-bottom">
+                    <figure class="no-margin no-padding position-absolute no-padding right-0 w-50 h-100 coverimg">
+                        <img src="img/image3.jpg" alt=""/>
+                    </figure>
+                    <div class="card-content card-content-padding no-padding">
+                        <div class="row no-margin-horizontal">
+                            <div class="col-70 padding-vertical aftercircle">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="card text-align-center">
+                                            <div class="card-content card-content-padding padding-half-sm">
+                                                <div
+                                                    class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                                </div>
+                                                <figure class="avatar avatar-70 elevation-2 rounded-18">
+                                                    <img src="img/company5.png" alt=""/>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col align-self-center no-padding-horizontal">
+                                        <p class="text-secondary size-10 no-margin-bottom">Transportation</p>
+                                        <p class="margin-bottom-half">ID0582Max</p>
+                                        <p>320.00
+                                            <small class="text-color-green">1.65
+                                                <i class="bi bi-arrow-up"></i>
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Categories  -->
+        <div class="row margin-bottom">
+            <div class="col">
+                <h6 class="title">Top Categories</h6>
+            </div>
+        </div>
+        <!-- swiper categories cards -->
+        <div class="row margin-bottom">
+            <div class="col-100 no-padding-horizontal">
+                <div class="swiper-container connectionwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-house size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">1.5k
+                                <small class="text-color-green ">18.2
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Rent</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-controller size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">2.48k
+                                <small class="text-color-green ">17.4
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Gaming</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-gift size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">250
+                                <small class="text-color-green ">5.45
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Gifts</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-flower1 size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">1.5k
+                                <small class="text-color-red">25.5
+                                    <i class="bi bi-arrow-down"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Gardening</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-bag size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">1.5k
+                                <small class="text-color-green ">25.84
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">shopping</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-house size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">1.5k
+                                <small class="text-color-green ">18.2
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Rent</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-controller size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">2.48k
+                                <small class="text-color-green ">17.4
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Gaming</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-gift size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">250
+                                <small class="text-color-green ">5.45
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Gifts</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-flower1 size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">1.5k
+                                <small class="text-color-red">800
+                                    <i class="bi bi-arrow-down"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">Gardening</p>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <div class="card bg-opac-50 margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="avatar avatar-70 bg-color-white text-color-theme rounded-18 elevation-2">
+                                        <i class="bi bi-bag size-24"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class=" small">1.5k
+                                <small class="text-color-green ">25.84
+                                    <i class="bi bi-arrow-up"></i>
+                                </small>
+                            </p>
+                            <p class="no-margin-bottom text-secondary size-10">shopping</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- upcoming payments -->
+        <div class="row margin-bottom">
+            <div class="col">
+                <h6 class="title">Upcoming Payments</h6>
+            </div>
+            <div class="col-auto align-self-center">
+                <a href="#" class="small">View all</a>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-100">
+                <div class="card">
+                    <div class="card-content card-content-padding">
+                        <div class="list list-group-flush bg-none">
+                            <ul>
+                                <li class="list-item">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div
+                                                class="circle-small padding-half-sm elevation-2 elevation-green rounded-circle">
+                                                <div id="circleprogressone"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-30 align-self-center no-padding-left">
+                                            <p class="text-muted size-10 no-margin-bottom">Home Loan EMI</p>
+                                            <p>1542k</p>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-secondary text-muted size-10 no-margin-bottom">Due Date</p>
+                                            <p>15-10-2021</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div
+                                                class="circle-small padding-half-sm elevation-2 elevation-yellow rounded-circle">
+                                                <div id="circleprogressfour"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-30 align-self-center no-padding-left">
+                                            <p class="text-muted size-10 no-margin-bottom">Car Loan EMI</p>
+                                            <p>536k</p>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-secondary text-muted size-10 no-margin-bottom">Due Date</p>
+                                            <p>18-10-2021</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" >
+      <div class="container">
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link" href="/home/">
+              <span>
+                <i class="nav-icon bi bi-house"></i>
+                <span class="nav-text">Home</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/stats/">
+              <span>
+                <i class="nav-icon bi bi-binoculars"></i>
+                <span class="nav-text">History</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item centerbutton">
+            <button type="button" class="nav-link popup-open" data-popup=".popup-menu">
+              <span class="theme-radial-gradient" style="background:#000;">
+                <i class="bi size-22"><img src="img/icon_white.svg" width="50%" alt=""/></i>
+              </span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/shop/">
+              <span>
+                <i class="nav-icon bi bi-bag"></i>
+                <span class="nav-text">Shop</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/wallet/">
+              <span>
+                <i class="nav-icon bi bi-wallet2"></i>
+                <span class="nav-text">Wallet</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <div class="popup popup-menu elevation-2 popup-swipe-to-close">
+        <div class="row h-100 justify-content-center align-item-center">
+            <div class="col-100 align-self-center">
+                <h1 class="margin-bottom"><span class="text-secondary fw-light">Quick</span><br />Actions!</h1>
+                <div class="text-align-center">
+                    <img src="img/QRCode.png" alt="" class="margin-bottom-half" />
+                    <p class="small text-secondary margin-bottom">Ask to scan this QR-Code<br />to accept money</p>
+                </div>
+                <div class="row justify-content-center margin-bottom">
+                    <div class="col-auto text-align-center">
+                        <a href="/bills/"
+                            class="avatar avatar-70 elevation-2 elevation-red rounded-20 bg-opac margin-bottom-half popup-close">
+                            <div class="icons text-color-red">
+                                <i class="bi bi-receipt-cutoff size-24"></i>
+                            </div>
+                        </a>
+                        <p class="size-10 text-secondary">Pay Bill</p>
+                    </div>
+
+                    <div class="col-auto text-align-center">
+                        <a href="/sendmoney/"
+                            class="avatar avatar-70 elevation-2 elevation-purple rounded-20 bg-opac margin-bottom-half popup-close">
+                            <div class="icons text-color-purple">
+                                <i class="bi bi-arrow-up-right size-24"></i>
+                            </div>
+                        </a>
+                        <p class="size-10 text-secondary">Send Money</p>
+                    </div>
+
+                    <div class="col-auto text-align-center">
+                        <a href="/receivemoney/"
+                            class="avatar avatar-70 elevation-2 elevation-green rounded-20 bg-opac margin-bottom-half popup-close">
+                            <div class="icons text-color-green">
+                                <i class="bi bi-arrow-down-left size-24"></i>
+                            </div>
+                        </a>
+                        <p class="size-10 text-secondary">Receive Money</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center margin-bottom-half">
+                    <div class="col-auto text-align-center">
+                        <a href="/withdraw/"
+                            class="avatar avatar-70 elevation-2 elevation-secondary rounded-20 bg-opac margin-bottom-half popup-close">
+                            <div class="icons text-secondary">
+                                <i class="bi bi-bank size-24"></i>
+                            </div>
+                        </a>
+                        <p class="size-10 text-secondary">Withdraw</p>
+                    </div>
+
+                    <div class="col-auto text-align-center">
+                        <a href="/addmoney/"
+                            class="avatar avatar-70 elevation-2 elevation-yellow rounded-20 bg-opac margin-bottom-half popup-close">
+                            <div class="icons text-color-yellow">
+                                <i class="bi bi-wallet2 size-24"></i>
+                            </div>
+                        </a>
+                        <p class="size-10 text-secondary">Add Money</p>
+                    </div>
+
+                    <div class="col-auto text-align-center">
+                        <div
+                            class="avatar avatar-70 elevation-2 elevation-skyblue rounded-20 bg-opac margin-bottom-half popup-close">
+                            <div class="icons text-color-blue">
+                                <i class="bi bi-tv size-24"></i>
+                            </div>
+                        </div>
+                        <p class="size-10 text-secondary">Recharge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer ends-->
+
+</div>

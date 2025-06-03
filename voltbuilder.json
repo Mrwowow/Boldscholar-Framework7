@@ -1,0 +1,14 @@
+{
+  "itunesAccount": "adedoyin@thegreengrowth.org",
+  "itunesAppPassword": "dkky-ldfu-hjfn-oneb",
+  "itunesShortName": "REPLACEME",
+  "androidAlias": "key0",
+  "androidAliasPassword": "possible",
+  "androidKeystore": "certificates/android.p12",
+  "androidKeystorePassword": "possible",
+  "androidPackageType": "bundle",
+  "googlePlayKey": "",
+  "googlePlayTrack": "production",
+  "release": "release",
+  "iosPackageType": "app-store"
+}

@@ -1,0 +1,187 @@
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="file"],
+select,
+textarea {
+    padding: 0.625rem 0;
+    line-height: 1.5;
+    background-color: transparent;
+    color: var(--finwallapp-input-text);
+    border-bottom: 1px solid var(--finwallapp-theme-bordercolor);
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+label.small {
+    margin-bottom: 5px;
+    display: block;
+}
+.item-input-wrap,
+.ios .item-input-wrap,
+.md .item-input-wrap {
+    position: relative;
+    margin: 0;
+}
+.form-list {
+    border: 0;
+    border-radius: var(--finwallapp-input-rounded);
+    ul {
+        background-color: transparent;
+
+        &:after {
+            display: none;
+        }
+        &:before {
+            display: none;
+        }
+
+        .item-input {
+            background-color: transparent;
+            border-radius: 0;
+            padding-left: 0;
+
+            &.is-valid:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                z-index: 1;
+                height: 1px;
+                bottom: 0;
+                width: 100%;
+                background-color: var(--finwallapp-green);
+            }
+
+            &.is-invalid:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                z-index: 1;
+                height: 1px;
+                bottom: 0;
+                width: 100%;
+                background-color: var(--finwallapp-red);
+            }
+
+            .item-inner,
+            .item-media {
+                padding: 0;
+            }
+
+            &.item-input-focused,
+            &.item-input-with-value {
+                .item-floating-label {
+                    color: var(--finwallapp-theme-text-secondary);
+                }
+                input[type="date"],
+                input[type="datetime-local"],
+                input[type="email"],
+                input[type="month"],
+                input[type="number"],
+                input[type="password"],
+                input[type="search"],
+                input[type="tel"],
+                input[type="text"],
+                input[type="time"],
+                input[type="url"],
+                input[type="file"],
+                select,
+                textarea {
+                    padding-bottom: 14px;
+                }
+            }
+        }
+    }
+}
+
+/* range picker slider */
+.noUi-target {
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background-color: var(--finwallapp-theme-bordercolor);
+    border: 1px solid var(--finwallapp-theme-bordercolor);
+    margin-bottom: 25px;
+
+    &.noUi-horizontal {
+        height: 10px;
+    }
+
+    .noUi-origin {
+        .noUi-handle {
+            height: 30px;
+            width: 30px;
+            top: -11px;
+            border: 0 none;
+            box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+            -ms-box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+
+            &:before {
+                display: none;
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    .noUi-connect {
+        background: var(--f7-theme-color);
+    }
+}
+
+.skipbtn {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    z-index: 1;
+}
+input.calendar-daterange {
+    line-height: 20px;
+    padding: 0;
+    opacity: 0.65;
+    font-size: 14px;
+    background-color: transparent !important;
+}
+.form-check.avatar {
+    display: block;
+    position: relative;
+    padding: 0;
+    .form-check-input {
+        position: absolute;
+        left: 3px;
+        bottom: 3px;
+        margin-left: 0;
+        z-index: 1;
+        border-radius: 10px;
+        opacity: 0.5;
+
+        &:checked {
+            opacity: 1;
+        }
+    }
+}
+
+input.trasparent-input {
+    font-size: 50px;
+    line-height: initial;
+    height: auto;
+    padding: 10px 15px;
+    border: 0;
+    background-color: transparent !important;
+    display: block;
+    width: 100%;
+    border-radius: var(--finwallapp-rounded);
+}

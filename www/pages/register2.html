@@ -1,0 +1,315 @@
+<template>
+  <div class="page " data-name="register2">
+    <div class="navbar">
+      <div class="navbar-inner">
+           <div class="left">
+                <a href="#" class="button button-fill color-white button-44 back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="title">
+                 <div class="logo-small">
+            <img src="img/logo.svg" alt="" />
+            <h5><span class="text-secondary fw-light">Wao</span>Card</h5>
+          </div>
+            </div>
+        
+        <div class="right">
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="row h-100 justify-content-center">
+        <div class="col-90 medium-50 large-40">
+            <P>Update profile and Delivery Information</P>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-90 medium-50 large-40 align-self-center padding-vertical">
+          <form class="needs-validation" validate>
+           
+    
+               <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-with-value">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">First Name</div>
+                    <div class="item-input-wrap"><input type="text" name="fname" id="fname" class="input-with-value" value="${fname}"
+                    required   validate /><span class="input-clear-button"></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+               <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-with-value">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Last Name</div>
+                    <div class="item-input-wrap"><input type="text" name="lname" id="lname" class="input-with-value" value="${lname}"
+                    required  validate/><span class="input-clear-button"></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-100 medium-50 large-33 margin-bottom-half">
+                <div class="list form-list no-margin">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">State</div>
+                                <div class="item-input-wrap">
+                                   <select name="state" id="state">
+  <option value="${state}" selected>${state}</option>
+  <option value="Abia">Abia</option>
+  <option value="Adamawa">Adamawa</option>
+  <option value="Akwa Ibom">Akwa Ibom</option>
+  <option value="Anambra">Anambra</option>
+  <option value="Bauchi">Bauchi</option>
+  <option value="Bayelsa">Bayelsa</option>
+  <option value="Benue">Benue</option>
+  <option value="Borno">Borno</option>
+  <option value="Cross River">Cross River</option>
+  <option value="Delta">Delta</option>
+  <option value="Ebonyi">Ebonyi</option>
+  <option value="Edo">Edo</option>
+  <option value="Ekiti">Ekiti</option>
+  <option value="Enugu">Enugu</option>
+  <option value="Gombe">Gombe</option>
+  <option value="Imo">Imo</option>
+  <option value="Jigawa">Jigawa</option>
+  <option value="Kaduna">Kaduna</option>
+  <option value="Kano">Kano</option>
+  <option value="Katsina">Katsina</option>
+  <option value="Kebbi">Kebbi</option>
+  <option value="Kogi">Kogi</option>
+  <option value="Kwara">Kwara</option>
+  <option value="Lagos">Lagos</option>
+  <option value="Nasarawa">Nasarawa</option>
+  <option value="Niger">Niger</option>
+  <option value="Ogun">Ogun</option>
+  <option value="Ondo">Ondo</option>
+  <option value="Osun">Osun</option>
+  <option value="Oyo">Oyo</option>
+  <option value="Plateau">Plateau</option>
+  <option value="Rivers">Rivers</option>
+  <option value="Sokoto">Sokoto</option>
+  <option value="Taraba">Taraba</option>
+  <option value="Yobe">Yobe</option>
+  <option value="Zamfara">Zamfara</option>
+</select>
+
+                                    <span class="input-clear-button"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-100 medium-50 large-33">
+                <div class="list form-list no-margin">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-floating-label">City</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" name="city" value="${city}" class="city" required  validate />
+                                    <span class="input-clear-button"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-with-value">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Home Address</div>
+                    <div class="item-input-wrap"><input type="text" name="address" id="input-places-autocomplete" class="input-with-value address" value="${address}"
+                     required  validate/><span class="input-clear-button"></span></div>
+                      <input type="hidden" name="lat" id="lat" />
+                      <input type="hidden" name="long" id="long" />
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </form>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-90 medium-50 large-40 text-align-center margin-top-auto padding-vertical">
+          <a href="#" @click=${signUp2} class="button button-fill button-large color-black button-raised" style="color:#ff9500;">
+           Next
+          </a>
+          </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+    .hide{
+        
+        
+        display: none;
+    }
+    bg-color-black {     
+    background-color: black;
+    color:#ff9500;
+    }
+    .valid-msg{
+        
+        color: green;
+        
+    }
+</style>
+<script>
+   
+  export default (props,{ $,  $on, $f7, $f7router, $update }) => {
+    var token = localStorage.getItem("WaoCardUserToken");
+    const userid = localStorage.getItem("WaoCardUserId");
+     let fname = null;
+     let lname = null;
+     let email = null;
+          let city = null;
+          let state =  null;
+          let address =  null;
+          let phone =  null;
+          let  userwallet = null;
+          let avatar = null;
+     // var getdata = localStorage.getItem("WaoCardUserData");
+       let  user = null;
+         
+      
+    // Update User Data
+ 	
+ 
+   function initializePlacesAutocomplete() {
+				var self = this;
+				var placesAutocomplete = new google.maps.places.Autocomplete(
+					document.getElementById('input-places-autocomplete'),
+					{
+						types: ['geocode']
+					}
+				);
+			} 		
+
+    const userdata = () => {
+    // WARNING: For POST requests, body is set to null by browsers.
+var data = new FormData();
+data.append("server_key", window.config.app.server_key);
+data.append("fetch","user_data");
+data.append("user_id", userid);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+      const userdata = JSON.parse(this.responseText);
+      const user = userdata.user_data;
+      localStorage.setItem("WaoCardUserData",JSON.stringify(user));
+         console.log(user);
+          const fname = user.first_name;
+          const lname = user.last_name;
+          const email = user.email;
+          const city =  user.city;
+          const state =  user.state;
+          const address =  user.address;
+          const userid =  user.user_id;
+          const phone =  user.phone_number;
+          const userwallet = user.wallet;
+          const avatar = user.avatar;
+          $update();
+  }
+});
+
+xhr.open("POST", "https://app.waocard.co/api/get-user-data?access_token=" + token);
+
+xhr.send(data);
+   
+        
+        
+        
+    }
+ 
+    const signUp2 = () => {
+    
+   var token = localStorage.getItem('WaoCardUserToken');      
+      var data = new FormData();
+      data.append("server_key",  window.config.app.server_key);
+         
+          var address =  $('.address').val();
+          var first_name =  $('#fname').val();
+          var last_name =  $('#lname').val();
+          var address =  $('.address').val();
+          var city =  $('.city').val();
+          var state =  $('#state').val();
+
+          //var new_password =  $('.new_password').val();
+          //var current_password =  $('.current_password').val();
+  
+        
+        data.append("first_name", first_name);
+        data.append("last_name", last_name);
+        data.append("address", address);
+        data.append("city", city);
+        data.append("state", state);
+       // data.append("current_password", current_password);
+          
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+   const update_res = JSON.parse(this.responseText);
+      if(update_res.api_status === 200){
+
+           	app.toast.show({
+					text: 'Account Updated',
+					position: 'top',
+					cssClass: 'toast-round bg-color-orange'
+				});
+         app.views.current.router.navigate('/myorders/');             
+                        
+                        
+                        
+                    
+          
+          
+          
+      }
+      else
+					{
+                      			     
+app.dialog.alert(' ' + update_res.errors.error_text, function () {
+      })  
+  
+    app.views.current.router.navigate('/register/', {
+                    reloadCurrent: true, // Refresh the current page
+                    ignoreCache: true // Ignore caching for the new page
+});	    
+   
+					} 
+        		
+        
+      
+    }
+ 
+});
+xhr.open("POST", "https://app.waocard.co/api/update-user-data?access_token="+token);
+
+xhr.send(data); 
+        
+    }
+     $on('pageInit', () => {
+            
+     userdata();  
+         
+       
+     })
+    return $render;
+  
+  };
+
+</script>

@@ -1,0 +1,546 @@
+<template>
+
+<div class="page page-alljournals" data-name="alljournals">
+    <div class="navbar ">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left  no-margin-right">
+                <a href="#" class="button button-fill button-44 color-white back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="title overflow-visible">
+                <h5 style="color:#fff;">Journals</h5>
+            </div>
+            <div class="right">
+                <a href="/user-profile/" class="button button-fill color-white button-44">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+  <!-- Filter nested panel -->
+    <div class="panel panel-right panel-cover panel-init elevation-3" id="panel-right-filter"
+        data-container-el="#panel-page" data-backdrop="false">
+        <div class="page">
+            <div class="page-content">
+                <div class="row margin-bottom">
+                    <div class="col">
+                        <h6 class="no-margin-bottom">Filter Criteria</h6>
+                        <p class="small text-muted">456345 Journals</p>
+                    </div>
+                    <div class="col-auto align-self-center">
+                        <button class="button panel-close no-padding">
+                            <i class="bi bi-x size-18"></i>
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <div class="margin-bottom">
+                    <h6>Select Categorye</h6>
+                    <div id="rangeslider" class="margin-top"></div>
+                </div>
+
+               <div class="margin-bottom">
+   
+    <select class="form-control" id="category" @change="${(e) => handleCategorySelect(e.target.value)}">
+        <option value="">All Categories</option>
+        ${categories && categories !== 'error' ? categories.map((category) => $h`
+            <option value="${category.Id}" ${selectedCategory === category.Id ? 'selected' : ''}>
+                ${category.CategoryName}
+            </option>
+        `) : $h`
+            <option value="" disabled>Loading categories...</option>
+        `}
+    </select>
+</div>
+
+                <div class="margin-bottom">
+                    <label for="filtertype" class="small text-muted">Select Book Type</label>
+                    <div class="list no-margin-top margin-bottom">
+                        <ul class="no-background">
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="demo-checkbox" value="Books" checked="men" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Free Books</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="demo-checkbox" value="women" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Premium Books</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="demo-checkbox" value="kids" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Purchased Books</div>
+                                    </div>
+                                </label>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+               
+
+             
+
+                <div class="row margin-bottom">
+                    <div class="col-100">
+                        <button class="button button-fill button-raised button-large panel-close">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- filter panel right -->
+
+    <!-- main page content -->
+    <div class="page-content">
+        <!-- products -->
+        <div class="row margin-bottom margin-top">
+            <div class="col align-self-center">
+                <h6 class="title" style="color:#ff9500;">Journals</h6>
+                <p class="text-secondary small">${bookcount} Journals</p>
+            </div>
+            <div class="col-auto">
+              
+            </div>
+            <div class="col-100 text-align-center margin-top">
+                     <!-- search -->
+        <div class="row margin-bottom margin-top">
+            <div class="col-100 overflow-hidden">
+                <!-- input -->
+                   <div class="row">
+    <div class="col position-relative align-self-center">
+        <div class="list form-list no-margin margin-bottom">
+            <ul>
+                <li class="item-content item-input item-input-with-value">
+                    <div class="item-inner">
+                        <div class="item-title item-floating-label">Search</div>
+                        <div class="item-input-wrap">
+                            <input 
+                                type="text" 
+                                name="search" 
+                                class="input-with-value"
+                                placeholder="Search by title, author, category..."
+                                @input="${handleSearch}"
+                                value="${searchQuery}"
+                            />
+                            ${searchQuery && $h`
+                                <span 
+                                    class="input-clear-button" 
+                                    @click="${() => {
+                                        searchQuery = '';
+                                        applyFilters();
+                                    }}"
+                                ></span>
+                            `}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-auto align-self-center">
+        <button class="button button-fill color-white button-44 filter-btn panel-open"
+            data-panel="#panel-right-filter">
+            <i class="bi bi-filter size-22"></i>
+        </button>
+    </div>
+</div>
+            </div>
+        </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="tabs">
+                    <div class="tab" id="nav-thumbnails">
+                        <!-- product medsize box  -->
+                        <div class="row margin-bottom-half">
+            ${filteredBooks ? 
+                filteredBooks === 'error' ? 
+                    $h`
+                        <div class="empty-state empty-state-strong inset margin-vertical">
+                            <!-- Your error state HTML -->
+                        </div>
+                    ` : 
+                    filteredBooks.length ? 
+                        filteredBooks.map((item) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-bottom">
+                                    <div @click="${() => book_page(item)}" class="card-content card-content-padding padding-half-sm position-relative">
+                                        <div class="position-absolute left-0 padding-half z-index-1">
+                                            ${item.AccessType === 2 && $h`
+                                                <div class="chip bg-theme">
+                                                    <i class="icon material-icons font-size-20 color-white">lock</i>
+                                                </div>
+                                            `}
+                                            ${item.AccessType === 3 && $h`
+                                                <div class="chip bg-theme"> 
+                                                    <i class="icon font-size-14 color-black">${formatCurrency(item.bookPrice)}</i>
+                                                </div>
+                                            `}
+                                        </div>
+                                        <div class="position-absolute right-0 no-padding padding-half z-index-1">
+                                            <button type="button" class="state-toggle ${item.InLibrary ? 'state-toggle-active' : ''} button button-fill button-icon button-round color-white ripple-color-white" @stateChange="${(event) => toggleAddtoLibrary(item.BookId, event.detail)}">
+                                                <i class="state-inactive icon material-icons font-size-20 color-gray">local_library</i>
+                                                <i class="state-active icon material-icons font-size-20 color-red">local_library</i>
+                                            </button>
+                                        </div>
+                                        <figure class="avatar w-100 rounded-15 border">
+                                            <img src="${item.BookCover}" alt="" class="w-100" height="266px" />
+                                        </figure>
+                                    </div>
+                                    <div class="card-content card-content-padding">
+                                        <div class="row">
+                                            <div class="col no-padding-right">
+                                                <button class="button button-small button-link color-theme text-color-theme">
+                                                    <i class="bi bi-cloud-arrow-down-fill" style="margin-right:20px;"></i>
+                                                    <i class="bi bi-headphones"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto no-padding-left">
+                                                <button class="button button-small button-link color-theme text-color-theme">
+                                                    ${item.AccessType === 1 && $h`<i class="bi bi-unlock"></i>`}
+                                                    ${item.AccessType === 2 && $h`<i class="bi bi-lock"></i>`}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `) : 
+                        $h`
+                            <div class="empty-state empty-state-strong inset margin-vertical">
+                                <div class="empty-state-media">
+                                    <lottie-player src="${window.config.app.lottieiurlbase + 'no-data-found.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                                </div>
+                                <div class="empty-state-title">No Books Found</div>
+                                <div class="empty-state-text">No books available for the selected category.</div>
+                                <div class="empty-state-actions">
+                                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${() => handleCategorySelect('')}">Show All Books</button>
+                                </div>
+                            </div>
+                        ` : 
+                $h`
+                    <div class="block margin-vertical text-align-center">
+                        <div key="preloader" class="preloader"></div>
+                    </div>
+                `
+            }
+        </div>   
+
+                        <div class="row margin-bottom">
+                            <div class="col-100 text-align-center">
+                                <button class="button button-large button-fill color-white elevation-2">Load more...</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab tab-active" id="nav-lists">
+                        <!-- product medsize list  -->
+                         <div class="row margin-bottom-half">
+                                              ${books ? $h`
+            ${books == 'error' ? $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'data-load-error.json'}" autoplay loop background="transparent" speed="1" style="height: 128px; transform: scale(2);"></lottie-player>
+                </div>
+                <div class="empty-state-title">Oops...</div>
+                <div class="empty-state-text">An error occured while loading data.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                    
+                </div>
+            </div>
+            ` : $h`
+            ${books.length ? $h`
+              
+                       
+          
+                    ${books.map((item, index) => $h`
+                           <div class="col-100 medium-50 ">
+                                <div class="card margin-bottom">
+                                    <div class="card-content card-content-padding" @click="${() => book_page(item)}">
+                                        <div class="row">
+                                            <div class="col-auto position-relative">
+                                                <div
+                                                    class="position-absolute right-0 padding-horizontal z-index-1">
+                                                        ${item.AccessType === 2 && $h`
+                                               <div class="chip bg-theme">
+                             <i class="icon material-icons font-size-20 color-white">workspace_premium</i>
+                            </div>
+                                            `}
+                                                </div>
+                                                <figure class="avatar avatar-80 rounded-15 border">
+                                                    <img src="${item.JournalCoverUrl
+}" alt="" class="w-100" />
+                                                </figure>
+                                            </div>
+                                            <div class="col position-relative">
+                                              
+                                        <p class="no-margin-bottom"><small class="text-muted size-12 " style="color:#000!important;">${item.JournalTitle}</small>
+                                                </p>
+                                        <h5 style="color:#000!important;">${item.BookCategory}</h5>
+                                                <a class="link">
+                                                    <i class="bi bi-mortarboard margin-right-half"></i> ${item.Department}
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                             `)}
+            
+            ` : $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'no-data-found.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                </div>
+                <div class="empty-state-title">No Book Found</div>
+                <div class="empty-state-text">There is no book available at the moment.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                </div>
+            </div>
+            `}
+            `}
+            ` : $h`
+            <div class="block margin-vertical text-align-center">
+               
+            </div>
+            `}  
+                     
+                                 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</template>
+<script>
+     export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+    let books = null;
+    let bookcount = null;
+    let filteredBooks = null;
+    let popularBooks = null;
+    let categories = null;
+    let selectedCategory = null;
+    const getdata = localStorage.getItem("BoldScholarUserData");
+    const userdata = JSON.parse(getdata);
+    let userid = userdata.Id;
+    let book = null;
+        
+ // Format currency function remains the same
+    const formatCurrency = (amount) => {
+        if (amount === null || amount === undefined || isNaN(amount)) {
+            return '₦0.00';
+        }
+        try {
+            const numericAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+            const formatted = new Intl.NumberFormat('en-NG', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(numericAmount);
+            return `₦${formatted}`;
+        } catch (error) {
+            console.error('Error formatting currency:', error);
+            return '₦0.00';
+        }
+    };
+        
+        
+// Load popular books
+    let loadPopularBooks = function() {
+        popularBooks = null;
+        $update();
+
+        var formdata = new FormData();
+        const requestOptions = {
+            method: "GET",
+           dataType: 'json',
+            redirect: "follow"
+        };
+
+        fetch("https://boldscholar.com/api/booksapi/GetBookRating/", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                popularBooks = result.HighRateBooksList; // Get top 10 books
+                console.log("Popular books:", popularBooks);
+                $update();
+            })
+            .catch(error => {
+                console.error('Error loading popular books:', error);
+                popularBooks = 'error';
+                $update();
+            });
+    }
+    
+// Add searchQuery to your state variables
+let searchQuery = '';
+
+// Add search filter function
+const handleSearch = (event) => {
+    searchQuery = event.target.value.toLowerCase();
+    applyFilters();
+};
+
+// Combined filter function to handle both category and search
+const applyFilters = () => {
+    if (!books) return;
+
+    filteredBooks = books.filter(book => {
+        // Start with category filter
+        const matchesCategory = !selectedCategory || book.CategoryId === parseInt(selectedCategory);
+        
+        // Then apply search filter if there's a search query
+        if (searchQuery) {
+            return matchesCategory && (
+                (book.BookTitle && book.BookTitle.toLowerCase().includes(searchQuery)) ||
+                (book.Author && book.Author.toLowerCase().includes(searchQuery)) ||
+                (book.BookCategory && book.BookCategory.toLowerCase().includes(searchQuery)) ||
+                (book.ISBN && book.ISBN.toLowerCase().includes(searchQuery)) ||
+                (book.Description && book.Description.toLowerCase().includes(searchQuery)) ||
+                (book.YearOfPublication && book.YearOfPublication.toString().includes(searchQuery))
+            );
+        }
+        
+        return matchesCategory;
+    });
+
+    $update();
+};
+
+// Update handleCategorySelect to use applyFilters
+const handleCategorySelect = (categoryId) => {
+    selectedCategory = categoryId;
+    applyFilters();
+};
+
+    // Load Data function
+    let loadData = function() {
+        books = null;
+        filteredBooks = null;
+        $update();
+        
+        $f7.request({
+            url: 'https://boldscholar.com/api/general/GetJournals',
+            method: 'GET',
+            dataType: 'json',
+        })
+        .then(function(response) {
+            if (response.data && response.data.length) {
+                books = response.data;
+                bookcount = null;
+                filteredBooks = [...books]; // Initialize with all books
+                console.log("Books loaded:", books);
+                $update();
+            } else {
+                books = [];
+                filteredBooks = [];
+                $update();
+            }
+        })
+        .catch(function(error) {
+            console.error('Error loading books:', error);
+            books = 'error';
+            filteredBooks = 'error';
+            $update();
+        });
+    };
+
+    // Load categories remains the same
+    const loadCategories = () => {
+        categories = null;
+        $update();
+
+        const requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+
+        fetch("https://boldscholar.com/api/booksapi/GetBookRating/", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result && result.CategoryList) {
+                    categories = result.CategoryList;
+                    console.log(categories);
+                    $update();
+                }
+            })
+            .catch(error => {
+                console.error('Error loading categories:', error);
+                categories = 'error';
+                $update();
+            });
+    }; 
+ 
+     
+
+
+        let toggleAddtoLibrary = function(id, state) {
+
+    books.forEach(function(book) {
+        if (book.BookId == id) {
+            book.InLibrary = state ? true : false;
+           var bookid = id;
+          
+            var data = new FormData();
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function() {
+                if (this.readyState === 4) {
+                    console.log(this.responseText);
+                    app.toast.show({
+                        text: state ? 'Book Added to library' : 'Book Removed from library',
+                        icon: state ? '<i class="icon material-icons color-red">favorite</i>' : '<i class="icon material-icons color-gray">favorite</i>',
+                        position: 'center'
+                    });
+                }
+            });
+
+            xhr.open("POST", "https://boldscholar.com/api/booksapi/addtolibrary?Id="+ bookid + "&userId="+ userid);
+            xhr.send();
+        }
+    });
+}      
+    let book_page = (item) =>{
+      console.log(item);
+       localStorage.setItem("BoldscholarJournalData",JSON.stringify(item));   
+      app.views.current.router.navigate('/journal-page/', {
+                    reloadCurrent: true // Refresh the current page
+                   
+});	    
+          
+          
+          
+      }
+        $on('pageBeforeIn', function() {
+            
+            loadData();
+           loadPopularBooks();
+            loadCategories();
+        });
+        
+     
+        return $render;
+    }
+</script>

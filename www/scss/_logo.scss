@@ -1,0 +1,169 @@
+.logo-splash {
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    color: inherit;
+
+    img {
+        width: 100px;
+        margin-bottom: 15px;
+        border-radius: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.logo-small {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    line-height: 44px;
+
+    img {
+        width: 40px;
+        margin: 0;
+        border-radius: calc(var(--finwallapp-rounded) - 8px);       
+        margin-right: 8px;
+        border: 0;
+        vertical-align: middle;
+    }
+
+    h5 {
+        font-size: 18px;
+        line-height: 18px;
+        display: inline-block;
+        margin: 0 auto;
+        vertical-align: middle;
+    }
+}
+
+.logo-wallet {
+    height: 100px;
+    width: 100px;
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+    .wallet-bottom {
+        height: 100px;
+        width: 100px;
+        position: relative;
+        border-radius: 25px;
+        background-color: var(--finwallapp-theme-color);
+    }
+    .wallet-cards {
+        height: 80px;
+        width: 50px;
+        top: 18px;
+        left: 0px;
+        position: absolute;
+        border-radius: 15px;
+        transform: rotate(0deg);
+        background-color: $red;
+        z-index: 3;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+        animation: rotateanimation ease 2s infinite;
+
+        &:after {
+            content: "";
+            position: absolute;
+            border-radius: 15px;
+            height: 80px;
+            width: 50px;
+            left: -5px;
+            background-color: $yellow;
+            transform: rotate(-15deg);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+            -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+            z-index: -1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 15px;
+            left: -10px;
+            height: 80px;
+            width: 50px;
+            transform: rotate(-30deg);
+            background-color: $green;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+            -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+            z-index: 3;
+        }
+    }
+    .wallet-top {
+        height: 100px;
+        width: 65px;
+        border-radius: 25px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: var(--finwallapp-theme-color-grad-1);
+        background: -moz-radial-gradient(
+            30% 30%,
+            ellipse cover,
+            var(--finwallapp-theme-color-grad-1) 0%,
+            var(--finwallapp-theme-color-grad-2) 50%,
+            var(--finwallapp-theme-color-grad-3) 100%
+        );
+        background: -webkit-radial-gradient(
+            30% 30%,
+            ellipse cover,
+            var(--finwallapp-theme-color-grad-1) 0%,
+            var(--finwallapp-theme-color-grad-2) 50%,
+            var(--finwallapp-theme-color-grad-3) 100%
+        );
+        background: radial-gradient(
+            ellipse at 30% 30%,
+            var(--finwallapp-theme-color-grad-1) 0%,
+            var(--finwallapp-theme-color-grad-2) 50%,
+            var(--finwallapp-theme-color-grad-3) 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--finwallapp-theme-color-grad-1)', endColorstr='var(--finwallapp-theme-color-grad-3)',GradientType=1 );
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+        z-index: 5;
+        animation: widthtopanimation infinite 2s ease;
+    }
+}
+
+@keyframes rotateanimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(45deg);
+        left: 28px;
+    }
+    80% {
+        transform: rotate(45deg);
+        left: 28px;
+    }
+    
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes widthtopanimation {
+    0% {
+       width: 100%;
+    }
+    20% {
+        width: 65%;
+    }
+    85%{
+        width: 65%;
+    }
+    100% {
+        width: 100%;
+    }
+}

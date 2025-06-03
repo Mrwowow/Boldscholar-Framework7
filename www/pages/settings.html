@@ -1,0 +1,389 @@
+<template>
+<div class="page page-settings" data-name="settings">
+    <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="button button-fill color-white button-44 back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="title" style="color:#fff;">
+                <h5>Profile Settings</h5>
+            </div>
+            <div class="right">
+                <a href="/notificationlist/" class="button button-fill color-white button-44">
+                    <i class="bi bi-bell"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- main page content -->
+    <div class="page-content no-padding-bottom">
+        <!-- user information -->
+        <div class="row margin-bottom">
+            <div class="col-100">
+                <div class="card elevation-2 margin-bottom margin-top">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-auto">
+                                <figure class="avatar avatar-60 rounded-10" style="background-size: contain; position: relative;">
+                            ${avatar && $h`
+                        <img src="${avatar}" alt="" id="currentAvatar" class="profile-image" style="width: 100%; height: 100%; object-fit: cover;"/>
+                            `} 
+                                   ${!avatar && $h` 
+                                    <img src="img/d-avatar.jpg" alt="Profile" id="currentAvatar" class="profile-image" style="width: 100%; height: 100%; object-fit: cover;"/>
+                                    `} 
+                                    <div class="card elevation-2 popup-open" style="position: absolute; bottom: 0; right: 0; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 10%; cursor: pointer; width: 100%;" data-popup=".popup-photo">
+                                        <i class="bi bi-camera" style="color: white;"></i>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="col no-padding-horizontal align-self-center">
+                                <h5 class="no-margin-bottom text-color-theme">
+                                ${fullname}
+                                </h5>
+                                <p class="text-muted address location-text">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content card-content-padding">
+                        <div class="list no-margin">
+                            <ul>
+                                <li class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label">Bio</div>
+                                        <div class="item-input-wrap">
+                                            <textarea class="bio" placeholder="Tell us about yourself" style="min-height: 80px;"></textarea>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Basic information -->
+        <div class="row margin-bottom">
+            <div class="col-100">
+                <h5>Basic Information</h5>
+            </div>
+        </div>
+
+        <div class="row margin-bottom">
+            <div class="col-100 medium-50 large-33 margin-bottom-half">
+                <div class="list form-list no-margin">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-floating-label">Email</div>
+                                <div class="item-input-wrap">
+                                    <input type="email" name="email" class="email" readonly />
+                                   
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-100 medium-50 large-33 margin-bottom-half">
+                <div class="list form-list no-margin">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-floating-label">Phone</div>
+                                <div class="item-input-wrap">
+                                    <input type="tel" name="phone" class="phone" />
+                                   
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Password Change Section -->
+        <div class="row margin-bottom">
+            <div class="col-100">
+                <h5>Change Password</h5>
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-100 medium-50 large-33 margin-bottom-half">
+                <div class="list form-list no-margin">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-floating-label">Current Password</div>
+                                <div class="item-input-wrap">
+                                    <input type="password" name="password" class="password" />
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-100 medium-50 large-33 margin-bottom-half">
+                <div class="list form-list no-margin">
+                    <ul>
+                        <li class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-floating-label">New Password</div>
+                                <div class="item-input-wrap">
+                                    <input type="password" name="newpassword" class="newpassword" />
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update Button -->
+        <div class="row margin-bottom">
+            <div class="col-100">
+                <button id="updatebtn" class="button button-fill button-large color-theme button-raised">
+                    Update Profile
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Upload Popup -->
+    <div class="popup popup-photo">
+        <div class="view">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="title" style="color:#fff;">Update Profile Photo</div>
+                        <div class="right">
+                            <a href="#" class="link popup-close">Close</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="block">
+                        <div class="upload-container" style="text-align: center; padding: 20px;">
+                             <label class="button button-fill button-file">
+                            <input type="file" id="demoFile" accept="image/*" @change="${handleFileChange}" />
+                            <span>Upload Image</span>
+                        </label>
+                            <input type="file" id="demoFile" accept="image/*" style="display: none;" />
+                            <div class="preview-container" style="margin-bottom: 20px;">
+                                <img id="result" style="max-width: 100%; max-height: 300px; display: none;" />
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+<style scoped>
+    body {
+        
+        color: #000 !important;
+    }
+.profile-image {
+    border-radius: 10px;
+}
+.upload-container {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+</style>
+<script>
+export default (props, { $, $on, $f7, $f7router, $update }) => {
+  // Get user data from localStorage
+  var getdata = localStorage.getItem("BoldScholarUserData");
+  const user = JSON.parse(getdata);
+  const username = user.UserName;
+  const email = user.Email;
+  const fullname = user.fullName;
+  const userid = user.Id;
+  let phone = user.PhoneNumber;
+  const subscription = user.subscribed;
+  const avatar = "https://boldscholar.com/"+user.photo;
+    
+
+  // State variables for form fields
+  let bioText = '';
+  let newPasswordText = '';
+  let currentPasswordText = '';
+  let selectedFile = null;
+
+  // Handle file selection
+  function handleFileChange(e) {
+    const fileInput = e.target;
+    if (fileInput.files && fileInput.files[0]) {
+      selectedFile = fileInput.files[0];
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        $('#result').attr('src', e.target.result);
+        $('#result').css('display', 'block');
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  }
+  let onChange = function(event) {
+            let file = event.target.files[0];
+            updateInfo(file);
+        }
+
+        let updateInfo = function(file) {
+            let fileData = {};
+            fileData.name = file.name;
+            fileData.size = file.size + ' bytes';
+            fileData.type = file.type;
+            fileData.lastModified = window.moment ? moment(file.lastModified).format('dddd, DD MMMM YYYY, hh:mm:ss A') : new Date(file.lastModified).toLocaleString();
+            let reader = new FileReader();
+            reader.addEventListener('load', function() {
+                fileInfo = Object.assign({}, fileInfo, { content: reader.result });
+                $update();
+            });
+            reader.addEventListener('error', function() {
+                $f7.toast.show({
+                    text: reader.error,
+                    cssClass: 'color-red'
+                });
+            });
+            reader.readAsDataURL(file);
+            fileInfo = fileData;
+            $update();
+        }  
+
+
+  // Handle profile update
+  function handleUpdate() {
+    const formdata = new FormData();
+    formdata.append("userId", userid);
+    
+    if (selectedFile) {
+      formdata.append("userPhoto", selectedFile);
+    }
+    
+    formdata.append("userBio", bioText);
+    formdata.append("userPhone", phone);
+    formdata.append("userEmail", email);
+    
+    if (newPasswordText && currentPasswordText) {
+      formdata.append("newPassword", newPasswordText);
+      formdata.append("currentPassword", currentPasswordText);
+    }
+
+    const requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow"
+    };
+
+    $f7.preloader.show();
+
+    fetch("https://boldscholar.com/api/general/EditUserProfile", requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to update profile');
+        }
+        return response.text();
+      })
+      .then(result => {
+        $f7.preloader.hide();
+        
+        $f7.toast.show({
+          text: 'Profile updated successfully',
+          closeTimeout: 2000,
+          position: 'center'
+        });
+
+        // Update local storage with new data
+        const updatedUser = Object.assign({}, user);
+        if (selectedFile) {
+          updatedUser.photo = URL.createObjectURL(selectedFile);
+        }
+        if (bioText) {
+          updatedUser.bio = bioText;
+        }
+        if (phone) {
+          updatedUser.PhoneNumber = phone;
+        }
+        localStorage.setItem("BoldScholarUserData", JSON.stringify(updatedUser));
+        
+        // Update UI
+        if (updatedUser.photo) {
+          $('#currentAvatar').attr('src', updatedUser.photo);
+        }
+      })
+      .catch(error => {
+        $f7.preloader.hide();
+        $f7.toast.show({
+          text: 'Error updating profile: ' + error.message,
+          closeTimeout: 2000,
+          position: 'center'
+        });
+        console.error('Error:', error);
+      });
+  }
+
+  $on('pageInit', () => {
+    // Initialize form fields with existing values
+    $('.bio').val(user.bio || '');
+    $('.email').val(email);
+    $('.phone').val(phone);
+    $('.username').text(username);
+    $('.location-text').text(user.address || '');
+    
+    if (avatar) {
+      $('#currentAvatar').attr('src', avatar);
+    }
+    
+    // Initialize event listeners
+    $('#demoFile').on('change', function (){
+        handleFileChange();              
+                      
+                      
+                      } );
+    $(document).on('click', '#updatebtn', handleUpdate);
+    
+    // Handle input changes
+    $(document).on('input', '.newpassword', function(e) {
+      newPasswordText = e.target.value;
+    });
+    
+    $(document).on('input', '.password', function(e) {
+      currentPasswordText = e.target.value;
+    });
+    
+    $(document).on('input', '.bio', function(e) {
+      bioText = e.target.value;
+    });
+
+    $(document).on('input', '.phone', function(e) {
+      phone = e.target.value;
+    });
+  });
+
+  // Clean up event listeners
+  $on('pageBeforeRemove', () => {
+    $(document).off('change', '#demoFile', handleFileChange);
+    $(document).off('click', '#updatebtn', handleUpdate);
+    $(document).off('input', '.newpassword');
+    $(document).off('input', '.password');
+    $(document).off('input', '.bio');
+    $(document).off('input', '.phone');
+  });
+
+  return $render;
+};
+</script>

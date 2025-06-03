@@ -1,0 +1,641 @@
+<template>
+<div class="page page-shop" data-name="shop">
+    <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="button button-fill color-white button-44 panel-open" data-panel="left">
+                    <i class="bi bi-list"></i>
+                </a>
+            </div>
+            <div class="title">
+                    <img src="img/mainlogo1.png" alt="" width="90%" />
+            </div>
+            <div class="right">
+                <a href="/user-profile/" class="button button-fill color-white button-44">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter nested panel -->
+    <div class="panel panel-right panel-cover panel-init elevation-3" id="panel-right-filter"
+        data-container-el="#panel-page" data-backdrop="false">
+        <div class="page">
+            <div class="page-content">
+                <div class="row margin-bottom">
+                    <div class="col">
+                        <h6 class="no-margin-bottom">Filter Criteria</h6>
+                        <p class="small text-muted">456345 Books</p>
+                    </div>
+                    <div class="col-auto align-self-center">
+                        <button class="button panel-close no-padding">
+                            <i class="bi bi-x size-18"></i>
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <div class="margin-bottom">
+                    <h6>Select Categorye</h6>
+                    <div id="rangeslider" class="margin-top"></div>
+                </div>
+
+               <div class="margin-bottom">
+   
+    <select class="form-control" id="category" @change="${(e) => handleCategorySelect(e.target.value)}">
+        <option value="">All Categories</option>
+        ${categories && categories !== 'error' ? categories.map((category) => $h`
+            <option value="${category.Id}" ${selectedCategory === category.Id ? 'selected' : ''}>
+                ${category.CategoryName}
+            </option>
+        `) : $h`
+            <option value="" disabled>Loading categories...</option>
+        `}
+    </select>
+</div>
+
+                <div class="margin-bottom">
+                    <label for="filtertype" class="small text-muted">Select Book Type</label>
+                    <div class="list no-margin-top margin-bottom">
+                        <ul class="no-background">
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="demo-checkbox" value="Books" checked="men" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Free Books</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="demo-checkbox" value="women" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Premium Books</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="demo-checkbox" value="kids" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Purchased Books</div>
+                                    </div>
+                                </label>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+               
+
+             
+
+                <div class="row margin-bottom">
+                    <div class="col-100">
+                        <button class="button button-fill button-raised button-large panel-close">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- filter panel right -->
+
+    <!-- main page content -->
+    <div class="page-content has-footer">
+        <!-- search -->
+   
+        <div class="row margin-bottom margin-top">
+            <div class="col-100 overflow-hidden">
+                <!-- input -->
+             <div class="row">
+    <div class="col position-relative align-self-center">
+        <div class="list form-list no-margin margin-bottom">
+            <ul>
+                <li class="item-content item-input item-input-with-value">
+                    <div class="item-inner">
+                        <div class="item-title item-floating-label">Search</div>
+                        <div class="item-input-wrap">
+                            <input 
+                                type="text" 
+                                name="search" 
+                                class="input-with-value"
+                                placeholder="Search by title, author, category..."
+                                @input="${handleSearch}"
+                                value="${searchQuery}"
+                            />
+                            ${searchQuery && $h`
+                                <span 
+                                    class="input-clear-button" 
+                                    @click="${() => {
+                                        searchQuery = '';
+                                        applyFilters();
+                                    }}"
+                                ></span>
+                            `}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-auto align-self-center">
+        <button class="button button-fill color-white button-44 filter-btn panel-open"
+            data-panel="#panel-right-filter">
+            <i class="bi bi-filter size-22"></i>
+        </button>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!--categories -->
+        <div class="row margin-bottom">
+            <div class="row margin-bottom" >
+      <div class="col-33 tablet-33 desktop-33">
+        <div class="content-block">
+          <!-- Content for the first column -->
+           <div class="swiper-slide text-align-center">
+                            <a href="/mylibrary/" class="card text-align-center margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar category avatar-80 rounded-20">
+                                        <img src="img/book-reader.svg" alt=""/>
+                                    </figure>
+                                </div>
+                            </a>
+                            <p class="size-10 text-secondary" style="color:#0149D1!important">My Library</p>
+                        </div>
+        </div>
+      </div>
+      <div class="col-33 tablet-33 desktop-33">
+        <div class="content-block">
+          <!-- Content for the second column -->
+           <div class="swiper-slide text-align-center">
+                            <a href="/allbooks/" class="card text-align-center margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar category avatar-80 rounded-20">
+                                        <img src="img/books-stack.svg" alt=""/>
+                                    </figure>
+                                </div>
+                            </a>
+                            <p class="size-10 text-secondary" style="color:#0149D1!important">Books</p>
+                        </div>
+        </div>
+      </div>
+      <div class="col-33 tablet-33 desktop-33">
+        <div class="content-block">
+          <!-- Content for the third column -->
+           <div class="swiper-slide text-align-center">
+                            <a href="/alljournals/" class="card text-align-center margin-bottom-half">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar category avatar-80 rounded-20">
+                                        <img src="img/Open_Book_icon.svg" alt=""/>
+                                    </figure>
+                                </div>
+                            </a>
+                            <p class="size-10 text-secondary" style="color:#0149D1!important">Journals</p>
+                        </div>
+        </div>
+      </div>
+    </div>
+                  </div>
+
+        <!--high light -->
+        <div class="row margin-bottom">
+            <div class="col-100">
+                <div class="card theme-bg" style="background:#0149D1;">
+                    <img src="img/newbook.png" alt="" class="iwatchposition" />
+                    <div class="card-content card-content-padding padding-vertical">
+                        <div class="row">
+                            <div class="col-auto align-self-center">
+                                <h5><span class="fw-light">Publish on</span><br />Boldscholar</h5>
+                            </div>
+                            <div class="col-auto align-self-center margin-left-auto text-align-right">
+                           
+                                <p class="size-10"><span class="text-muted">Get Started</span><br />Today</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     <!-- Popular Books Section -->
+<div class="row margin-bottom-half">
+    <div class="col">
+        <h6 class="title" style="color:#0149D1!important;"><i class="bi bi-book"></i> Popular Books</h6>
+    </div>
+    <div class="col-auto">
+        <a href="#" class="small">View All</a>
+    </div>
+</div>
+<div class="row margin-bottom">
+    <div class="col-100 no-padding-horizontal">
+        <div class="swiper-container connectionwiper">
+            <div class="swiper-wrapper">
+                ${popularBooks && popularBooks != 'error' ? popularBooks.map((item) => $h`
+                    <div class="swiper-slide text-align-center">
+                        <a href="#" @click="${() => book_page(item)}" class="card text-align-center bg-theme" style="background:#0149D1!important;">
+                            <div class="card-content card-content-padding padding-half-sm">
+                                <figure class="avatar avatar-90 rounded-15">
+                                    <img src="https://boldscholar.com/${item.BookCover}" width="100%" alt="${item.BookTitle}"/>
+                                </figure>
+                               
+                                ${item.AccessType === 3 && $h`
+                                    <div class="chip bg-white">
+                                        <i class="icon font-size-14 color-black">${formatCurrency(item.BookPrice)}</i>
+                                    </div>
+                                `}
+                               
+                            </div>
+                        </a>
+                    </div>
+                `) : $h`
+                    <div class="block margin-vertical text-align-center">
+                        <div key="preloader" class="preloader"></div>
+                    </div>
+                `}
+            </div>
+        </div>
+    </div>
+</div>
+      <!-- Books medsize box -->
+        <div class="row margin-bottom-half">
+            ${filteredBooks ? 
+                filteredBooks === 'error' ? 
+                    $h`
+                        <div class="empty-state empty-state-strong inset margin-vertical">
+                            <!-- Your error state HTML -->
+                        </div>
+                    ` : 
+                    filteredBooks.length ? 
+                        filteredBooks.map((item) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-bottom">
+                                    <div @click="${() => book_page(item)}" class="card-content card-content-padding padding-half-sm position-relative">
+                                        <div class="position-absolute left-0 padding-half z-index-1">
+                                            ${item.AccessType === 2 && $h`
+                                                <div class="chip bg-theme">
+                                                    <i class="icon material-icons font-size-20 color-white">lock</i>
+                                                </div>
+                                            `}
+                                            ${item.AccessType === 3 && $h`
+                                                <div class="chip bg-theme"> 
+                                                    <i class="icon font-size-14 color-black">${formatCurrency(item.bookPrice)}</i>
+                                                </div>
+                                            `}
+                                        </div>
+                                        <div class="position-absolute right-0 no-padding padding-half z-index-1">
+                                            <button type="button" class="state-toggle ${item.InLibrary ? 'state-toggle-active' : ''} button button-fill button-icon button-round color-white ripple-color-white" @stateChange="${(event) => toggleAddtoLibrary(item.BookId, event.detail)}">
+                                                <i class="state-inactive icon material-icons font-size-20 color-gray">local_library</i>
+                                                <i class="state-active icon material-icons font-size-20 color-green">local_library</i>
+                                            </button>
+                                        </div>
+                                        <figure class="avatar w-100 rounded-15 border">
+                                            <img src="${item.BookCover}" alt="" class="w-100" height="266px" />
+                                        </figure>
+                                    </div>
+                                    <div class="card-content card-content-padding">
+                                        <div class="row">
+                                            <div class="col no-padding-right">
+                                                <button class="button button-small button-link color-theme text-color-theme">
+                                                    <i class="bi bi-cloud-arrow-down-fill" style="margin-right:20px;"></i>
+                                                    <i class="bi bi-headphones"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto no-padding-left">
+                                                <button class="button button-small button-link color-theme text-color-theme">
+                                                    ${item.AccessType === 1 && $h`<i class="bi bi-unlock"></i>`}
+                                                    ${item.AccessType === 2 && $h`<i class="bi bi-lock"></i>`}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `) : 
+                        $h`
+                            <div class="empty-state empty-state-strong inset margin-vertical">
+                                <div class="empty-state-media">
+                                    <lottie-player src="${window.config.app.lottieiurlbase + 'no-data-found.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                                </div>
+                                <div class="empty-state-title">No Books Found</div>
+                                <div class="empty-state-text">No books available for the selected category.</div>
+                                <div class="empty-state-actions">
+                                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${() => handleCategorySelect('')}">Show All Books</button>
+                                </div>
+                            </div>
+                        ` : 
+                $h`
+                    <div class="block margin-vertical text-align-center">
+                        <div key="preloader" class="preloader"></div>
+                    </div>
+                `
+            }
+        </div>   
+
+    
+    </div>
+
+
+
+</div>
+</template>
+<style>
+.item-input-wrap {
+    position: relative;
+}
+
+.input-with-value {
+    padding-right: 30px; /* Space for clear button */
+    transition: all 0.3s ease;
+}
+
+.input-with-value:focus {
+    border-color: #0149D1;
+}
+
+.input-clear-button {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.input-clear-button:hover {
+    opacity: 1;
+}
+
+.input-clear-button::before,
+.input-clear-button::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: #666;
+    transform: rotate(45deg);
+}
+
+.input-clear-button::after {
+    transform: rotate(-45deg);
+}
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #0149D1;
+    outline: none;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+}
+ .category > img {
+    width: 70%!important;
+    vertical-align: middle;
+}  
+    body {
+        color:#000 !important;
+    }   
+.theme-bg {
+        
+     background:#045cfb!important;   
+    }
+.item-floating-label {
+        
+    color:#045cfb!important;     
+        
+    }
+</style>
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+    let books = null;
+    let filteredBooks = null;
+    let popularBooks = null;
+    let categories = null;
+    let selectedCategory = null;
+    const getdata = localStorage.getItem("BoldScholarUserData");
+    const userdata = JSON.parse(getdata);
+    let userid = userdata.Id;
+        
+ // Format currency function remains the same
+    const formatCurrency = (amount) => {
+        if (amount === null || amount === undefined || isNaN(amount)) {
+            return '₦0.00';
+        }
+        try {
+            const numericAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+            const formatted = new Intl.NumberFormat('en-NG', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(numericAmount);
+            return `₦${formatted}`;
+        } catch (error) {
+            console.error('Error formatting currency:', error);
+            return '₦0.00';
+        }
+    };
+        
+        
+// Load popular books
+    let loadPopularBooks = function() {
+        popularBooks = null;
+        $update();
+
+        var formdata = new FormData();
+        const requestOptions = {
+            method: "GET",
+           dataType: 'json',
+            redirect: "follow"
+        };
+
+        fetch("https://boldscholar.com/api/booksapi/GetBookRating/", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                popularBooks = result.HighRateBooksList; // Get top 10 books
+                console.log("Popular books:", popularBooks);
+                $update();
+            })
+            .catch(error => {
+                console.error('Error loading popular books:', error);
+                popularBooks = 'error';
+                $update();
+            });
+    }
+    
+// Add searchQuery to your state variables
+let searchQuery = '';
+
+// Add search filter function
+const handleSearch = (event) => {
+    searchQuery = event.target.value.toLowerCase();
+    applyFilters();
+};
+
+// Combined filter function to handle both category and search
+const applyFilters = () => {
+    if (!books) return;
+
+    filteredBooks = books.filter(book => {
+        // Start with category filter
+        const matchesCategory = !selectedCategory || book.CategoryId === parseInt(selectedCategory);
+        
+        // Then apply search filter if there's a search query
+        if (searchQuery) {
+            return matchesCategory && (
+                (book.BookTitle && book.BookTitle.toLowerCase().includes(searchQuery)) ||
+                (book.Author && book.Author.toLowerCase().includes(searchQuery)) ||
+                (book.BookCategory && book.BookCategory.toLowerCase().includes(searchQuery)) ||
+                (book.ISBN && book.ISBN.toLowerCase().includes(searchQuery)) ||
+                (book.Description && book.Description.toLowerCase().includes(searchQuery)) ||
+                (book.YearOfPublication && book.YearOfPublication.toString().includes(searchQuery))
+            );
+        }
+        
+        return matchesCategory;
+    });
+
+    $update();
+};
+
+// Update handleCategorySelect to use applyFilters
+const handleCategorySelect = (categoryId) => {
+    selectedCategory = categoryId;
+    applyFilters();
+};
+
+    // Load Data function
+    let loadData = function() {
+        books = null;
+        filteredBooks = null;
+        $update();
+        
+        $f7.request({
+            url: 'https://boldscholar.com/api/booksapi/getbooks?userId=' + userid,
+            method: 'GET',
+            dataType: 'json',
+        })
+        .then(function(response) {
+            if (response.data && response.data.length) {
+                books = response.data;
+                filteredBooks = [...books]; // Initialize with all books
+                console.log("Books loaded:", books);
+                $update();
+            } else {
+                books = [];
+                filteredBooks = [];
+                $update();
+            }
+        })
+        .catch(function(error) {
+            console.error('Error loading books:', error);
+            books = 'error';
+            filteredBooks = 'error';
+            $update();
+        });
+    };
+
+    // Load categories remains the same
+    const loadCategories = () => {
+        categories = null;
+        $update();
+
+        const requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+
+        fetch("https://boldscholar.com/api/booksapi/GetBookRating/", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result && result.CategoryList) {
+                    categories = result.CategoryList;
+                    console.log(categories);
+                    $update();
+                }
+            })
+            .catch(error => {
+                console.error('Error loading categories:', error);
+                categories = 'error';
+                $update();
+            });
+    }; 
+ 
+     
+
+
+        let toggleAddtoLibrary = function(id, state) {
+
+    books.forEach(function(book) {
+        if (book.BookId == id) {
+            book.InLibrary = state ? true : false;
+           var bookid = id;
+          
+            var data = new FormData();
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function() {
+                if (this.readyState === 4) {
+                    console.log(this.responseText);
+                    app.toast.show({
+                        text: state ? 'Book Added to library' : 'Book Removed from library',
+                        icon: state ? '<i class="icon material-icons color-red">favorite</i>' : '<i class="icon material-icons color-gray">favorite</i>',
+                        position: 'center'
+                    });
+                }
+            });
+
+            xhr.open("POST", "https://boldscholar.com/api/booksapi/addtolibrary?Id="+ bookid + "&userId="+ userid);
+            xhr.send();
+        }
+    });
+}      
+    let book_page = (item) =>{
+      console.log(item);
+       localStorage.setItem("BoldscholarBookData",JSON.stringify(item));   
+      app.views.current.router.navigate('/book-page/', {
+                    
+});	    
+          
+          
+          
+      }
+        $on('pageBeforeIn', function() {
+            
+            loadData();
+           loadPopularBooks();
+            loadCategories();
+        });
+        
+     
+        return $render;
+    }
+</script>

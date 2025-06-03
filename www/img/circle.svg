@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="51" viewBox="0 0 52 51">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.363" cy="0.347" r="0.779" gradientTransform="translate(0 -0.039) scale(1 1.111)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00cbff"/>
+      <stop offset="1" stop-color="#c500ff"/>
+    </radialGradient>
+    <filter id="circle" x="0" y="0" width="52" height="51" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#circle)">
+    <ellipse id="circle-2" data-name="circle" cx="9.5" cy="9" rx="9.5" ry="9" transform="translate(16.5 8.5)" fill="url(#radial-gradient)"/>
+  </g>
+</svg>

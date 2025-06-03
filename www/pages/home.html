@@ -1,0 +1,724 @@
+<template>
+  <div class="page page-home light-bg no-swipeback" data-name="home">
+     <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="button color-white button-44" >
+            <div class="avatar avatar-50 shadow rounded-10">
+            <img src="${avatar}" alt="" />
+          </div>
+          </a>
+        </div>
+        <div class="title">
+       <h4 class="text-color-theme"><span class="fw-normal">Hi</span>, ${name}  ${$f7.renderUnicode('1F44B')}</h4>
+        <p class="text-muted greet-message">Good Morning </p>
+        </div>
+        <div class="right">
+          <a href="#" class="button button-fill color-white button-45">
+           <span class="greet-icon" style="float:right;">
+					<img src="img/dawn.svg" width="" height="72" alt="" />
+				</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="page-content no-padding-top">
+      <div class="block h-100">
+        <div class="row h-100">
+          <div class="col-100 text-align-center">
+                <!-- welcome user -->
+    
+          </div>
+          <div class="col-100 text-align-center" style="margin-top:50px; height:80%;" >
+            <div class="swiper-container swiper-intro swiper-init">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide margin-top">
+                  
+                         <a href="#">
+                <div class="card elevation-2 waocard margin-top" style="background: #000; background-image: url('img/forebg.svg'); background-size: cover; background-position:center; width:75mm; height:110mm; margin-left:auto; margin-right:auto;">
+                <div class="card-header"> <span class="theme-radial-gradient" style="background:#000;">
+                <i class="bi size-22"><img src="img/icon_white.svg" width="15%" alt=""/></i>
+              </span></div>
+                  <div class="card-content" style="display: flex; flex-direction: column!important; height:90%;">
+                    <div class="row margin-bottom">
+                      <div class="col-100 align-self-center ">
+                         
+                      </div>
+                    
+                    </div>
+                  <div class="row margin-bottom">
+                      <div class="col-70">
+                        <h4 class="fw-normal">
+                            
+                          
+              
+                               
+                        </h4>
+                        
+                      </div>
+                       
+                    </div>
+                       <div class="row">
+                      <div class="col-50">
+
+                           </div>
+                      </div>
+                  </div>
+                <div class="card-footer text-color-theme"> 
+            <div class="col-100 margin-top-auto align-self-end">
+            <div class="row">
+              <div class="col text-align-left margin-horizontal-half vertical-align-middle">
+                <img src="img/logo2.png" width="80%" class="vertical-align-middle" style="float:left;" alt="Logo" />
+              </div>
+              <div class="col-auto align-content-right">
+                <a href="#" @click=${home_main} class="button button-link">Go In <i class="icons bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+                    </div>    
+                    
+                    
+</div>
+                </div>
+                         </a>
+                   
+                </div>
+
+                <div class="swiper-slide margin-top">
+                    <a href="">
+                <div class="card  elevation-2 border-0 waocard margin-top" style="background-image: url('img/waocardeco.png'); background-size: cover;background-position:center; width:75mm; height:110mm; margin-left:auto; margin-right:auto;">
+                  <div class="card-content" style="display: flex; flex-direction: column!important;">
+                    <div class="row margin-bottom">
+                      <div class="col-100 align-self-center ">
+                          
+                      </div>
+                    
+                    </div>
+                  <div class="row margin-bottom">
+                      <div class="col-70">
+                       
+                         
+                      </div>
+                       
+                    </div>
+                       <div class="row">
+                      <div class="col-50">
+
+                           </div>
+                      </div>
+                  </div>
+       <div class="card-footer text-color-theme">                                                             <button class="button button-small button-outline color-black ">Upgrade to EcoSmart</button>
+
+</div>
+                </div>
+                         </a>
+                </div>
+
+                  <div class="swiper-slide margin-top">
+                    <a href="">
+                <div class="card  elevation-2 border-0 waocard margin-top" style="background-image: url('img/v-black.png'); background-size: cover; background-position:center; width:75mm; height:110mm; margin-left:auto; margin-right:auto;">
+                  <div class="card-content" style="display: flex; flex-direction: column!important;">
+                    <div class="row margin-bottom">
+                      <div class="col-100 align-align-center ">
+                          
+                      </div>
+                    
+                    </div>
+                  <div class="row margin-bottom">
+                      <div class="col-70">
+                       
+                         
+                      </div>
+                       
+                    </div>
+                       <div class="row">
+                      <div class="col-50">
+
+                           </div>
+                      </div>
+                  </div>
+       <div class="card-footer text-color-theme">                                                             <button class="button button-small button-outline color-black ">Upgrade to Platinuim</button>
+
+</div>
+                </div>
+                         </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-100 margin-top-auto align-self-end margin-bottom-half">
+            <div class="row">
+              <div class="col text-align-left">
+                <div class="swiper-pagination pagination-intro position-relative text-start"></div>
+              </div>
+              <div class="col-auto align-content-right">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+         <div class="fab  fab-color fab-center-bottom sheet-open" data-sheet=".apps">
+  <a href="#">
+      <i class="fab-icon"></i>
+  </a>
+
+</div>
+ <div class="sheet-modal apps" style="height:auto">
+      <div class="sheet-modal-inner">
+        <div class="swipe-handler"></div>
+        <div class="page-content">
+          <div class="block-title block-title-large"></div>  
+          <div class="row margin-bottom">
+          <div class="col-100">
+          <div class="card bg-theme text-color-black" >
+            <div class="card-content card-content-padding no-padding-bottom accordion-item">
+              <div class="row justify-content-between no-margin-horizontal padding-bottom">
+                   <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:8px;">
+                  <a href="" @click=${nfcscan}
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-phone-landscape size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">NFC Scan</p>
+                </div>
+                  <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/read/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-orange text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-qr-code-scan size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Scan QRCode</p>
+                </div>
+               
+                 <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/pay/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-person-vcard size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Convert</p>
+                </div>
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black" >
+                  <a href="/rewards/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-share size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Share</p>
+                </div>
+             
+                  
+               </div>
+
+              <div class="row justify-content-between no-margin-horizontal accordion-item-content"
+                id="collpasemorelink">
+                  
+                   <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                   <a href="#" @click=${openWaocard(username)}
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-orange text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-display size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">View</p>
+                </div>
+               
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/shop/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-cart size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">My Store</p>
+                </div>
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/receivemoney/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-person-add size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Invite</p>
+                </div>
+               
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="/withdraw/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-postcard size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Add New</p>
+                </div>
+              
+                 </div>
+
+              <button class="button button-fill no-margin-top bar-more accordion-item-toggle" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collpasemorelink" aria-expanded="false"
+                aria-controls="collpasemorelink">
+                <span class=""><i class="icon icon-down"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+         
+        </div>
+      </div>
+    </div>
+ <div class="sheet-modal sheet-modal-push apps1"  style="height:auto;">
+      <div class="toolbar">
+        <div class="toolbar-inner">
+          <div class="left" style="font-family: 'Outfit';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height */
+padding-left:10px;
+
+/* Grayscale/Body */
+
+color: #000;"><h5>Wao<span class="text-secondary fw-light">Card</span></h5></div>
+          <div class="right">
+            <a class="link sheet-close"><img src="img/closex.svg" width="25" alt="" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-modal-inner">
+        <div class="page-content">
+        
+          <div class="row margin-bottom">
+          <div class="col-100">
+          <div class="card bg-theme text-color-black" >
+            <div class="card-content card-content-padding no-padding-bottom accordion-item">
+              <div class="row justify-content-between no-margin-horizontal padding-bottom">
+                   <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:8px;">
+                  <a href="" @click=${nfcscan}
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-phone-landscape size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">NFC Scan</p>
+                </div>
+                  <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/read/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-orange text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-qr-code-scan size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Scan QRCode</p>
+                </div>
+               
+                 <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/pay/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-person-vcard size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Convert</p>
+                </div>
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black" >
+                  <a href="/rewards/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-share size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Share</p>
+                </div>
+             
+                  
+               </div>
+
+              <div class="row justify-content-between no-margin-horizontal accordion-item-content"
+                id="collpasemorelink">
+                  
+                   <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                   <a href="#" @click=${openWaocard(username)}
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-orange text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-display size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">View</p>
+                </div>
+               
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/shop/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-cart size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">My Store</p>
+                </div>
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black" style="margin-right:10px;">
+                  <a href="/receivemoney/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-person-add size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Invite</p>
+                </div>
+               
+                <div class="col-auto text-align-center no-padding-horizontal text-color-black">
+                  <a href="/withdraw/"
+                    class="avatar avatar-60 padding-half-sm elevation-2 rounded-15 bg-opac margin-bottom-half sheet-close">
+                    <div class="icons bg-color-green text-color-black rounded-12 bg-opac">
+                      <i class="bi bi-postcard size-22"></i>
+                    </div>
+                  </a>
+                  <p class="size-10">Add New</p>
+                </div>
+              
+                 </div>
+
+              <button class="button button-fill no-margin-top bar-more accordion-item-toggle" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collpasemorelink" aria-expanded="false"
+                aria-controls="collpasemorelink">
+                <span class=""><i class="icon icon-down"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+          
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+
+.fab-buttons a, .fab > a {
+    background-color: #000;
+    width: var(--f7-fab-size);
+    height: var(--f7-fab-size);
+    box-shadow: var(--f7-fab-box-shadow);
+    border-radius: calc(var(--f7-fab-size) / 2);
+    position: relative;
+    transition-duration: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    color: var(--f7-fab-text-color);
+}
+.fab-icon {
+  display: block;
+  width: 60%;
+  height: 24px;
+  background-image: url('img/icon_white.svg'); /* SVG icon */
+  background-repeat: no-repeat;
+  background-size: cover;
+  fill: #fff; /* Icon color */
+}
+.no-padding-horizontal {
+   
+    padding-right: 4 !important;
+}
+.swiper-container {
+    z-index: 0;
+    height: 100%; /* Occupy full height of the slide */
+
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Occupy full height of the slide */
+}
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+.swiper-container .swiper-pagination-bullet {
+    background-color: var(--f7-theme-color);
+    opacity: 0.3;
+}
+.swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--f7-theme-color);
+    opacity: 1;
+}
+.dark-bg .swiper-pagination-bullet {
+    background-color: #ffffff;
+    opacity: 0.3;
+}
+.dark-bg .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #ffffff;
+    opacity: 1;
+}
+.swiper-pagination-bullet {
+    background-color: var(--f7-theme-color);
+    opacity: 1;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #000;
+}
+.card .swiper-container .swiper-pagination-bullet {
+    background-color: var(--f7-theme-color);
+    opacity: 0.3;
+}
+.card .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    opacity: 1;
+    background-color: #000;
+}
+.swiperhighlight .swiper-wrapper .swiper-slide {
+    width: 132px;
+    padding: 2px 0 5px 12px;
+}
+.pagination-intro {
+    display: inline-block;
+}
+.pagination-intro .swiper-pagination-bullet {
+    height: 6px;
+    width: 14px;
+    border-radius: 3px;
+    margin: 0 5px 0 0;
+}
+
+</style>
+<script>
+      export default (props,{ $, $on, $f7, $f7router, $update }) => {
+   
+       var token = localStorage.getItem("WaoCardUserToken");
+      var getdata = localStorage.getItem("WaoCardUserData");
+        const user = JSON.parse(getdata);
+        console.log(user);
+          const name = user.first_name;
+          const username = user.username;
+          const fname = user.first_name;
+          const lname = user.last_name;
+          const email = user.email;
+          const city =  user.city;
+          const userstate =  user.state;
+          const address =  user.address;
+          const userid =  user.user_id;
+          const phone =  user.phone_number;
+          const userwallet = user.wallet;
+          const avatar = user.avatar;
+          const account_number = user.account_number;
+          let dva = null;
+          let bankname = null;   
+          let sheetSwipeToClose;
+         
+       const openProfile = (userid) => {
+      console.log(userid);
+    } 
+        
+    const openGrid = () => {
+    //  actionsGrid.open();
+    }          
+
+          
+ //OPEN MAIN PAGE
+      
+  const home_main = () =>{
+          
+      app.views.current.router.navigate('/home_one/', {
+                    reloadCurrent: true, // Refresh the current page
+                    ignoreCache: true // Ignore caching for the new page
+});	    
+          
+          
+          
+      }
+const openWaocard = (username) =>{
+  console.log(username);
+  var username =   username;
+  var url = 'https://www.my.waocard.ng/'+username;
+  openUrlInInAppBrowser(url);
+   function openUrlInInAppBrowser(url) {
+  if (typeof cordova !== 'undefined' && typeof cordova.InAppBrowser !== 'undefined') {
+    var inAppBrowserRef = cordova.InAppBrowser.open(url, '_blank', 'location=no');
+    inAppBrowserRef.addEventListener('loaderror', function(event) {
+      // Return to error page if the page is not available
+      inAppBrowserRef.close();
+      showErrorMessage();
+    });
+  } else {
+    // InAppBrowser plugin is not available
+    // Handle accordingly or show an error message
+  }
+}
+
+function showErrorMessage() {
+  // Implement your logic to show an error message or redirect to an error page
+    
+       var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-red"></span><span class="fas fa-stack-1x  fa-inverse fa-sign-out-alt"></span></i><p>Card Not Active</p></div>',
+					buttons: [
+						{
+							text: 'Cancel',
+							color: 'gray'
+						},
+						{
+							text: 'Okay',
+							bold: true,
+							color: 'orange',
+							
+						}
+					]
+				});
+				dialog.open();
+}
+ 
+    
+    
+}
+ const nfcscan = () =>{
+  if (typeof nfc !== 'undefined') {
+    // NFC is available
+     var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-red"></span><span class="fas fa-stack-1x  fa-inverse fa-sign-out-alt"></span></i><p>NFC Supported: Approach phone with NFC car or Decvice?</p></div>',
+					buttons: [
+						{
+							text: 'Cancel',
+							color: 'gray'
+						},
+						{
+							text: 'Okay',
+							bold: true,
+							
+						}
+					]
+				});
+				dialog.open();
+    nfc.addTagDiscoveredListener(
+      function(nfcEvent) {
+        var tag = nfcEvent.tag;
+        var ndefMessage = tag.ndefMessage;
+        if (ndefMessage && ndefMessage.length > 0) {
+          var record = ndefMessage[0];
+          if (record && record.type === 'U') {
+            var url = nfc.bytesToString(record.payload);
+            openUrlInInAppBrowser(url);
+          }
+        }
+      },
+      function() {
+        // Error occurred while adding NFC listener
+      }
+    );
+  } else {
+    // NFC is not available
+      // NFC is not available
+      
+     var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-red"></span><span class="fas fa-stack-1x  fa-inverse fa-sign-out-alt"></span></i><p>NFC Not Supported?</p></div>',
+					buttons: [
+						{
+							text: 'Cancel',
+							color: 'gray'
+						},
+						{
+							text: 'Settings',
+							bold: true,
+							color: 'orange',
+							onClick: function() {
+								nfc.showSettings();
+							}
+						}
+					]
+				});
+				dialog.open();   
+      
+  }
+
+
+function openUrlInInAppBrowser(url) {
+  if (typeof cordova !== 'undefined' && typeof cordova.InAppBrowser !== 'undefined') {
+    var inAppBrowserRef = cordova.InAppBrowser.open(url, '_blank', 'location=no');
+    inAppBrowserRef.addEventListener('loaderror', function(event) {
+      // Return to error page if the page is not available
+      inAppBrowserRef.close();
+      showErrorMessage();
+    });
+  } else {
+    // InAppBrowser plugin is not available
+    // Handle accordingly or show an error message
+  }
+}
+
+function showErrorMessage() {
+  // Implement your logic to show an error message or redirect to an error page
+    
+       var dialog = app.dialog.create({
+					content: '<div class="block no-margin margin-top text-align-center"><i class="fa-stack fa-3x"><span class="fas fa-stack-2x fa-circle text-color-red"></span><span class="fas fa-stack-1x  fa-inverse fa-sign-out-alt"></span></i><p>Card Not Active</p></div>',
+					buttons: [
+						{
+							text: 'Cancel',
+							color: 'gray'
+						},
+						{
+							text: 'Okay',
+							bold: true,
+							color: 'orange',
+							
+						}
+					]
+				});
+				dialog.open();
+}
+
+   
+ 
+  
+
+    
+     
+     
+     
+ }         
+
+     $on('pageInit', () => {
+         
+   sheetSwipeToClose = $f7.sheet.create({
+        el: '.app',
+        swipeToClose: true,
+        push: true,
+        backdrop: true,
+      });
+
+     
+     })
+     $on('pageBeforeOut', () => {
+      // Close opened sheets on page out
+     
+    });
+    $on('pageBeforeRemove', () => {
+
+
+      // Destroy sheet modal when page removed
+   
+  
+    });
+    return $render;
+  
+  };
+    
+
+</script>

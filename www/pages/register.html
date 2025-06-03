@@ -1,0 +1,225 @@
+<template>
+  <div class="page " data-name="register" style="background:#0149D1;">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <div class="logo-home">
+            <img src="img/mainlogo1.png" alt="" />
+          </div>
+        </div>
+        <div class="right">
+                      <a href="/login-screen-page/" class="button button-fill button-raised color-orange text-color-black">Sign in</a>
+
+        </div>
+      </div>
+    </div>
+
+      
+    <div class="page-content">
+      <div class="row h-100 justify-content-center">
+        <div class="col-90 medium-50 large-40">
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-90 medium-50 large-40 align-self-center padding-vertical">
+          <form class="needs-validation" validate>
+                <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-outline">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Full Name</div>
+                    <div class="item-input-wrap"><input type="text" name="fullname" id="fullname" class="input-with-value input_color"
+                        required /><span class="input-clear-button"></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+                  <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-outline">
+                     <div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" name="mobile" placeholder="Mobile" id="regmobile" class="input-with-value phone input_color" required />
+										<div class="item-input-info input-error-message"></div>
+                                        <span id="valid-msg" class="hide">✓</span>
+                                        <span id="error-msg" class="hide"></span>
+                                        <div id="countrylist"></div>
+									</div>
+								</div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-outline">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Username</div>
+                    <div class="item-input-wrap"><input type="text" name="username" id="regusername" class="input-with-value input_color"
+                        required /><span class="input-clear-button"></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+              
+            
+           
+            <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-outline">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Email</div>
+                    <div class="item-input-wrap"><input type="text" name="email" id="email" class="input-with-value input_color"
+                        required /><span class="input-clear-button"></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list form-list no-margin margin-bottom">
+              <ul>
+                <li class="item-content item-input item-input-outline">
+                  <div class="item-inner">
+                    <div class="item-title item-floating-label">Password</div>
+                    <div class="item-input-wrap"><input type="password" id="password" name="Password" class="input-with-value input_color"
+                         /><span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        
+            <p class="margin-bottom"><span class="text-secondary">By clicking on Sign up button, you are agree to our </span>
+              <a href="/termsandconditions/">Terms and Conditions</a>
+            </p>
+          </form>
+        </div>
+          
+                       
+        <div class="clearfix"></div>
+        <div class="col-90 medium-50 large-40 text-align-center margin-top-auto padding-vertical">
+          <a href="#" @click=${signUp} class="button button-fill button-large button-raised color-black text-color-orange">
+            Continue
+          </a>
+            
+              <div class="line-divider">
+                            <span class="font-size-12">OR</span>
+                        </div>
+
+                        <div class="margin-vertical margin-bottom">
+                            <button class="button button-large button-fill button-social" style="--f7-button-bg-color: rgb(var(--f7-color-mono-rgb)); --f7-button-hover-bg-color: rgba(var(--brand-color-facebook), 0.75); --f7-button-pressed-bg-color: rgba(var(--brand-color-facebook), 0.875); --f7-button-text-color: rgb(var(--f7-color-mono-invert-rgb));">
+<i class="icon bi bi-facebook"></i>                                
+                                <span>Continue with Facebook</span>
+                            </button>
+                            <button class="button button-large button-fill button-social margin-top" style="--f7-button-bg-color: rgb(var(--brand-color-google)); --f7-button-hover-bg-color: rgba(var(--brand-color-google), 0.75); --f7-button-pressed-bg-color: rgba(var(--brand-color-google), 0.875);">
+                                <i class="icon bi bi-google"></i>
+                                <span>Continue with Google</span>
+                            </button>
+                           
+                        </div>
+        </div>
+         
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+    .hide{
+        
+        
+        display: none;
+    }
+    .valid-msg{
+        
+        color: green;
+        
+    }
+.list .item-input-outline .item-floating-label {
+    background:#0149D1!important;
+}
+ .input_color {
+        
+        color: #fff!important;
+    }
+</style>
+<script>
+   
+  export default (props,{ $, $f7, $on, $f7router, $update }) => {
+   let username = null;
+   
+	
+    const signUp = () => {
+       // Show preloader
+     app.preloader.show('color-orange');
+      username = $('input#regusername').val();
+     let password = $('input#password').val();
+     let email = $('input#email').val();  
+     let phonenumber =  $('input.phone').val();
+     let fullname = $('input#fullname').val();
+       
+     
+    var data = new FormData();
+//data.append("server_key", window.config.app.server_key);
+//data.append("confirm_password", password);
+//data.append("device_type", "phone");
+  console.log(phonenumber);
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+      // Hide preloader
+        app.preloader.hide();
+    console.log(this.responseText);
+      const res = JSON.parse(this.responseText);
+      if (res.Message === "User registered successfully")
+				{
+					
+					app.toast.show({
+					text: 'Proceed to Verify your account, from the email sent to you',
+					position: 'top',
+					cssClass: 'toast-round bg-color-green'
+				});
+				app.views.current.router.navigate('/login-screen-page/');					
+					
+					}
+                 else
+					{ 
+                    
+					     
+                        $f7.dialog.alert(res.Message, function () {
+        //$f7.loginScreen.close();
+
+      })
+					}
+  }
+});
+
+xhr.open("POST", "https://boldscholar.com/api/auth/register?username=" + username +"&Email=" + email +"&FullName=" + fullname + "&PhoneNumber=" + phonenumber +"&Password=" +password);
+
+xhr.send();
+        
+        
+    
+        		
+        
+      
+    }
+  $on('pageInit', () => {
+         
+ fetch('https://api.ipify.org?format=json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data.ip);
+  })
+  .catch(function(error) {
+    console.log('Error: ' + error);
+  });      
+         
+       
+     })
+
+    return $render;
+  };
+
+</script>

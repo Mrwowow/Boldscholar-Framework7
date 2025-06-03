@@ -1,0 +1,854 @@
+<template>
+    <div class="page page-journal-page" data-name="journal-page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="button button-fill color-white button-44 back">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="title">
+                    <div class="logo-small text-color-white">
+                        <h5>${bookdata.JournalTitle}<span class="text-secondary fw-light"></span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="block medium-inset medium-margin-top no-hairlines no-margin-vertical no-padding">
+                <div class="overlay-container elevation-8 shape-inherit">
+                    <div class="responsive-wrapper" style="max-height: 304px;">
+                        <div class="responsive-container">
+                            <img class="responsive-content" src="${bookdata.JournalCoverUrl}" alt="" />
+                        </div>
+                    </div>
+                    <div class="overlay-content align-items-stretch justify-content-space-between text-align-start">
+                        <div class="display-flex justify-content-space-between">
+                        </div>
+                        <div>
+                            <div>
+                                <a href="#" class="link badge color-amber text-color-black">${bookdata.CategoryName}</a>
+                                <a href="#" class="link text-color-white">${bookdata.JournalTitle} By ${bookdata.InstitutionName}</a> <br/>
+                            </div>
+                            <div class="font-size-20 font-weight-bold single-line-text">
+                                <span class="vertical-align-middle">${bookdata.name}</span>
+                            </div>
+                            <div class="font-size-12 single-line-text">${bookdata.address}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block block-strong medium-hide no-hairlines no-margin-vertical sticky sticky-top">
+                <div class="segmented segmented-strong color-gray">
+                    <a href="#tab-overview" class="button font-size-12 tab-link tab-link-active color-black">Overview</a>
+                    <a href="#editorial-board" class="button font-size-12 tab-link color-black">Editorial Board</a>
+                    <a href="#journal-volumes" class="button font-size-12 tab-link color-black">Volumes</a>
+                    <a href="#journal-articles" class="button font-size-12 tab-link color-black">Articles</a>
+                    <span class="segmented-highlight"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center no-gap padding-horizontal-half" style="--f7-card-margin-horizontal: 8px;">
+                <div class="col-100 medium-65 large-70 xlarge-65">
+                    <div class="tabs">
+
+                        <div id="tab-overview" class="tab tab-active">
+                            <div class="card margin-top no-shadow ${$f7.rtl ? 'no-safe-area-right' : 'no-safe-area-left'} text-color-black">
+                                <div class="card-header">About Journal</div>
+                                <div class="card-content card-content-padding">
+                                    <div id="aboutjournal"></div>
+                                </div>
+                            </div>
+                             <div class="row margin-bottom">
+                                 <div class="col-100">
+                                    <div class="card margin-top margin-bottom no-shadow text-color-black">
+                                        <div class="card-header">Journal Statistics</div>
+                                        <div class="card-content">
+                                            <div class="list media-list no-chevron no-hairlines no-hairlines-between no-safe-areas">
+                                                <ul>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <div class="shape-container shape-auto size-40 color-theme1">
+                                                                    <i class="icon material-icons font-size-20 color-white">account_circle</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Published by</div>
+                                                                </div>
+                                                                <div class="item-text">${bookdata.InstitutionName}</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="item-content">
+                                                                <div class="item-media">
+                                                                    <div class="shape-container shape-auto size-40 color-theme1">
+                                                                        <i class="icon material-icons font-size-20 color-white">book_4</i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-title">ISSN</div>
+                                                                    </div>
+                                                                    <div class="item-text">
+                                                                        ${bookdata.ISSN}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="item-content">
+                                                                <div class="item-media">
+                                                                    <div class="shape-container shape-auto size-40 color-theme1">
+                                                                        <i class="icon material-icons font-size-20 color-white">calendar_month</i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-title">Publication Year </div>
+                                                                    </div>
+                                                                    <div class="item-text">${bookdata.YearOfEstablishment}</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <div class="shape-container shape-auto size-40 color-theme1">
+                                                                    <i class="icon material-icons font-size-20 color-white">collections_bookmark</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">No. of Volumes</div>
+                                                                </div>
+                                                                <div class="item-text">${JournalStat.VolumeCount}</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <div class="shape-container shape-auto size-40 color-theme1">
+                                                                    <i class="icon material-icons font-size-20 color-white">menu_book</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">No. of Issues</div>
+                                                                </div>
+                                                                <div class="item-text">${JournalStat.TotalIssues}</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <div class="shape-container shape-auto size-40 color-theme1">
+                                                                    <i class="icon material-icons font-size-20 color-white">auto_stories</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Articles</div>
+                                                                </div>
+                                                                <div class="item-text">${JournalStat.ArticleCount}</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <div class="shape-container shape-auto size-40 color-theme1">
+                                                                    <i class="icon material-icons font-size-20 color-white">download</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Article Downloads</div>
+                                                                </div>
+                                                                <div class="item-text">${JournalStat.ArticleDownloads}</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="card margin-top no-shadow">
+                                        <div class="card-header">Call for Papers</div>
+                                        <div class="card-content">
+                                            <div id="call-for-papers" class="editorial-board-wrapper"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="editorial-board" class="tab">
+                            <div class="row margin-bottom">
+                                <div class="col">
+                                    <div class="card margin-top no-shadow ${$f7.rtl ? 'no-safe-area-right' : 'no-safe-area-left'}">
+                                        <div class="card-header">
+                                            Editorial Board
+                                        </div>
+                                        <div class="card-content">
+                                            <div id="editorialboard" class="editorial-board-wrapper"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="journal-volumes" class="tab">
+                            <div class="card margin-top margin-bottom no-shadow ${$f7.rtl ? 'no-safe-area-right' : 'no-safe-area-left'}" style="color:#000;">
+                                <div class="card-header">
+                                    <span>Journal Volumes</span>
+                                    <button type="button" class="button button-fade button-small width-auto"></button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="list media-list no-chevron no-hairlines no-hairlines-between no-safe-areas">
+                                        <ul>
+                                            ${JournalVolumes.map((JournalVolume) => $h`
+                                                <li>
+                                                    <a href="#" class="item-link" @click="${() => openVolume(JournalVolume)}">
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <div class="shape-auto size-40 color-theme1 display-flex align-items-center justify-content-center">
+                                                                    <i class="icon material-icons font-size-20 text-color-theme2">collections_bookmark</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">
+                                                                        <span>Volume ${JournalVolume.VolName} (Issue ${JournalVolume.Issue}), ${JournalVolume.YearOfPublication} - (${JournalVolume.VolCount} articles)</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            `)}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="journal-articles" class="tab">
+                            <div class="card margin-top margin-bottom no-shadow ${$f7.rtl ? 'no-safe-area-right' : 'no-safe-area-left'}" style="color:#000;">
+                                <div class="card-header">
+                                    <span>Journal Articles</span>
+                                    <div class="searchbar-container">
+                                        <div class="searchbar searchbar-inline">
+                                            <div class="searchbar-inner">
+                                                <div class="searchbar-input-wrap">
+                                                    <input type="search" placeholder="Search articles..." id="articles-search-input" />
+                                                    <i class="searchbar-icon"></i>
+                                                    <span class="input-clear-button"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="list media-list no-chevron no-hairlines no-hairlines-between no-safe-areas articles-list">
+                                        <ul>
+                                            ${articles.map((article) => $h`
+                                                <li class="article-item">
+                                                    <a href="#" class="item-link" @click="${() => openArticle(article)}">
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <div class="shape-auto size-40 bg-color-blue display-flex align-items-center justify-content-center">
+                                                                    <i class="icon material-icons font-size-20 color-white">article</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">
+                                                                        <span>${article.Title}</span>
+                                                                        ${`\u0020`}
+                                                                        <span class="text-color-gray">${`\u2022`}</span>
+                                                                        ${`\u0020`}
+                                                                        <span class="font-size-12 font-weight-normal text-color-gray">Pages ${article.PageInPublication}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-subtitle">
+                                                                    <span class="font-size-13">${article.Author}</span>
+                                                                </div>
+                                                                <div class="item-text article-abstract">
+                                                                    ${stripHtmlTags(article.Abstract)}
+                                                                </div>
+                                                                <div class="item-footer">
+                                                                    <span class="font-size-12 text-color-gray">
+                                                                        <i class="icon material-icons font-size-16">download</i> 
+                                                                        ${article.DownloadCount} downloads
+                                                                        ${article.DOI ? `• DOI: ${article.DOI}` : ''}
+                                                                    </span>
+                                                                    <span class="button button-small button-fill color-blue article-download-btn" @click="${(e) => downloadArticle(e, article)}">
+                                                                        <i class="icon material-icons font-size-16">file_download</i> Download
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            `)}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="button button-fill flex-grow-1" @click="${loadMoreArticles}">Load More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<style>
+.row > .col, .row > [class*="col-"] {
+    width: calc(100% / var(--f7-cols-per-row));
+    max-width: 100%;
+    padding-left: 0!important; 
+    padding-right: 0!important;
+}
+#the-canvas {
+  border: 1px solid black;
+  direction: ltr;
+}    
+
+.formatted-content {
+    line-height: 1.5;
+    padding: 16px;
+}
+
+.formatted-content .margin-bottom-half {
+    margin-bottom: 8px;
+}
+
+.formatted-content .margin-left {
+    margin-left: 16px;
+}
+
+.formatted-content .font-weight-bold {
+    font-weight: bold;
+}
+
+.formatted-content .list {
+    margin: 8px 0;
+}
+
+.formatted-content .item {
+    margin-bottom: 4px;
+}
+.editorial-board-content {
+    padding: 16px;
+    line-height: 1.6;
+}
+.editorial-board-content .block-title {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.editorial-board-content .block-paragraph {
+    margin-bottom: 12px;
+}
+.editorial-board-content .list {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+.editorial-board-content .item-content {
+    padding-left: 0;
+}
+.article-abstract {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.article-download-btn {
+    margin-left: 10px;
+}
+.searchbar-container {
+    width: 50%;
+    margin-left: auto;
+}
+</style>
+<script>
+export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+    const getdata = localStorage.getItem("BoldScholarUserData");
+    const userdata = JSON.parse(getdata);
+    console.log(userdata);
+    let userid = userdata.Id;
+    let fullname = userdata.fullName; 
+    let email = userdata.Email; 
+    let phone = userdata.PhoneNumber; 
+    let journal = localStorage.getItem("BoldscholarJournalData");
+    let bookdata = JSON.parse(journal);
+    let bookfile = bookdata.BookFile;
+    let booktitle = bookdata.BookTitle;
+    let JournalId = bookdata.JournalId;
+    console.log(bookdata);
+    const subscribed = userdata.subscribed;
+    let JournalStat = '';
+    let JournalVolumes = [];
+    let articles = [];
+    let currentPage = 1;
+    let pageSize = 10;
+    let searchQuery = '';
+    let articlesSearchbar;
+
+    // Format currency helper function
+    const formatCurrency = (amount) => {
+        if (amount === null || amount === undefined || isNaN(amount)) {
+            return '₦0.00';
+        }
+        
+        try {
+            const numericAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+            const formatted = new Intl.NumberFormat('en-NG', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(numericAmount);
+            
+            return `₦${formatted}`;
+        } catch (error) {
+            console.error('Error formatting currency:', error);
+            return '₦0.00';
+        }
+    };
+
+    // Helper function to strip HTML tags
+    const stripHtmlTags = (html) => {
+        if (!html) return '';
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || '';
+    };
+    
+    // Function to open an article
+    const openArticle = (article) => {
+        // Save the current list of articles to localStorage for access in article detail page
+        localStorage.setItem("currentJournalArticles", JSON.stringify(articles));
+        
+        // Navigate to article detail page
+        $f7router.navigate(`/journal-article/${article.Id}/`);
+    };
+
+    // Function to download an article
+    const downloadArticle = (e, article) => {
+        e.stopPropagation(); // Prevent opening the article detail page
+        
+        if (article && article.Attachment) {
+            const baseUrl = 'https://boldscholar.com';
+            const pdfUrl = `${baseUrl}${article.Attachment}`;
+            
+            try {
+                // Open in new window/tab
+                const newWindow = window.open(pdfUrl, '_blank');
+                
+                if (!newWindow) {
+                    // Popup was blocked or failed
+                    showErrorMessage('Please enable popups to download this article');
+                } else {
+                    // Update download count in UI
+                    article.DownloadCount++;
+                    $update();
+                    
+                    // Call API to update download count
+                    updateDownloadCount(article.Id);
+                }
+            } catch (error) {
+                // Handle any errors in opening the URL
+                console.error('Error opening URL:', error);
+                showErrorMessage('Unable to download article. Please try again.');
+            }
+        } else {
+            showErrorMessage('No attachment available for this article');
+        }
+    };
+
+    // Function to update download count
+    const updateDownloadCount = (articleId) => {
+        if (!articleId) return;
+        
+        // Call API to update download count
+        $f7.request({
+            url: `https://boldscholar.com/api/general/UpdateJournalArticleDownloadCount?articleId=${articleId}`,
+            method: 'GET',
+            dataType: 'json',
+        })
+        .then(response => {
+            console.log('Download count updated successfully');
+        })
+        .catch(error => {
+            console.error('Error updating download count:', error);
+        });
+    };
+
+// Open volume and get articles
+const openVolume = (volume) => {
+    if (!volume) return;
+    
+    // Reset pagination
+    currentPage = 1;
+    
+    // Construct URL with query parameters instead of using form data in body
+    const url = `https://boldscholar.com/api/general/GetArticleLists?volID=${volume.Id}&journalID=${JournalId}`;
+    
+    // Show loading indicator
+    $f7.preloader.show();
+    
+    // Make the request with proper GET format
+    fetch(url, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(result => {
+        $f7.preloader.hide();
+        console.log('Articles for volume:', result);
+        
+        // Process the response data
+        if (result && Array.isArray(result.ArticleList)) {
+            articles = result.ArticleList;
+            
+            // Save current volume ID
+            localStorage.setItem("currentVolumeId", volume.VolumeId);
+            
+            // Switch to articles tab
+            $f7.tab.show('#journal-articles');
+            $update();
+        } else {
+            showErrorMessage('No articles found for this volume');
+        }
+    })
+    .catch(error => {
+        $f7.preloader.hide();
+        console.error('Error fetching volume articles:', error);
+        showErrorMessage('Failed to load articles for this volume');
+    });
+};
+// Load more articles
+const loadMoreArticles = () => {
+    // Increment page number
+    currentPage++;
+    
+    // Get current volume ID if available
+    const currentVolumeId = localStorage.getItem("currentVolumeId");
+    
+    // Construct URL with query parameters
+    let url = `https://boldscholar.com/api/general/GetJournalArticles?journalId=${JournalId}&page=${currentPage}&pageSize=${pageSize}`;
+    
+    // Add volume ID if filtering by volume
+    if (currentVolumeId) {
+        url = `https://boldscholar.com/api/general/GetVolumeArticles?volumeId=${currentVolumeId}&page=${currentPage}&pageSize=${pageSize}`;
+    }
+    
+    // Add search query if available
+    if (searchQuery) {
+        url += `&search=${encodeURIComponent(searchQuery)}`;
+    }
+    
+    $f7.preloader.show();
+    $f7.request({
+        url: url,
+        method: 'GET',
+        dataType: 'json',
+    })
+    .then(response => {
+        $f7.preloader.hide();
+        if (response.data && Array.isArray(response.data) && response.data.length > 0) {
+            // Append new articles to existing list
+            articles = [...articles, ...response.data];
+            $update();
+        } else {
+            $f7.toast.show({
+                text: 'No more articles to load',
+                position: 'center',
+                closeTimeout: 2000
+            });
+        }
+    })
+    .catch(error => {
+        $f7.preloader.hide();
+        console.error('Error loading more articles:', error);
+        showErrorMessage('Failed to load more articles');
+    });
+};
+
+// Function to fetch articles
+const fetchArticles = async () => {
+    try {
+        // Reset pagination
+        currentPage = 1;
+        
+        // Construct URL with query parameters
+        const url = `https://boldscholar.com/api/general/GetJournalArticles?journalId=${JournalId}&page=${currentPage}&pageSize=${pageSize}`;
+        
+        $f7.preloader.show();
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        $f7.preloader.hide();
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        console.log(result);
+        if (result.data && Array.isArray(result.data)) {
+            articles = result.data;
+            $update();
+        } else {
+            console.error('Invalid response format:', result);
+        }
+    } catch (error) {
+        $f7.preloader.hide();
+        console.error('Error fetching articles:', error);
+        // Show error to user
+        showErrorMessage('Failed to load articles');
+    }
+};
+
+// Function to fetch Journal Stats
+const fetchStatistics = async () => {
+    try {
+        // Construct URL with query parameters
+        const url = `https://boldscholar.com/api/general/GetJournalStat/?id=${JournalId}`;
+        
+        $f7.preloader.show();
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        $f7.preloader.hide();
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        console.log(result);
+        if (result) {
+            JournalStat = result.data;
+            JournalVolumes = result.data.JournalVolumes || [];
+            console.log(JournalStat);
+            $update();
+        } else {
+            console.error('Invalid response format:', result);
+        }
+    } catch (error) {
+        $f7.preloader.hide();
+        console.error('Failed to load Journal Stat:', error);
+        showErrorMessage('Failed to load Journal Statistics');
+    }
+};
+
+// Function to safely render HTML content
+const renderEditorialBoard = (htmlContent) => {
+    if (!htmlContent) return '';
+    
+    // Create temporary container to parse HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+    
+    // Remove potentially dangerous elements
+    const dangerousElements = ['script', 'iframe', 'object', 'embed', 'form'];
+    dangerousElements.forEach(tag => {
+        const elements = doc.getElementsByTagName(tag);
+        while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+    });
+
+    // Remove dangerous attributes
+    const dangerousAttrs = ['onerror', 'onload', 'onclick', 'onmouseover'];
+    const allElements = doc.getElementsByTagName('*');
+    for (let i = 0; i < allElements.length; i++) {
+        const attrs = allElements[i].attributes;
+        for (let j = attrs.length - 1; j >= 0; j--) {
+            const attrName = attrs[j].name.toLowerCase();
+            if (dangerousAttrs.includes(attrName)) {
+                allElements[i].removeAttribute(attrName);
+            }
+        }
+    }
+
+    // Format specific elements
+    const formatElements = (node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            // Add Framework7 specific classes
+            switch (node.tagName.toLowerCase()) {
+                case 'h1':
+                case 'h2':
+                case 'h3':
+                    node.classList.add('block-title');
+                    break;
+                case 'p':
+                    node.classList.add('block-paragraph');
+                    break;
+                case 'ul':
+                    node.classList.add('list');
+                    break;
+                case 'li':
+                    node.classList.add('item-content');
+                    break;
+            }
+            
+            // Process child nodes
+            Array.from(node.childNodes).forEach(formatElements);
+        }
+        return node;
+    };
+
+    // Format the content
+    formatElements(doc.body);
+    
+    return doc.body.innerHTML;
+};
+
+// Show error message
+const showErrorMessage = (message) => {
+    $f7.dialog.alert(message, 'Error');
+};
+
+// Initialize search functionality
+const initializeSearch = () => {
+    articlesSearchbar = $f7.searchbar.create({
+        el: '.searchbar',
+        searchContainer: '.articles-list',
+        searchIn: '.item-title, .item-subtitle, .article-abstract',
+        on: {
+            search(sb, query) {
+                searchQuery = query;
+                if (query.length >= 3) {
+                    // Reset pagination
+                    currentPage = 1;
+                    
+                    // Fetch articles with search query
+                    const url = `https://boldscholar.com/api/general/GetJournalArticles?journalId=${JournalId}&search=${encodeURIComponent(query)}`;
+                    
+                    $f7.preloader.show();
+                    $f7.request({
+                        url: url,
+                        method: 'GET',
+                        dataType: 'json',
+                    })
+                    .then(response => {
+                        $f7.preloader.hide();
+                        if (response.data && Array.isArray(response.data)) {
+                            articles = response.data;
+                            $update();
+                        }
+                    })
+                    .catch(error => {
+                        $f7.preloader.hide();
+                        console.error('Error searching articles:', error);
+                    });
+                }
+            },
+            clear(sb) {
+                // Reset search query
+                searchQuery = '';
+                
+                // Reset articles to initial state
+                fetchArticles();
+            }
+        }
+    });
+};
+
+$on('pageBeforeIn', function() {
+    // Reset pagination
+    currentPage = 1;
+});
+
+$on('pageInit', () => {
+    // Fetch journal statistics
+    fetchStatistics();
+    
+    // Fetch articles
+    fetchArticles();
+    
+    // Initialize search functionality
+    initializeSearch();
+    
+    // Render content sections
+    let editorialBoardTab = document.querySelector('#editorialboard');
+    let aboutJournalTab = document.querySelector('#aboutjournal');
+    let callForPaperCard = document.querySelector('#call-for-papers');
+    
+    if (editorialBoardTab && bookdata.EditorialBoard) {
+        const formattedContent = renderEditorialBoard(bookdata.EditorialBoard);
+        editorialBoardTab.innerHTML = `
+            <div class="block">
+                <div class="editorial-board-content">
+                    ${formattedContent}
+                </div>
+            </div>
+        `;
+    }
+    
+    if (aboutJournalTab && bookdata.AboutJournal) {
+        const formattedContent = renderEditorialBoard(bookdata.AboutJournal);
+        aboutJournalTab.innerHTML = `
+            <div class="block">
+                <div class="editorial-board-content">
+                    ${formattedContent}
+                </div>
+            </div>
+        `;
+    }
+    
+    if (callForPaperCard && bookdata.CallForSubmissionGuideline) {
+        const formattedContent = renderEditorialBoard(bookdata.CallForSubmissionGuideline);
+        callForPaperCard.innerHTML = `
+            <div class="block">
+                <div class="editorial-board-content">
+                    ${formattedContent}
+                </div>
+            </div>
+        `;
+    }
+});
+
+// Cleanup on page destroy
+$on('pageBeforeRemove', () => {
+    if (articlesSearchbar) {
+        articlesSearchbar.destroy();
+    }
+});
+
+return $render;
+}

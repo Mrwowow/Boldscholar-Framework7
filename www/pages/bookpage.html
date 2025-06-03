@@ -1,0 +1,607 @@
+<template>
+<div class="page page-bookpage" data-name="bookpage" style="color:#000;">
+    <div class="navbar ">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left  no-margin-right">
+                <a href="#" class="button button-fill color-white button-44 back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="title" style="color:#ff9500;">
+                <h5>BOOK</h5>
+            </div>
+            <div class="right">
+                <a href="/profile/" class="button button-fill color-white button-44">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="count-indicator"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+ <div class="toolbar toolbar-bottom">
+            <div class="toolbar-inner">
+              
+              
+                <div class="block block-strong inset margin-vertical">
+                        <audio controls preload="metadata">
+                            <source src="https://archive.org/download/10InvincibleHurry/1%20-%20Running%20About.mp3" type="audio/mp3" />
+                        </audio>
+                    </div>
+            </div>
+        </div>
+    <!-- main page content -->
+    <div class="page-content">
+        <div class="flipbookcontainer" id="flipbookcontainer">
+
+    </div>
+         <div class="block margin-vertical">
+          <iframe src="http://flowpaper.com/flipbook/https://flowpaper.com/example.pdf" width="100%" height="400" style="border: none;" allowFullScreen>
+          </iframe>   
+             
+                    </div>
+        <!-- product banner -->
+        <div class="row margin-top" style="display:none;">
+            <div class="col-100 no-padding-horizontal position-relative">
+                <div class="swiper-container cardswiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card elevation-2 margin-bottom">
+                                <div class="card-content card-content-padding">
+                                    <img src="img/categories1.png" alt="" class="w-100 rounded-15" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="card elevation-2 margin-bottom">
+                                <div class="card-content card-content-padding">
+                                    <img src="img/categories1.png" alt="" class="w-100 rounded-15" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="card elevation-2 margin-bottom">
+                                <div class="card-content card-content-padding">
+                                    <img src="img/categories1.png" alt="" class="w-100 rounded-15" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- name and description -->
+        <div class="row margin-bottom-half">
+            <div class="col">
+                <p class="text-secondary small">Reading time </p>
+
+            </div>
+            <div class="col-auto">
+                <p class="small">
+                    <span class="text-secondary">5.0 (1445 Reviews)</span>
+                    <i class="bi bi-star-fill text-color-yellow"></i>
+                </p>
+            </div>
+        </div>
+        <div class="row margin-bottom-half">
+            <div class="col">
+                <h4 class="margin-bottom-half">Book name</h4>
+            </div>
+        </div>
+        <div class="row margin-bottom" style="display:none;">
+            <div class="col align-self-center">
+                <h5>₦ 524.00 <s class="small text-secondary fw-light">₦ 650.00</s></h5>
+            </div>
+            <div class="col-auto">
+                <div class="counter-number">
+                    <button class="button button-small avatar avatar-30 no-padding rounded-circle">
+                        <i class="bi bi-dash size-22"></i>
+                    </button>
+                    <span>2</span>
+                    <button class="button button-small avatar avatar-30 no-padding rounded-circle">
+                        <i class="bi bi-plus size-22"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+ <div class="row justify-content-center" style="display:none;">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Audio can be used to embed sound files.</p>
+                    </div>
+
+                   
+
+                </div>
+            </div>
+        <!-- delivery time -->
+        <div class="row" style="display:none;">
+            <div class="col-12">
+                <div class="card bg-opac-50 elevation-2 margin-bottom">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="card">
+                                    <div class="card-content card-content-padding padding-half-sm">
+                                        <figure
+                                            class="text-align-center no-margin-bottom avatar avatar-50 bg-theme rounded-15">
+                                            <i class="bi bi-clock size-24 "></i>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col align-self-center no-padding-left">
+                                <h6 class="margin-bottom-half">San Jose, USA
+                                    <span class="text-color-theme float-end small">Change <i
+                                            class="bi bi-chevron-right"></i></span>
+                                </h6>
+                                <p><span class="text-secondary">Delivery on:</span> <strong>7 Dec 2021</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="row margin-bottom" style="display:none;">
+            <div class="col">
+                <a href="/cart/" class="button button-fill button-large color-white button-raised">Add to Cart</a>
+            </div>
+            <div class="col">
+                <a href="/cart/" class="button button-fill button-large color-theme button-raised">Buy Now</a>
+            </div>
+        </div>
+        <div class="row margin-bottom-half">
+            <div class="col">
+                <h5 class="margin-bottom">Description</h5>
+                    
+                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    sollicitudin
+                    dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse efficitur ex eu est placerat
+                    mattis.</p>
+                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    sollicitudin
+                    dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse efficitur ex eu est placerat
+                    mattis.</p>
+
+                <br />
+                <p class="text-secondary small">** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+                    sollicitudin dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse efficitur ex eu
+                    est
+                    placerat mattis.</p>
+                <br />
+            </div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-50 text-align-center margin-bottom">
+                <a class="button button-small button-link margin-right-half sheet-open" href="#" data-sheet=".my-share">
+                    <i class="bi bi-share margin-right-half"></i> Share
+                </a>
+            </div>
+            <div class="col-50 text-align-center margin-bottom">
+                <button class="button button-small button-link color-red">
+                    <i class="bi bi-heart margin-right-half"></i> Wishlist
+                </button>
+            </div>
+            <!-- Sheet Modal Container -->
+            <div class="sheet-modal my-share">
+                <!-- Sheet Modal Toolbar, optional -->
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <div class="left">Share</div>
+                        <div class="right">
+                            <a href="#" class="link sheet-close">Done</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sheet Modal Inner -->
+                <div class="sheet-modal-inner">
+                    <!-- Sheet Modal content -->
+                    <div class="justify-content-center text-align-center">
+                        <p class="margin-bottom-half text-secondary">Share product with</p>
+                        <a href="#" class="link text-color-theme padding"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="link text-color-theme padding"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="link text-color-theme padding"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="link text-color-theme padding"><i class="bi bi-google"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- related product  -->
+        <div class="row margin-bottom">
+            <div class="col">
+                <h6 class="title">Related Books</h6>
+            </div>
+        </div>
+        <!--products -->
+        <div class="row margin-bottom">
+            <div class="col-100 no-padding-horizontal">
+                <!-- swiper categories -->
+              <!-- swiper categories -->
+                <div class="swiper-container connectionwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide text-align-center">
+                            <a href="/product/" class="card text-align-center bg-theme" style="background:#0149D1!important;">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar avatar-90 rounded-15 ">
+                                        <img src="img/the-sum-of-all-fears-7.jpeg" width="100%" alt=""/>
+                                    </figure>
+                                    <p class="text-align-center size-12"><small class="text-muted">The Sun of...
+                                        </small></p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide text-align-center">
+                            <a href="/product-single/" class="card text-align-center bg-theme" style="background:#0149D1!important;">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar avatar-90 rounded-15 ">
+                                        <img src="img/at-the-foot-of-the-cherry-tree.jpeg" alt=""/>
+                                    </figure>
+                                    <p class="text-align-center size-12"><small class="text-muted">At the foot...
+                                           </small><br /></p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide text-align-center">
+                            <a href="product/" class="card text-align-center bg-theme" style="background:#0149D1!important;">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar avatar-90 rounded-15 ">
+                                        <img src="img/kill-for-me-kill-for-you.jpeg" alt="" />
+                                    </figure>
+                                    <p class="text-align-center size-12"><small class="text-muted">Kill...
+                                            </small></p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide text-align-center">
+                            <a href="product/" class="card text-align-center bg-theme" style="background:#0149D1!important;">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar avatar-90 rounded-15 ">
+                                        <img src="img/hostile-territory-4.jpeg" alt=""/>
+                                    </figure>
+                                    <p class="text-align-center size-12"><small class="text-muted">Hostile...
+                                            </small><br /></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide text-align-center">
+                            <a href="product/" class="card text-align-center bg-theme" style="background:#0149D1!important;">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar avatar-90 rounded-15 ">
+                                        <img src="img/the-running-grave-4.jpeg" alt="" />
+                                    </figure>
+                                    <p class="text-align-center size-12"><small class="text-muted">Running..
+                                           </small></p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+           </div>
+        </div>
+
+
+        <!-- Comments -->
+        <div class="row margin-bottom-half">
+            <div class="col-100">
+                <h6 class="margin-vertical-half">Comments</h6>
+            </div>
+        </div>
+        <div class="row margin-bottom-half">
+            <div class="col-100">
+                <div class="card card-light elevation-2 margin-bottom">
+                    <div class="card-content card-content-padding">
+                        <div class="list media-list">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <div class="card">
+                                                <div class="card-content padding-half-sm">
+                                                    <figure class="avatar avatar-50 rounded-15">
+                                                        <img src="img/user1.jpg" alt="" />
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Ajinkya McMohan</div>
+                                            </div>
+                                            <div class="item-subtitle small text-muted margin-bottom-half">
+                                                Purchased
+                                                <span class="float-right">
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star text-color-yellow size-16"></i>
+                                                </span>
+                                            </div>
+                                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                elit. Pellentesque sollicitudin dignissim nisi, eget malesuada ligula
+                                                ultricies sit amet. Suspendisse efficitur ex eu est placerat mattis.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <div class="card">
+                                                <div class="card-content padding-half-sm">
+                                                    <figure class="avatar avatar-50 rounded-15">
+                                                        <img src="img/user2.jpg" alt="" />
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Shrinavasana Bhatt</div>
+                                            </div>
+                                            <div class="item-subtitle small text-muted margin-bottom-half">
+                                                Purchased
+                                                <span class="float-right">
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star text-color-yellow size-16"></i>
+                                                </span>
+                                            </div>
+                                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                elit. Pellentesque sollicitudin dignissim nisi, eget malesuada ligula
+                                                ultricies sit amet. Suspendisse efficitur ex eu est placerat mattis.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <div class="card">
+                                                <div class="card-content padding-half-sm">
+                                                    <figure class="avatar avatar-50 rounded-15">
+                                                        <img src="img/user3.jpg" alt="" />
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Arithya De'souza</div>
+                                            </div>
+                                            <div class="item-subtitle small text-muted margin-bottom-half">
+                                                Purchased
+                                                <span class="float-right">
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                    <i class="bi bi-star-fill text-color-yellow size-16"></i>
+                                                </span>
+                                            </div>
+                                            <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                elit. Pellentesque sollicitudin dignissim nisi, eget malesuada ligula
+                                                ultricies sit amet. Suspendisse efficitur ex eu est placerat mattis.</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+<style>
+      .flipbookcontainer {
+        height: 95vh;
+        width: 95%;
+        margin: 20px auto;
+        /* border: 2px solid red;
+        box-shadow: 0 0 5px red; */
+      }
+      .fullscreen {
+        background-color: #333;
+      }
+    </style>
+                                           
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        //var token = localStorage.getItem("WaoCardUserToken");
+        let books = null;
+        let bookcount = null;
+        const getdata = localStorage.getItem("BoldScholarUserData");
+        const userdata = JSON.parse(getdata);
+        console.log(userdata);
+        let userid = userdata.Id;
+
+      let loadData = function() {
+    books = null;
+    $update();
+    
+    var myHeaders = new Headers();
+    var formdata = new FormData();
+    //formdata.append("server_key", window.config.app.server_key);
+    formdata.append("userId", userid);
+    
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    $f7.request({
+        url: 'https://boldscholar.com/api/booksapi/getbooks?userId=' + userid ,
+        method: 'GET',
+        headers: myHeaders,
+        data: formdata,
+        dataType: 'json',
+        redirect: 'follow'
+      
+    })
+    .then(function(response) {
+       books = response.data.length ? response.data : [];
+       bookcount = books.length;
+        console.log(response);
+        $update();
+    })
+    .catch(function(response) {
+        books = 'error';
+        $update();
+    });
+}
+
+        let toggleAddtoLibrary = function(id, state) {
+
+    books.forEach(function(book) {
+        if (book.BookId == id) {
+            book.InLibrary = state ? true : false;
+           var bookid = id;
+          
+            var data = new FormData();
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function() {
+                if (this.readyState === 4) {
+                    console.log(this.responseText);
+                    app.toast.show({
+                        text: state ? 'Book Added to library' : 'Book Removed from library',
+                        icon: state ? '<i class="icon material-icons color-red">favorite</i>' : '<i class="icon material-icons color-gray">favorite</i>',
+                        position: 'center'
+                    });
+                }
+            });
+
+            xhr.open("POST", "https://boldscholar.com/api/booksapi/addtolibrary?Id="+ bookid + "&userId="+ userid);
+            xhr.send();
+        }
+    });
+}      
+    let book_page = (item) =>{
+      console.log(item);
+       localStorage.setItem("BoldscholarBookData",JSON.stringify(item));   
+      app.views.current.router.navigate('/bookpage/', {
+                    reloadCurrent: true, // Refresh the current page
+                    ignoreCache: true // Ignore caching for the new page
+});	    
+          
+          
+          
+      }
+        $on('pageBeforeIn', function() {
+            loadData();
+           // getEvents();
+        });
+
+        return $render;
+    }
+</script>                <div class="chip bg-theme margin-right">
+                                                        16% OFF
+                                                    </div>
+                                                </div>
+                                                <p class="no-margin-bottom"><small class="text-muted size-12">Samsug TV
+                                                        SM5500</small></p>
+                                                <h5>₦ 165.00</h5>
+                                                <a class="link">
+                                                    <i class="bi bi-bag-plus margin-right-half"></i> Add to Cart
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-100 medium-50 ">
+                                <div class="card margin-bottom">
+                                    <div class="card-content card-content-padding">
+                                        <div class="row">
+                                            <div class="col-auto position-relative">
+                                                <div
+                                                    class="position-absolute right-0 padding-horizontal z-index-1">
+                                                    <button
+                                                        class="button button-small button-28 roudned-circle elevation-2 elevation-red text-color-red">
+                                                        <i class="bi bi-heart size-10 vm"></i>
+                                                    </button>
+                                                </div>
+                                                <figure class="avatar avatar-80 rounded-15 border">
+                                                    <img src="img/categories2.png" alt="" class="w-100">
+                                                </figure>
+                                            </div>
+                                            <div class="col position-relative">
+                                                <div class="position-absolute right-0 no-padding z-index-1">
+                                                    <div class="chip bg-color-red text-color-white margin-right">
+                                                        On Sale
+                                                    </div>
+                                                </div>
+                                                <p class="no-margin-bottom"><small class="text-muted size-12">Top
+                                                        Cloths</small>
+                                                </p>
+                                                <h5>₦ 59.00</h5>
+                                                <a class="link">
+                                                    <i class="bi bi-bag-plus margin-right-half"></i> Add to Cart
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-100 medium-50 ">
+                                <div class="card margin-bottom">
+                                    <div class="card-content card-content-padding">
+                                        <div class="row">
+                                            <div class="col-auto position-relative">
+                                                <div
+                                                    class="position-absolute right-0 padding-horizontal z-index-1">
+                                                    <button
+                                                        class="button button-small button-28 roudned-circle elevation-2 elevation-red text-color-red">
+                                                        <i class="bi bi-heart size-10 vm"></i>
+                                                    </button>
+                                                </div>
+                                                <figure class="avatar avatar-80 rounded-15 border">
+                                                    <img src="img/categories3.png" alt="" class="w-100">
+                                                </figure>
+                                            </div>
+                                            <div class="col position-relative">
+                                                <div class="position-absolute right-0 no-padding z-index-1">
+                                                    <div class="chip bg-color-yellow text-color-white margin-right">
+                                                        1 Offer
+                                                    </div>
+                                                </div>
+                                                <p class="no-margin-bottom"><small class="text-muted size-12">Washing
+                                                        Machine</small></p>
+                                                <h5>₦ 265.00</h5>
+                                                <a class="link">
+                                                    <i class="bi bi-bag-plus margin-right-half"></i> Add to Cart
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

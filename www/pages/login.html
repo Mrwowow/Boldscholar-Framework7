@@ -1,0 +1,136 @@
+<template>
+  <div class="page  no-swipeback login" data-page="login" >
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <div class="logo-small">
+            <img src="img/logo.svg" alt=""/>
+            <h5><span class="text-secondary fw-light">Wao</span>Card</h5>
+          </div>
+        </div>
+        <div class="right">
+          <a href="/register/">Sign up</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content ">
+        <div class="row h-100 justify-content-center">
+          <div class="col-90 medium-50 large-40">
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-90 medium-50 large-40 align-self-center padding-vertical">
+            <h1 class="margin-bottom"><span class="text-secondary fw-light">Sign in to</span><br/>your account</h1>
+            <br />
+            <form name="login" class="was-validated needs-validation" validate>
+              <div class="list form-list no-margin margin-bottom">
+                <ul>
+                  <li class="item-content item-input item-input-with-value">
+                    <div class="item-inner">
+                      <div class="item-title item-floating-label">Phone</div>
+                      <div class="item-input-wrap"><input type="number"  name="number" id="number" class="input-with-value phonenumber"
+                           required validate pattern="[0-9]*" data-error-message="Only numbers please!" /><span class="input-clear-button"></span></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="list form-list no-margin margin-bottom">
+                <ul>
+                  <li class="item-content item-input item-input-with-value">
+                    <div class="item-inner">
+                      <div class="item-title item-floating-label">Password</div>
+                      <div class="item-input-wrap"><input type="password" name="password" id="password" class="input-with-value password"
+                          required validate /><span class="input-clear-button"></span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <p class="margin-bottom text-align-right">
+                <a href="/forgotpassword/" class="">
+                  Forgot your password?
+                </a>
+              </p>
+               <div class="clearfix"></div>
+          <div class="col-90 medium-50 large-40 text-align-center margin-top-auto padding-vertical">
+            <button href="#" @click=${signInPage} class="button button-fill button-large button-raised color-black text-color-orange">
+              Sign in
+            </button>
+          </div> 
+                
+            </form>
+           
+          </div>
+          
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+    input {
+        
+        
+        padding-right: 70px;
+    }
+</style>
+<script> 
+  export default (props, { $, $f7}) => {
+    const signInPage = () => {
+      let number = $('input#number').val();
+      let password = $('input#password').val();
+       
+     var xhr = app.request.post('https://app.waocard.biz/api/api/login.php', { number: number, password: password }).then(function (response) {
+  //$('.login').html(res.data); 
+         const res = JSON.parse(response.data);
+  console.log(response.data);
+    const errormsg = res.msg;     
+         	 	if (res.error === false)
+				{
+					
+					localStorage.setItem("WaopayUserPhone", response.userphone);
+					localStorage.setItem("WaopayUserId", response.uid);
+					localStorage.setItem("WaopayUserMail", response.usermail);
+					localStorage.setItem("WaopayUserSetup",  "2");
+                    
+                    if(response.pro_type === "0"){
+                        
+                        
+                     app.views.current.router.navigate('/create_card/');		   
+                        
+                    } else{
+                        
+                    app.toast.show({
+					text: 'Welcome',
+					position: 'bottom',
+					cssClass: 'toast-round bg-color-black'
+				});
+				app.views.current.router.navigate('/home_landing/');					
+					
+					    
+                        
+                        
+                        
+                        
+                        
+                    }
+
+			}
+                 else
+					{ 
+                        app.dialog.alert(errormsg, function () {
+});
+                        
+                       
+				app.views.current.router.navigate('/home_landing/');					
+					}
+ });
+        		
+        
+      
+    }
+
+    return $render;
+  };
+
+</script>
+

@@ -1,0 +1,263 @@
+.theme-dark {
+    background-color: var(--f7-theme-color);
+    --f7-panel-width: 280px;
+    /* color schemes */
+    --finwallapp-theme-color: var(--f7-theme-color);
+    --finwallapp-theme-text: #ffffff;
+    --finwallapp-theme-text-primary: rgba(255, 255, 255, 0.85);
+    --finwallapp-theme-text-secondary: rgba(255, 255, 255, 0.75);
+    --finwallapp-theme-text-secondary-light: #bbbbbb;
+    --finwallapp-theme-bordercolor: rgba(255, 255, 255, 0.1);
+
+    --finwallapp-header: transparent;
+    --finwallapp-header-active: #290058;
+    --finwallapp-footer: #290058;
+    --finwallapp-sidebar: var(--finwallapp-theme-color);
+    --finwallapp-card-color: rgba(0, 45, 170, 0.45);
+
+    --finwallapp-page-bg-1: #090058;
+    --finwallapp-page-bg-2: #09003b;
+    --finwallapp-page-bg-3: #030013;
+    --finwallapp-page-text: #ffffff;
+    --finwallapp-page-link: var(--finwallapp-theme-color);
+
+    .navbar {
+        .navbar-bg {
+            opacity: 0;
+        }
+        &.active {
+            .navbar-bg {
+                opacity: 1;
+            }
+        }
+    }
+    .footer .nav .nav-item .nav-link.active, .progressbar-text {
+        color: var(--finwallapp-theme-text) !important;
+    }
+    .chartdoughnut > .datadisplay {
+        color: #000;
+    }
+    input.calendar-daterange {
+        color: var(--finwallapp-color-text);
+    }
+    .bg-color-white,
+    .button.color-white {
+        background-color: var(--finwallapp-card-color) !important;
+    }
+
+    .card {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07), inset 0 1px 0px rgba(255, 255, 255, 0.1);
+    }
+
+    &.color-theme-red {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #ffc699;
+        --finwallapp-theme-color-grad-2: #ff5d83;
+        --finwallapp-theme-color-grad-3: #dc006a;
+
+        /* color schemes */
+        --finwallapp-theme-color: $red;
+        --finwallapp-header-active: darken($red, 28%);
+        --finwallapp-footer: darken($red, 28%);
+        --finwallapp-card-color: rgba($red, 0.15);
+        --finwallapp-page-bg-1: darken($red, 34%);
+        --finwallapp-page-bg-2: darken($red, 42%);
+        --finwallapp-page-bg-3: darken($red, 50%);
+    }
+
+    &.color-theme-green {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #bdffaa;
+        --finwallapp-theme-color-grad-2: #04c5de;
+        --finwallapp-theme-color-grad-3: #00a0f5;
+
+        /* color schemes */
+        --finwallapp-theme-color: $green;
+        --finwallapp-header-active: darken($green, 28%);
+        --finwallapp-footer: darken($green, 28%);
+        --finwallapp-card-color: rgba($green, 0.15);
+        --finwallapp-page-bg-1: darken($green, 34%);
+        --finwallapp-page-bg-2: darken($green, 42%);
+        --finwallapp-page-bg-3: darken($green, 50%);
+    }
+
+    &.color-theme-blue {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #0897e9;
+        --finwallapp-theme-color-grad-2: #5100d4;
+        --finwallapp-theme-color-grad-3: #270069;
+        /* page color */
+        --finwallapp-theme-color: $blue;
+        --finwallapp-header-active: darken($blue, 28%);
+        --finwallapp-footer: darken($blue, 28%);
+        --finwallapp-card-color: rgba($blue, 0.15);
+        --finwallapp-page-bg-1: darken($blue, 34%);
+        --finwallapp-page-bg-2: darken($blue, 42%);
+        --finwallapp-page-bg-3: darken($blue, 50%);
+    }
+
+    &.color-theme-pink {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #ff71c3;
+        --finwallapp-theme-color-grad-2: #e80075;
+        --finwallapp-theme-color-grad-3: #4d00da;
+
+        /* color schemes */
+        --finwallapp-theme-color: $pink;
+        --finwallapp-header-active: darken($pink, 28%);
+        --finwallapp-footer: darken($pink, 28%);
+        --finwallapp-card-color: rgba($pink, 0.15);
+        --finwallapp-page-bg-1: darken($pink, 34%);
+        --finwallapp-page-bg-2: darken($pink, 42%);
+        --finwallapp-page-bg-3: darken($pink, 50%);
+    }
+    &.color-theme-yellow {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #ffdb6f;
+        --finwallapp-theme-color-grad-2: #f0ac00;
+        --finwallapp-theme-color-grad-3: #f03000;
+
+        /* color schemes */
+        --finwallapp-theme-color: $yellow;
+        --finwallapp-header-active: darken($yellow, 28%);
+        --finwallapp-footer: darken($yellow, 28%);
+        --finwallapp-card-color: rgba($yellow, 0.15);
+        --finwallapp-page-bg-1: darken($yellow, 34%);
+        --finwallapp-page-bg-2: darken($yellow, 42%);
+        --finwallapp-page-bg-3: darken($yellow, 50%);
+    }
+    &.color-theme-orange {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #ffda6b;
+        --finwallapp-theme-color-grad-2: #ff7c15;
+        --finwallapp-theme-color-grad-3: #e80774;
+
+        /* color schemes */
+        --finwallapp-theme-color: $orange;
+        --finwallapp-header-active: darken($orange, 28%);
+        --finwallapp-footer: darken($orange, 28%);
+        --finwallapp-card-color:rgba($orange, 0.15);
+        --finwallapp-page-bg-1: darken($orange, 34%);
+        --finwallapp-page-bg-2: darken($orange, 42%);
+        --finwallapp-page-bg-3: darken($orange, 50%);
+    }
+    &.color-theme-purple {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #e908d8;
+        --finwallapp-theme-color-grad-2: #5a2ab3;
+        --finwallapp-theme-color-grad-3: #300284;
+
+        /* color schemes */
+        --finwallapp-theme-color: $purple;
+        --finwallapp-header-active: darken($purple, 28%);
+        --finwallapp-footer: darken($purple, 28%);
+        --finwallapp-card-color: rgba($purple, 0.15);
+        --finwallapp-page-bg-1: darken($purple, 34%);
+        --finwallapp-page-bg-2: darken($purple, 42%);
+        --finwallapp-page-bg-3: darken($purple, 50%);
+    }
+    &.color-theme-deeppurple {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #8b9dff;
+        --finwallapp-theme-color-grad-2: #5c00f1;
+        --finwallapp-theme-color-grad-3: #68008e;
+
+        /* color schemes */
+        --finwallapp-theme-color: $indigo;
+        --finwallapp-header-active: darken($indigo, 28%);
+        --finwallapp-footer: darken($indigo, 28%);
+        --finwallapp-card-color: rgba($indigo, 0.15);
+        --finwallapp-page-bg-1: darken($indigo, 34%);
+        --finwallapp-page-bg-2: darken($indigo, 42%);
+        --finwallapp-page-bg-3: darken($indigo, 50%);
+    }
+    &.color-theme-lightblue {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #74e5fb;
+        --finwallapp-theme-color-grad-2: #258cd6;
+        --finwallapp-theme-color-grad-3: #3d00ab;
+
+        /* color schemes */
+        --finwallapp-theme-color: $cyan;
+        --finwallapp-header-active: darken($cyan, 28%);
+        --finwallapp-footer: darken($cyan, 28%);
+        --finwallapp-card-color: rgba($cyan, 0.15);
+        --finwallapp-page-bg-1: darken($cyan, 34%);
+        --finwallapp-page-bg-2: darken($cyan, 42%);
+        --finwallapp-page-bg-3: darken($cyan, 50%);
+    }
+    &.color-theme-teal {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #a2fffa;
+        --finwallapp-theme-color-grad-2: #00a2ad;
+        --finwallapp-theme-color-grad-3: #3f51b5;
+
+        /* color schemes */
+        --finwallapp-theme-color: $teal;
+        --finwallapp-header-active: darken($teal, 28%);
+        --finwallapp-footer: darken($teal, 28%);
+        --finwallapp-card-color: rgba($teal, 0.15);
+        --finwallapp-page-bg-1: darken($teal, 34%);
+        --finwallapp-page-bg-2: darken($teal, 42%);
+        --finwallapp-page-bg-3: darken($teal, 50%);
+    }
+    &.color-theme-lime {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #a9e682;
+        --finwallapp-theme-color-grad-2: #1fbb8a;
+        --finwallapp-theme-color-grad-3: #0072c3;
+
+        /* page color */
+        --finwallapp-theme-color: $lime;
+        --finwallapp-header-active: darken($lime, 28%);
+        --finwallapp-footer: darken($lime, 28%);
+        --finwallapp-card-color: rgba($lime, 0.15);
+        --finwallapp-page-bg-1: darken($lime, 34%);
+        --finwallapp-page-bg-2: darken($lime, 42%);
+        --finwallapp-page-bg-3: darken($lime, 50%);
+    }
+    &.color-theme-deeporange {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #fdcb34;
+        --finwallapp-theme-color-grad-2: #e26403;
+        --finwallapp-theme-color-grad-3: #bb005a;
+
+        /* page color */
+        --finwallapp-theme-color: $orange;
+        --finwallapp-header-active: darken($orange, 34%);
+        --finwallapp-footer: darken($orange, 34%);
+        --finwallapp-card-color: rgba($orange, 0.15);
+        --finwallapp-page-bg-1: darken($orange, 38%);
+        --finwallapp-page-bg-2: darken($orange, 48%);
+        --finwallapp-page-bg-3: darken($orange, 50%);
+    }
+    &.color-theme-gray {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #a0b6c5;
+        --finwallapp-theme-color-grad-2: #646b81;
+        --finwallapp-theme-color-grad-3: #3c3c44;
+        /* page color */
+        --finwallapp-theme-color: $gray;
+        --finwallapp-header-active: darken($gray, 28%);
+        --finwallapp-footer: darken($gray, 28%);
+        --finwallapp-card-color: rgba(darken($gray, 28%), 0.85);
+        --finwallapp-page-bg-1: darken($gray, 34%);
+        --finwallapp-page-bg-2: darken($gray, 42%);
+        --finwallapp-page-bg-3: darken($gray, 50%);
+    }
+    &.color-theme-black {
+        /* radial gradient colors */
+        --finwallapp-theme-color-grad-1: #b6b6b6;
+        --finwallapp-theme-color-grad-2: #5c5c5c;
+        --finwallapp-theme-color-grad-3: #000000;
+
+        /* page color */
+        --finwallapp-theme-color: darken($gray, 10%);
+        --finwallapp-header-active: darken($gray, 32%);
+        --finwallapp-footer: darken($gray, 32%);
+        --finwallapp-card-color: rgba(darken($gray, 32%), 0.85);
+        --finwallapp-page-bg-1: darken($gray, 38%);
+        --finwallapp-page-bg-2: darken($gray, 48%);
+        --finwallapp-page-bg-3: darken($gray, 50%);
+    }
+}

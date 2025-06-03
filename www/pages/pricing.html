@@ -1,0 +1,340 @@
+<template>
+    <div class="page" data-name="pricing">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+               <div class="left">
+                <a href="#" class="button button-fill color-white button-44 back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+               <div class="title">
+                    <img src="img/mainlogo1.png" alt="" width="90%" />
+            </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 xlarge-90">
+
+                    <div class="block margin-vertical text-align-center">
+                       
+                        <div class="text-color-gray">Choose a plan that works best for you.</div>
+                    </div>
+
+                    <div class="block no-margin">
+                        <div class="row no-gap align-items-stretch justify-content-center height-100 safe-areas">
+
+                            ${subscriptions ? $h`
+            ${subscriptions == 'error' ? $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'data-load-error.json'}" autoplay loop background="transparent" speed="1" style="height: 128px; transform: scale(2);"></lottie-player>
+                </div>
+                <div class="empty-state-title">Oops...</div>
+                <div class="empty-state-text">An error occured while loading data.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                    
+                </div>
+            </div>
+            ` : $h`
+            ${subscriptions.length ? $h`
+              
+                       
+          
+                    ${subscriptions.map((item, index) => $h`
+                              <div class="col-100 medium-50 large-33 padding-vertical-half">
+                                <div class="card display-flex flex-direction-column height-100 margin-horizontal-half no-margin-vertical no-safe-areas no-shadow">
+                                    <div class="card-content card-content-padding text-align-center text-color-purple">
+                                        <span class="shape-container shape-auto size-64 bg-color-purple">
+                                            <i class="bi bi-gift font-size-32 color-white" style="color:#fff;"></i>
+                                        </span>
+                                        <div class="margin-top">${item.PlanName}</div>
+                                        <div class="text-uppercase">
+                                            <div class="font-size-40 font-weight-bold">N${item.Amount}</div>
+                                            <div class="font-size-12 letter-spacing-1"> ${item.Period === 1 && $h`
+                                                Per Month  `}
+                                            ${item.Period === 2 && $h`
+                                                Per Year  `}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="list no-hairlines-between no-safe-areas">
+                                            <ul>
+                                                 <li>
+                                                    <div class="item-content text-color-purple">
+                                                        <div class="item-media">
+                                                            <i class="bi bi-check2-circle color-purple"></i>
+                                                        </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">Acces Premium Books</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content  text-color-purple">
+                                                        <div class="item-media">
+                                                            <i class="bi bi-check2-circle color-purple"></i>
+                                                        </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">Audio Books</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content text-color-purple">
+                                                        <div class="item-media">
+                                                            <i class="bi bi-check2-circle "></i>
+                                                        </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">Download Books</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content text-color-purple">
+                                                        <div class="item-media">
+                                                            <i class="bi bi-check2-circle color-purple"></i>
+                                                        </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title">Take Notes</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-content card-content-padding margin-top-auto">
+                                        <button @click="${() => subscription(item.Amount, item.PlanName, item.Period)}" type="button" class="button button-fill button-large color-purple">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                              `)}
+            
+            ` : $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'no-data-found.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                </div>
+                <div class="empty-state-title">No Data Found</div>
+                <div class="empty-state-text">There is no data available at the moment.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                </div>
+            </div>
+            `}
+            `}
+            ` : $h`
+            <div class="block margin-vertical text-align-center">
+                <div key="preloader" class="preloader"></div>
+            </div>
+            `}  
+                            
+                            
+                           
+                                </div>
+                    </div>
+
+                </div>
+            </div>
+
+        
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+       
+        let sheetPush;
+        var getdata = localStorage.getItem("BoldScholarUserData");
+        const user = JSON.parse(getdata);
+        const email = user.Email;
+        let userid = user.Id;
+        let subscriptions = null;
+    
+       
+             let loadData = function() {
+    subscriptions = null;
+    $update();
+    
+    var myHeaders = new Headers();
+    var formdata = new FormData();
+    //formdata.append("server_key", window.config.app.server_key);
+    formdata.append("userId", userid);
+    
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    $f7.request({
+        url: 'https://boldscholar.com/api/booksapi/GetSubscriptions',
+        method: 'GET',
+        headers: myHeaders,
+        data: formdata,
+        dataType: 'json',
+        redirect: 'follow'
+      
+    })
+    .then(function(response) {
+       subscriptions = response.data.Subscriptions.length ? response.data.Subscriptions : [];
+     
+        console.log(response);
+        $update();
+    })
+    .catch(function(response) {
+        subscriptions = 'error';
+        $update();
+    });
+}
+       subscription = (amount, subtype, duration) => {
+         var total =   amount;
+         var subtype = subtype;
+         var duration = duration;
+
+           console.log(total + " " + subtype);
+         if (total > 0) {
+        app.dialog.create({
+          title: '',
+          text: 'You’re about to Subscribe for ' + subtype + ' of  ₦ ' + total + ' 💳',
+          buttons: [
+            {
+              text: 'Cancel',
+            },
+            {
+              text: '<div  class="confirm elevation-3 color-orange" >Ok</div>',
+          
+            },
+            
+          ],
+            backdrop: true,
+            closeByBackdropClick: false,
+              onClick: function (dialog, index) {
+            if(index === 0){
+                //Button 1 clicked
+                console.log('1');
+            }
+            else if(index === 1){
+                //Button 2 clicked
+                console.log('2');
+                
+                const paystack = new PaystackPop();
+
+paystack.newTransaction({
+
+	key:  window.config.app.paystack_pk_test,
+
+	email: email,
+
+	amount: total * 100,
+    
+  callback: function(response){
+    // handle successful payment here
+    console.log(response);
+    const transid = response.reference;
+   localStorage.setItem("BoldschoarPayData",JSON.stringify(response));
+    localStorage.setItem("BoldschoarPayTitle", subtype);  
+      if (response.status === "success"){
+    
+     var data = new FormData();
+data.append("server_key", window.config.app.server_key);
+data.append("request", "wallet");
+data.append("reference", transid);
+data.append("amount", total);
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+       const res = JSON.parse(this.responseText);
+      if(res.api_status === 200){ 
+         
+          
+          app.views.current.router.navigate('/thankyou3/');             
+                               
+      }
+      else
+					{
+                      			     
+        app.dialog.alert(' ' + res.errors.error_text, function () {
+       
+
+      })  
+                        
+					} 
+        		
+        
+      
+    
+  }
+});
+
+xhr.open("POST", "https://app.waocard.co/api/paystack?access_token="+token);
+
+xhr.send(data);     
+         
+          
+      }
+   
+  },
+  onClose: function(){
+    app.dialog.alert('Payment Canceled', function () {
+
+  })  
+  }
+});
+                
+              //  app.views.current.router.navigate('/thankyou3/');
+            }
+            else if(index === 2){
+                //Button 3 clicked
+                console.log('3');
+            }
+        },
+        }).open();
+            } else {
+                
+               app.dialog.alert('Amount Cant Be Zerro', function () {
+
+  })   
+            }
+      }
+  
+
+         $on('pageInit', () => {
+         loadData();
+         sheetPush = $f7.sheet.create({
+        el: '.addcard',
+        push: true,
+        backdrop: true,
+      });
+     ;   
+       
+     });
+    $on('pageBeforeOut', () => {
+      // Close opened sheets on page out
+    
+    });
+    $on('pageBeforeRemove', () => {
+
+
+      // Destroy sheet modal when page removed
+      if (sheetPush) sheetPush.destroy();
+     
+    })
+        return $render;
+    }
+</script>

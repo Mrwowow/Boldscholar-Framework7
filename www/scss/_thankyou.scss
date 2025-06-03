@@ -1,0 +1,133 @@
+/* thank you*/
+.thankyouimg {
+    overflow: hidden;
+    .thankyoubg {
+        right: 0px;
+        position: relative;
+    }
+    .slideimg {
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -30px;
+    }
+    .text {
+        font-size: 84px;
+        opacity: 0.2;
+        color: var(--finwallapp-theme-text);
+        position: absolute;
+        text-transform: uppercase;
+        font-weight: 700;
+        top: 46%;
+        right: 0;
+    }
+    .circle {
+        &.one {
+            left: 8%;
+            top: 32%;
+        }
+        &.two {
+            right: 0%;
+            top: 48%;
+            z-index: 1;
+        }
+        &.three {
+            left: 36%;
+            top: 82%;
+        }
+    }
+}
+.thankyouimg2 {
+    overflow: hidden;
+    .thankyoubg {
+        left: -110px;
+        position: relative;
+    }
+    .bg404bg{
+        display: block;
+        max-width: 96%;
+        margin: 0 auto;
+    }
+    .slideimg {
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 30%;
+    }
+    .slideimg404{
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0%;
+    }
+    .text {
+        font-size: 84px;
+        opacity: 0.2;
+        color: var(--finwallapp-theme-text);
+        position: absolute;
+        text-transform: uppercase;
+        font-weight: 700;
+        top: 6%;
+        right: 0;
+    }
+    .circle {
+        &.one {
+            left: 75%;
+            top: 7%;
+        }
+        &.two {
+            right: 5%;
+            top: 62%;
+            z-index: 1;
+        }
+        &.three {
+            left: 26%;
+            top: 82%;
+        }
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .thankyouimg {
+        .thankyoubg {
+            max-height: 200px;
+        }
+        .slideimg {
+            max-height: 240px;
+        }
+
+        .circle {
+            &.three {
+                left: 42%;
+                top: 75%;
+            }
+        }
+    }
+
+    .thankyouimg2 {
+        .thankyoubg {
+            max-height: 200px;
+        }
+        .slideimg {
+            max-height: 110px;
+        }
+
+        .circle {
+            &.one {
+                left: 14%;
+                top: 3%;
+            }
+            &.two {
+                left: 70%;
+                top: 47%;
+            }
+            &.three {
+                left: 32%;
+                top: 75%;
+            }
+        }
+    }
+}

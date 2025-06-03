@@ -1,0 +1,674 @@
+<template>
+<div class="page page-newcard" data-name="newcard">
+    <div class="navbar ">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left  no-margin-right">
+                <a href="#" class="button button-fill color-white button-44 back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="title">
+        <h5>New<span class="text-secondary fw-light"> Card</span> </h5>
+  
+            </div>
+            <div class="subnavbar">
+          <form class="searchbar" id="searchbar-autocomplete">
+            <div class="searchbar-inner">
+              <div class="searchbar-input-wrap">
+                <input type="search" placeholder="Search" />
+                <i class="searchbar-icon"></i>
+                <span class="input-clear-button"></span>
+              </div>
+              <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+            </div>
+          </form>
+        </div>
+            <div class="right">
+                <a href="#" class="button button-fill color-white button-44">
+                    <i class="bi bi-cart"></i>
+                    <span class="count-indicator"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- main page content -->
+    <div class="page-content">
+        <!-- products -->
+        <div class="row margin-bottom-half">
+            <div class="col-100 medium-50 " >
+                     <div class="card order elevation-2 elevation-black margin-bottom" style="background-size: 100% 100%; background-color:#fff; background-position:fit; height:200px;" data-cardtype="Slickbalck" data-price="2500" data-pro_type="2">
+                                <div class="card-content card-content-padding">
+                                    <div class="row margin-bottom">
+                                        <div class="col-auto align-self-center">
+                                            <img src="img/visa.png" alt=""/>
+                                        </div>
+                                        <div class="col align-self-center text-align-right">
+                                            <p class="small">
+                                                <span class="text-muted size-10">City Bank</span><br/>
+                                                <span class="">Credit Card</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h6 class="fw-normal margin-bottom">
+                                      
+                                    </h6>
+                                    <div class="row" style="display:none;">
+                                        <div class="col-auto">
+                                            <p class="no-margin-bottom text-muted size-10">Expiry</p>
+                                            <p>09/023</p>
+                                        </div>
+                                        <div class="col text-align-right">
+                                            <p class="no-margin-bottom text-muted size-10">Card Holder</p>
+                                            <p>Morgan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+            <div class="col-100 medium-50 ">
+                <div class="card margin-bottom">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto">
+                               
+                            </div>
+                            <div class="col align-self-center">
+                                <p class="no-margin-bottom"><small class="text-muted size-12 cardtype">Samsug TV
+                                        SM5500</small></p>
+                                <h5 >₦<span class="price"> 165.00</span></h5>
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+        <div class="row margin-bottom">
+            <div class="col align-self-center">
+                <h6 class="title">Pricing</h6>
+            </div>
+        </div>
+
+        <div class="row margin-bottom">
+            <div class="col">
+                <p>Shipping Cost</p>
+            </div>
+            <div class="col-auto">₦ <span class="shipment">10.00</span></div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col">
+                <p>Subtotal</p>
+            </div>
+            <div class="col-auto">₦ <span class="price">10.00</span></div>
+        </div>
+        <div class="row fw-bold margin-bottom">
+            <div class="margin-bottom col-12">
+                <div class="dashed-line"></div>
+            </div>
+            <div class="col">
+                <p>Total</p>
+            </div>
+            <div class="col-auto">₦ <span class="total">10.00</span></div>
+        </div>
+        <div class="row margin-bottom">
+            <div class="col-12">
+                <a href="#" class="button button-large button-fill color-black button-raised payment" style="color:#ff9500;">Place Order</a>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+<script>
+  export default (props, {$f7, $h, $, $el, $theme, $on, $f7router, $update, $onMounted, $onBeforeUnmount}) => {
+    const fruits = 'Apple Apricot Avocado Banana Melon Orange Peach Pear Pineapple'.split(' ');
+    let brands = [];
+    let countries = []; 
+    let searchbar;
+    let autocompleteDropdownSimple;
+    let autocompleteDropdownExpand;
+    let autocompleteDropdownAll;
+    let autocompleteDropdownPlaceholder;
+    let autocompleteDropdownTypeahead;
+    let autocompleteDropdownAjax;
+    let autocompleteDropdownAjaxTypeahead;
+    let autocompleteStandaloneSimple;
+    let autocompleteStandalonePopup;
+    let autocompleteStandaloneMultiple;
+    let autocompleteStandaloneAjax;
+    
+    let loadData = function() {
+            app.request({
+                url: window.config.restCountries.rootEndpoint + '/all',
+                method: 'GET',
+                data: {
+                    fields: 'name,flags'
+                },
+                dataType: 'json'
+            })
+            .then(function(response) {
+                countries = response.data;
+                console.log(countries);
+                $update();
+            })
+            .catch(function(response) {
+                $f7.toast.show({
+                    text: 'Unable to load data.',
+                    cssClass: 'color-red'
+                });
+            });
+        }
+    $onBeforeUnmount(() => {
+      searchbar.destroy();
+      autocompleteDropdownSimple.destroy();
+      autocompleteDropdownExpand.destroy();
+      autocompleteDropdownAll.destroy();
+      autocompleteDropdownPlaceholder.destroy();
+      autocompleteDropdownTypeahead.destroy();
+      autocompleteDropdownAjax.destroy();
+      autocompleteDropdownAjaxTypeahead.destroy();
+      autocompleteStandaloneSimple.destroy();
+      autocompleteStandalonePopup.destroy();
+      autocompleteStandaloneMultiple.destroy();
+      autocompleteStandaloneAjax.destroy();
+    })
+
+    $onMounted(() => {
+     loadData();
+      autocompleteDropdownSimple = $f7.autocomplete.create({
+        inputEl: '#autocomplete-dropdown',
+        openIn: 'dropdown',
+        source: function (query, render) {
+          console.log(query);
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        }
+      });
+     
+        
+      // Dropdown with input expand
+      autocompleteDropdownExpand = $f7.autocomplete.create({
+        inputEl: '#autocomplete-dropdown-expand',
+        openIn: 'dropdown',
+        expandInput: true, // expand input
+        source: function (query, render) {
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        }
+      });
+
+      // Dropdown with all values
+      autocompleteDropdownAll = $f7.autocomplete.create({
+        inputEl: '#autocomplete-dropdown-all',
+        openIn: 'dropdown',
+        source: function (query, render) {
+          var results = [];
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        }
+      });
+
+      // Dropdown with placeholder
+      autocompleteDropdownPlaceholder = $f7.autocomplete.create({
+        inputEl: '#autocomplete-dropdown-placeholder',
+        openIn: 'dropdown',
+        dropdownPlaceholderText: 'Try to type "Apple"',
+        source: function (query, render) {
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        }
+      });
+
+      // Dropdown with typeahead
+      autocompleteDropdownTypeahead = $f7.autocomplete.create({
+        inputEl: '#autocomplete-dropdown-typeahead',
+        openIn: 'dropdown',
+        dropdownPlaceholderText: 'Try to type "Pineapple"',
+        typeahead: true,
+        source: function (query, render) {
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+            
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) === 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        }
+      });
+
+      // Dropdown with ajax data
+      autocompleteDropdownAjax = $f7.autocomplete.create({
+        inputEl: '#autocomplete-dropdown-ajax',
+        openIn: 'dropdown',
+        preloader: true, //enable preloader
+        /* If we set valueProperty to "id" then input value on select will be set according to this property */
+        valueProperty: 'name', //object's "value" property name
+        textProperty: 'name', //object's "text" property name
+        limit: 20, //limit to 20 results
+        dropdownPlaceholderText: 'Try "JavaScript"',
+        source: function (query, render) {
+          var autocomplete = this;
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Show Preloader
+          autocomplete.preloaderShow();
+
+          // Do Ajax request to Autocomplete data
+          $f7.request({
+            url: './js/autocomplete-languages.json',
+            method: 'GET',
+            dataType: 'json',
+            //send "query" to server. Useful in case you generate response dynamically
+            data: {
+              query: query,
+            },
+            success: function (data) {
+              // Find matched items
+              for (var i = 0; i < data.length; i++) {
+                if (data[i].name.toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(data[i]);
+              }
+              // Hide Preoloader
+              autocomplete.preloaderHide();
+              // Render items by passing array with result items
+              render(results);
+            }
+          });
+        }
+      });
+
+ // Define an array to store the fetched brand data
+let brands = [];
+
+// Create the autocomplete dropdown
+autocompleteDropdownAjaxTypeahead = $f7.autocomplete.create({
+  inputEl: '#autocomplete-dropdown-ajax-typeahead',
+  openIn: 'dropdown',
+  preloader: true, // Enable preloader
+  valueProperty: 'name', // Object's "value" property name
+  textProperty: 'name', // Object's "text" property name
+  limit: 20, // Limit to 20 results
+  typeahead: true,
+  dropdownPlaceholderText: 'Search Brand',
+  renderItem: function(item, index) {
+    if (item.placeholder) {
+      return `
+        <li class="autocomplete-dropdown-placeholder">
+          <label class="item-content">
+            <div class="item-inner">
+              <div class="item-title">${item.text}</div>
+            </div>
+          </label>
+        </li>
+      `;
+    } else {
+      // Filter the brand based on the item value
+      let matchedBrands = brands.filter(function(e) {
+        return e.name === item.value;
+      });
+
+      // Use the first matching brand (if any)
+      let brand = matchedBrands.length > 0 ? matchedBrands[0] : null;
+
+      // Render the brand item
+      return `
+        <li>
+          <label class="item-radio item-content" data-value="${item.value}">
+            <div class="item-media">
+              <img src="${brand ? brand.icon : ''}" loading="lazy" width="32" alt="" />
+            </div>
+            <div class="item-inner">
+              <div class="item-title">${item.text}</div>
+            </div>
+          </label>
+        </li>
+      `;
+    }
+  },
+  source: function (query, render) {
+    var autocomplete = this;
+    var results = [];
+    if (query.length === 0) {
+      render(results);
+      return;
+    }
+    // Show Preloader
+    autocomplete.preloaderShow();
+
+    // Do Ajax request to Autocomplete data
+    var inputValue = query; // Use the user's input as the value for the API request
+    var apiUrl = 'https://api.brandfetch.io/v2/search/' + inputValue;
+
+    $f7.request({
+      url: apiUrl,
+      method: 'GET',
+      dataType: 'json',
+      headers: {
+        Authorization: "Bearer QO4sDIKgRSRy1PcN6OSRrV2lmbAAlgo24zU5zKT4aTA="
+      },
+      success: function (data) {
+        // Store the fetched data in the 'brands' array
+        brands = data;
+
+        // Hide Preloader
+        autocomplete.preloaderHide();
+
+        // Extract relevant information from the response and store in 'results' array
+        for (var i = 0; i < data.length; i++) {
+          results.push({
+            id: data[i].brandId,
+            name: data[i].name,
+            icon: data[i].icon,
+            domain: data[i].domain
+          });
+        }
+        // Render items by passing array with result items
+        render(results);
+      },
+      error: function (xhr, status) {
+        // Handle error here if needed
+        console.error("Error fetching data:", status);
+        // Hide Preloader
+        autocomplete.preloaderHide();
+      }
+    });
+  }
+});
+
+      // Simple Standalone
+      autocompleteStandaloneSimple = $f7.autocomplete.create({
+        openIn: 'page', //open in page
+        openerEl: '#autocomplete-standalone', //link that opens autocomplete
+        closeOnSelect: true, //go back after we select something
+        source: function (query, render) {
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        },
+        on: {
+          change: function (value) {
+            console.log(value);
+            // Add item text value to item-after
+            $('#autocomplete-standalone').find('.item-after').text(value[0]);
+            // Add item value to input value
+            $('#autocomplete-standalone').find('input').val(value[0]);
+          },
+        },
+      });
+
+      // Standalone Popup
+      autocompleteStandalonePopup = $f7.autocomplete.create({
+        openIn: 'popup', //open in page
+        openerEl: '#autocomplete-standalone-popup', //link that opens autocomplete
+        closeOnSelect: true, //go back after we select something
+        source: function (query, render) {
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        },
+        on: {
+          change: function (value) {
+            // Add item text value to item-after
+            $('#autocomplete-standalone-popup').find('.item-after').text(value[0]);
+            // Add item value to input value
+            $('#autocomplete-standalone-popup').find('input').val(value[0]);
+          },
+        },
+      });
+
+      // Multiple Standalone
+      autocompleteStandaloneMultiple = $f7.autocomplete.create({
+        openIn: 'page', //open in page
+        openerEl: '#autocomplete-standalone-multiple', //link that opens autocomplete
+        multiple: true, //allow multiple values
+        source: function (query, render) {
+          var autocomplete = this;
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Find matched items
+          for (var i = 0; i < fruits.length; i++) {
+            if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+          }
+          // Render items by passing array with result items
+          render(results);
+        },
+        on: { 
+          change: function (value) {
+            // Add item text value to item-after
+            $('#autocomplete-standalone-multiple').find('.item-after').text(value.join(', '));
+            // Add item value to input value
+            $('#autocomplete-standalone-multiple').find('input').val(value.join(', '));
+          }
+        }
+      });
+
+      // Standalone With Ajax
+      autocompleteStandaloneAjax = $f7.autocomplete.create({
+        openIn: 'page', //open in page
+        openerEl: '#autocomplete-standalone-ajax', //link that opens autocomplete
+        multiple: true, //allow multiple values
+        valueProperty: 'brandId', //object's "value" property name
+        textProperty: 'name', //object's "text" property name
+        limit: 50,
+        preloader: true, //enable preloader
+         source: function (query, render) {
+    var autocomplete = this;
+    var results = [];
+    if (query.length === 0) {
+      render(results);
+      return;
+    }
+
+    // Show Preloader
+    autocomplete.preloaderShow();
+
+    // Do Ajax request to Autocomplete data
+    $f7.request({
+      url: "https://api.brandfetch.io/v2/search/" + query, // Updated AJAX URL with the input value
+      method: 'GET',
+      dataType: 'json',
+      headers: {
+        Authorization: "Bearer QO4sDIKgRSRy1PcN6OSRrV2lmbAAlgo24zU5zKT4aTA="
+      },
+      success: function (data) {
+        // Assuming the data is already in the correct format based on the sample JSON response provided
+        // If not, you may need to manipulate the data accordingly.
+
+        // Hide Preloader
+        autocomplete.preloaderHide();
+
+        // Extract relevant information from the response and store in 'results' array
+        for (var i = 0; i < data.length; i++) {
+          results.push({
+            id: data[i].brandId,
+            name: data[i].name,
+            icon: data[i].icon,
+            domain: data[i].domain
+          });
+        }
+
+        // Render items by passing array with result items
+        render(results);
+      }
+    });
+  }, source: function (query, render) {
+    var autocomplete = this;
+    var results = [];
+    if (query.length === 0) {
+      render(results);
+      return;
+    }
+
+    // Show Preloader
+    autocomplete.preloaderShow();
+
+    // Do Ajax request to Autocomplete data
+    $f7.request({
+      url: "https://api.brandfetch.io/v2/search/" + query, // Updated AJAX URL with the input value
+      method: 'GET',
+      dataType: 'json',
+      headers: {
+        Authorization: "Bearer QO4sDIKgRSRy1PcN6OSRrV2lmbAAlgo24zU5zKT4aTA="
+      },
+      success: function (data) {
+        // Assuming the data is already in the correct format based on the sample JSON response provided
+        // If not, you may need to manipulate the data accordingly.
+
+        // Hide Preloader
+        autocomplete.preloaderHide();
+
+        // Extract relevant information from the response and store in 'results' array
+        for (var i = 0; i < data.length; i++) {
+          results.push({
+            id: data[i].brandId,
+            name: data[i].name,
+            icon: data[i].icon,
+            domain: data[i].domain
+          });
+        }
+
+        // Render items by passing array with result items
+        render(results);
+      }
+         });
+        },
+        on: {
+          change: function (value) {
+            var itemText = [],
+              inputValue = [];
+            for (var i = 0; i < value.length; i++) {
+              itemText.push(value[i].name);
+              inputValue.push(value[i].brandId);
+            }
+            // Add item text value to item-after
+            $('#autocomplete-standalone-ajax').find('.item-after').text(itemText.join(', '));
+            // Add item value to input value
+            $('#autocomplete-standalone-ajax').find('input').val(inputValue.join(', '));
+          },
+        },
+      });
+
+      // Searchbar Autocomplete
+      autocompleteSearchbar = $f7.autocomplete.create({
+        openIn: 'dropdown',
+        inputEl: '#searchbar-autocomplete input[type="search"]',
+        dropdownPlaceholderText: 'Type "Brand Name"',
+        renderItem: function(item, index) {
+                    if (item.placeholder) {
+                        return `
+                            <li class="autocomplete-dropdown-placeholder">
+                                <label class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">${item.text}</div>
+                                    </div>
+                                </label>
+                            </li>
+                        `
+                    }
+                    else {
+                        let country = countries.filter(function(e) {
+                            return e.name.common == item.value;
+                        });
+                        return `
+                            <li>
+                                <label class="item-radio item-content" data-value="${item.value}">
+                                    <div class="item-media">
+                                        <img src="${country[0].flags.svg}" loading="lazy" width="32" alt="" />
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">${item.text}</div>
+                                    </div>
+                                </label>
+                            </li>
+                        `
+                    }
+                },
+        source: function (query, render) {
+          var results = [];
+          if (query.length === 0) {
+            render(results);
+            return;
+          }
+          // Find matched items
+          for (var i = 0; i < countries.length; i++) {
+            if ($f7.removeDiacritics(countries[i].name.common).toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(countries[i].name.common);
+          }
+          // Render items by passing array with result items
+          render(results);
+        }
+      })
+
+      searchbar = $f7.searchbar.create({
+        el: '#searchbar-autocomplete',
+        customSearch: true,
+        on: {
+          search: function (sb, query) {
+            console.log(query);
+          }
+        }
+      })
+    })
+
+    return $render;
+  }
+</script>

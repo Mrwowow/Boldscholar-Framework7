@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@green-api/whatsapp-api-client": "^0.3.27",
+    "html5-qrcode": "^2.2.1",
+    "qrcode": "^1.5.1"
+  },
+  "devDependencies": {
+    "exports-loader": "^4.0.0"
+  }
+}

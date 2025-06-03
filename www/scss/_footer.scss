@@ -1,0 +1,132 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    border-radius: var(--finwallapp-rounded) var(--finwallapp-rounded) 0 0;
+    background-color: var(--finwallapp-footer);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.07);
+    -webkt-box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.07);
+    -webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
+    backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur));
+    @extend .transition-05;
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        align-items: center;
+        max-width: 480px;
+        margin: 0 auto;
+        list-style: none;
+        padding: 0;
+
+        .nav-item {
+            flex-basis: 0;
+            flex-grow: 1;
+            text-align: center;
+            vertical-align: middle;
+
+            .nav-link {
+                text-align: center;
+                background: transparent;
+                vertical-align: middle;
+                align-self: center;
+                -webkit-align-self: center;
+                -moz-align-self: center;
+                height: 100%;
+                line-height: 44px;
+                color: var(--finwallapp-theme-text-secondary);
+                padding: calc(var(--finwallapp-padding) - 5px) calc(var(--finwallapp-padding) - 10px);
+                border: 0;
+
+                span {
+                    line-height: 20px;
+                    display: inline-block;
+                    vertical-align: middle;
+
+                    .nav-icon {
+                        font-size: 17px;
+                        height: 20px;
+                        line-height: 20px;
+                        width: 20px;
+                        display: inline-block;
+                        margin: 0 auto;
+                    }
+                    .nav-text {
+                        font-size: 10px;
+                        line-height: 15px;
+                        display: block;
+                    }
+                }
+                &.active {
+                    color: var(--finwallapp-theme-color);
+                }
+            }
+
+            &.centerbutton {
+                padding: 10px;
+                transition: none;
+
+                .nav-link {
+                    position: relative;
+                    padding: 8px;
+                    height: 76px;
+                    width: 76px;
+                    margin: 0 auto;
+                    margin-top: -30px;
+                    transition: none;
+
+                    & > span {
+                        height: 60px;
+                        line-height: 60px;
+                        width: 60px;
+                        border-radius: var(--finwallapp-rounded) var(--finwallapp-rounded);
+                        transform: rotate(45deg);
+                        -webkit-transform: rotate(45deg);
+                        margin: 0px auto 0 auto;
+                        color: var(--finwallapp-theme-text);
+                        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+                        -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+                        -webkt-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+
+                        i {
+                            
+                            @extend .transition-05;
+                            transform: rotate(-45deg);
+                            -webkit-transform: rotate(-45deg);
+                            display: inline-block;
+                        }
+                    }
+
+                    &.active {
+                        & > span {
+                            i {
+                                transform: rotate(0deg);
+                                -webkit-transform: rotate(0deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-info {
+    padding: var(--finwallapp-padding) 0px;
+    line-height: 30px;
+}
+.page-content.has-footer {
+    padding-bottom: 70px;
+}
+
+.with-panel-left-reveal {
+    .footer {
+        margin-bottom: -80px;
+    }
+}

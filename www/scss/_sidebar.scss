@@ -1,0 +1,156 @@
+.panel-left.panel-reveal{
+    opacity: 0;
+    transition: ease all 0.5s;
+    &.panel-in{
+        opacity: 1;
+    }
+}
+html.with-panel-left-reveal {
+    .framework7-root {
+        & > .view,
+        .views {
+            transform: translate3d(var(--f7-panel-left-width, var(--f7-panel-width)), 0px, 0);
+            border-radius: var(--finwallapp-rounded);
+
+            .navbar-bg,
+            .navbar,
+            .page {
+                border-radius: var(--finwallapp-rounded) var(--finwallapp-rounded) 0 0;
+                overflow: hidden;
+            }
+        }
+    }
+    
+
+}
+.with-panel-left-reveal .panel-left.panel-reveal:after {
+    display: none;
+}
+
+.panel {
+    --f7-list-chevron-icon-color: rgba(255, 255, 255, 0.3);
+    --f7-list-item-min-height: 50px;
+    background-color: transparent;
+
+    .page {
+        background-color: transparent;
+        .page-content {
+            padding: var(--finwallapp-padding);
+
+            .sidebar {
+                background-color: var(--f7-theme-color);
+                min-height: calc(100% - (var(--finwallapp-padding) * 2));
+                padding: var(--finwallapp-padding) 0;
+                border-radius: var(--finwallapp-rounded);
+                color: var(--finwallapp-theme-text);
+
+                .profile-sidebar {
+                    position: relative;
+                    margin-bottom: 30px;
+
+                    .menubg {
+                        width: 72%;
+                        position: absolute;
+                        z-index: 0;
+                        right: 3%;
+
+                        & + * {
+                            position: relative;
+                            z-index: 1;
+                        }
+                    }
+                    .circle {
+                        &.one {
+                            right: 1%;
+                            top: 4%;
+                            z-index: 1;
+                            height: 20px;
+                            width: 20px;
+                        }
+                        &.two {
+                            left: 56%;
+                            bottom: -30%;
+                            z-index: 1;
+                            height: 30px;
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .list {
+        --f7-list-font-size: 15px;
+
+        ul {
+            border-radius: var(--finwallapp-rounded);
+            &::before,
+            &::after {
+                display: none;
+            }
+            li {
+                border-radius: var(--finwallapp-rounded);
+                margin-bottom: 5px;
+                a {
+                    justify-content: start;
+                    justify-content: flext-start;
+                    border-radius: var(--finwallapp-rounded);
+                    padding: 5px;
+
+                    .icon {
+                        margin-right: 10px;
+                        border-radius: var(--finwallapp-rounded);
+                    }
+
+                    &::after {
+                        display: none;
+                    }
+                    &.active {
+                        background-color: rgba(255, 255, 255, 0.15);
+
+                        & > .icon {
+                            @extend .theme-radial-gradient;
+                        }
+                    }
+                }
+                &.accordion-item {
+                    .item-content {
+                        & > .icon {
+                            margin-right: 10px;
+                            border-radius: var(--finwallapp-rounded);
+                        }
+                    }
+                    &.accordion-item-opened {
+                        border-radius: var(--finwallapp-rounded);
+                        background-color: rgba(255, 255, 255, 0.15);
+
+                        .item-content {
+                            & > .icon {
+                                margin-right: 10px;
+                                border-radius: var(--finwallapp-rounded);
+                            }
+                        }
+                    }
+                    .accordion-item-content {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    &:after {
+        display: none !important;
+    }
+}
+
+.with-panel-left-cover {
+    .panel-backdrop {
+        opacity: 0.15;
+        &.panel-backdrop-in {
+            opacity: 0.15;
+        }
+    }
+}

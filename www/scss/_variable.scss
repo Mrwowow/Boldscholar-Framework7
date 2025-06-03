@@ -1,0 +1,211 @@
+$blue: #3c63e2;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #f73563;
+$orange: #fd7e14;
+$yellow: #ffbd17;
+$green: #3ac79b;
+$teal: #0ab2be;
+$cyan: #0dcaf0;
+$lime: #cddc39;
+$gray: #999999;
+
+:root {
+  --finwallapp-green: $green;
+  --finwallapp-red: $red;
+  --finwallapp-yellow: $yellow;
+  --finwallapp-blue: $blue;
+  --f7-navbar-height: 76px;
+  --f7-grid-gap: 30px;
+  --f7-panel-width: 280px;
+  --finwallapp-rounded: 20px;
+  --finwallapp-padding: 15px;
+  --finwallapp-input-rounded: 10px;
+  --finwallapp-input-color: #ffffff;
+  --finwallapp-input-text: #000000;
+  --finwallapp-theme-text: #ffffff;  
+  --f7-bars-translucent-opacity: 0;
+  --f7-bars-bg-color-rgb: 255, 255, 255;
+  --finwallapp-page-text: #000000;
+  --finwallapp-theme-text-primary: #000000;
+  --finwallapp-theme-text-secondary: #999999;
+  --finwallapp-theme-text-secondary-light: #bbbbbb;
+  --finwallapp-theme-bordercolor: rgba(0, 0, 0, 0.1);
+  /* color schemes */
+  --finwallapp-footer: rgba(255, 255, 255, 0.8);
+  --finwallapp-sidebar: var(--f7-theme-color);
+  --finwallapp-card-color: #ffffff;  
+
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #57bdff;
+  --finwallapp-theme-color-grad-2: #4f77fb;
+  --finwallapp-theme-color-grad-3: #6528cf;
+
+  --finwallapp-theme-color: var(--f7-theme-color);
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: #eff6f9;
+  --finwallapp-page-bg-3: #faf0fb;
+}
+
+.color-theme-red {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #ffc699;
+  --finwallapp-theme-color-grad-2: #ff5d83;
+  --finwallapp-theme-color-grad-3: #dc006a;
+
+  /* color schemes */
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: #fffbf2;
+  --finwallapp-page-bg-3: #ffeeee;
+}
+
+.color-theme-green {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #bdffaa;
+  --finwallapp-theme-color-grad-2: #04c5de;
+  --finwallapp-theme-color-grad-3: #00a0f5;
+
+  /* color schemes */
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: #eff6f9;
+  --finwallapp-page-bg-3: #e6f7f0;
+}
+
+.color-theme-blue {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #0897e9;
+  --finwallapp-theme-color-grad-2: #5100d4;
+  --finwallapp-theme-color-grad-3: #270069;
+  /* page color */
+  --finwallapp-page-bg-1: #f1f3f8;
+  --finwallapp-page-bg-2: #e5ecfe;
+  --finwallapp-page-bg-3: #faf0fb;
+}
+
+.color-theme-pink {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #ff71c3;
+  --finwallapp-theme-color-grad-2: #e80075;
+  --finwallapp-theme-color-grad-3: #4d00da;
+
+  /* color schemes */
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: #f4f8ff;
+  --finwallapp-page-bg-3: #ffe9f7;
+}
+.color-theme-yellow {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #ffdb6f;
+  --finwallapp-theme-color-grad-2: #f0ac00;
+  --finwallapp-theme-color-grad-3: #f03000;
+
+  /* color schemes */
+  --finwallapp-theme-color: $yellow;
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: #f9f4ef;
+  --finwallapp-page-bg-3: #fbf8f0;
+}
+.color-theme-orange {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #ffda6b;
+  --finwallapp-theme-color-grad-2: #ff7c15;
+  --finwallapp-theme-color-grad-3: #e80774;
+
+ /* color schemes */
+ --finwallapp-page-bg-1: #ffffff;
+ --finwallapp-page-bg-2: #fffaf4;
+ --finwallapp-page-bg-3: #fff4eb;
+}
+.color-theme-purple {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #e908d8;
+  --finwallapp-theme-color-grad-2: #5a2ab3;
+  --finwallapp-theme-color-grad-3: #300284;
+
+  /* color schemes */
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: #fff5fc;
+  --finwallapp-page-bg-3: #f6f0fb;
+}
+.color-theme-deeppurple {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #8b9dff;
+  --finwallapp-theme-color-grad-2: #5c00f1;
+  --finwallapp-theme-color-grad-3: #68008e;
+
+ /* color schemes */
+ --finwallapp-page-bg-1: #ffffff;
+ --finwallapp-page-bg-2: #f1eff9;
+ --finwallapp-page-bg-3: #f6f0fb;
+}
+.color-theme-lightblue {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #74e5fb;
+  --finwallapp-theme-color-grad-2: #258cd6;
+  --finwallapp-theme-color-grad-3: #3d00ab;
+
+  /* color schemes */
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: #f1eff9;
+  --finwallapp-page-bg-3: #f0f8fb;
+}
+.color-theme-teal {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #a2fffa;
+  --finwallapp-theme-color-grad-2: #00a2ad;
+  --finwallapp-theme-color-grad-3: #3f51b5;
+
+ /* color schemes */
+ --finwallapp-theme-color: $teal;
+ --finwallapp-page-bg-1: #ffffff;
+ --finwallapp-page-bg-2: #fff7fd;
+ --finwallapp-page-bg-3: #e8faf8;
+}
+.color-theme-lime {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #a9e682;
+  --finwallapp-theme-color-grad-2: #1fbb8a;
+  --finwallapp-theme-color-grad-3: #0072c3;
+  /* page color */
+  --finwallapp-page-bg-1: #fbfdfa;
+  --finwallapp-page-bg-2: #ebfdf1;
+   --finwallapp-page-bg-3: #e8faf8;
+}
+.color-theme-deeporange {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #fdcb34;
+  --finwallapp-theme-color-grad-2: #e26403;
+  --finwallapp-theme-color-grad-3: #bb005a;
+  /* page color */
+  --finwallapp-page-bg-1: #f8f4f1;
+  --finwallapp-page-bg-2: rgb(254, 241, 229);
+  --finwallapp-page-bg-3: #fbf2f0;
+}
+.color-theme-gray {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #a0b6c5;
+  --finwallapp-theme-color-grad-2: #646b81;
+  --finwallapp-theme-color-grad-3: #3c3c44;
+  /* page color */
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: rgb(247, 247, 247);
+  --finwallapp-page-bg-3: #faf0fb;
+}
+.color-theme-black {
+  /* radial gradient colors */
+  --finwallapp-theme-color-grad-1: #b6b6b6;
+  --finwallapp-theme-color-grad-2: #5c5c5c;
+  --finwallapp-theme-color-grad-3: #000000;
+  /* page color */
+  --finwallapp-page-bg-1: #ffffff;
+  --finwallapp-page-bg-2: rgb(241, 241, 241);
+  --finwallapp-page-bg-3: #ebecf3;
+}
+
+@media screen and (max-width: 340px) {
+  :root {
+    --finwallapp-padding: 10px;
+    --finwallapp-rounded: 12px;
+  }
+}

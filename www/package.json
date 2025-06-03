@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "faker": "^6.6.6",
+    "lightrun": "^1.9.1"
+  }
+}

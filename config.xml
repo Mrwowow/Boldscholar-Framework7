@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="4" id="com.boldscholar.app" ios-CFBundleVersion="1" version="1.0.0" xmlns="https://www.w3.org/ns/widgets" >
+    <name>BoldScholar</name>
+    <description />
+<preference name="AndroidInsecureFileModeEnabled" value="true" />
+<preference name="scheme" value="https" /> <!-- This requires cordova-android@10.1 or later -->
+<preference name="hostname" value="boldscholar.com" />
+<preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/splashTemplate.png" />
+<preference name="AndroidWindowSplashScreenBackground" value="#045cfb" />
+<preference name="loadUrlTimeoutValue" value="700000" />
+
+    <preference name="SplashScreenDelay" value="2000" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <plugin name="cordova-plugin-cleartext" />
+    <plugin name="cordova-plugin-statusbar" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <plugin name="cordova-plugin-device" />
+    <plugin name="cordova-plugin-camera" />
+    <plugin name="cordova-plugin-contacts" />
+    <plugin name="onesignal-cordova-plugin@^5.0.0" />
+    <plugin name="cordova-plugin-prevent-screenshot" />
+    <plugin name="cordova-plugin-android-permissions" />
+    <plugin name="cordova-plugin-file" />
+    <plugin name="cordova-plugin-file-transfer" />
+    <plugin name="cordova.plugins.diagnostic" />
+
+
+
+
+
+
+    <platform name="ios">
+        <preference name="WKWebViewOnly" value="true" />
+            <feature name="CDVWKWebViewEngine">
+                <param name="ios-package" value="CDVWKWebViewEngine" />
+            </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+  
+    </platform>
+    <plugin name="cordova-plugin-inappbrowser"/>
+
+    <allow-navigation href="*" />
+    <access origin="*" />
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+    <platform name="ios">
+        
+    </platform>
+    <platform name="android">
+         <uses-permission android:name="android.permission.INTERNET" />   
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-feature android:name="android.hardware.camera" />
+        <uses-feature android:name="android.hardware.camera.autofocus" />
+        <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    </platform>
+</widget>

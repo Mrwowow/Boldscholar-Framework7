@@ -1,0 +1,402 @@
+<template>
+
+<div class="page page-mylibrary" data-name="mylibrary">
+    <div class="navbar ">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left  no-margin-right">
+                <a href="#" class="button button-fill button-44 color-white back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="title overflow-visible">
+                <h5 style="color:#fff;">My Library</h5>
+            </div>
+            <div class="right">
+                <a href="/user-profile/" class="button button-fill color-white button-44">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- main page content -->
+    <div class="page-content">
+        <!-- products -->
+        <div class="row margin-bottom margin-top">
+            <div class="col align-self-center">
+                <h6 class="title" style="color:#ff9500;">My Library Books</h6>
+                <p class="text-secondary small">${bookcount} Books</p>
+            </div>
+            <div class="col-auto">
+                <a href="#nav-thumbnails" class="button button-44 tab-link tab-link-active display-inline-block">
+                    <i class="bi bi-grid"></i>
+                </a>
+                <a href="#nav-lists" class="button button-44 tab-link display-inline-block">
+                    <i class="bi bi-list"></i>
+                </a>
+            </div>
+            <div class="col-100 text-align-center margin-top">
+                     <!-- search -->
+        <div class="row margin-bottom margin-top">
+            <div class="col-100 overflow-hidden">
+                <!-- input -->
+                <div class="row">
+                    <div class="col position-relative align-self-center">
+                        <div class="list form-list no-margin margin-bottom">
+                            <ul>
+                                <li class="item-content item-input item-input-with-value is-valid">
+                                    <div class="item-inner">
+                                        <div class="item-title item-floating-label">Search</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="search" class="input-with-value"
+                                                value="" autofocus />
+                                            <span class="input-clear-button"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-auto align-self-center">
+                        <button class="button button-fill color-white button-44 filter-btn panel-open"
+                            data-panel="#panel-right-filter">
+                            <i class="bi bi-filter size-22"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="tabs">
+                    <div class="tab tab-active" id="nav-thumbnails">
+                        <!-- product medsize box  -->
+                        <div class="row margin-bottom-half">
+                                 ${books ? $h`
+            ${books == 'error' ? $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'data-load-error.json'}" autoplay loop background="transparent" speed="1" style="height: 128px; transform: scale(2);"></lottie-player>
+                </div>
+                <div class="empty-state-title">Oops...</div>
+                <div class="empty-state-text">An error occured while loading Books.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                    
+                </div>
+            </div>
+            ` : $h`
+            ${books.length ? $h`
+              
+                       
+          
+                    ${books.map((item, index) => $h`
+                       <div class="col-50 medium-33 large-25">
+                                <div class="card margin-bottom">
+                                    <div @click="${() => book_page(item)}" class="card-content card-content-padding padding-half-sm position-relative">
+                                        <div class="position-absolute left-0 padding-half z-index-1">
+                                           
+                                           ${item.AccessType === 2 && $h`
+                                               <div class="chip bg-theme">
+                             <i class="icon material-icons font-size-20 color-white">workspace_premium</i>
+                            </div>
+                                            `}
+                                           
+                                        </div>
+                                        <div class="position-absolute right-0 no-padding padding-half z-index-1">
+                                          
+                                             <button type="button" class="state-toggle ${item.InLibrary ? 'state-toggle-active' : ''} button button-fill button-icon button-round color-white ripple-color-white" @stateChange="${(event) => toggleAddtoLibrary(item.BookId, event.detail)}">
+                                                        <i class="state-inactive icon material-icons font-size-20 color-gray">local_library</i>
+                                                        <i class="state-active icon material-icons font-size-20 color-red">local_library</i>
+                                            </button>
+                                        </div>
+                                        <figure class="avatar w-100 rounded-15 border">
+                                            <img src="${item.BookCover}" alt="" class="w-100" height="266px" />
+                                        </figure>
+                                    </div>
+                                    <div class="card-content card-content-padding">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="small text-color-black">${item.BookTitle}<br /><small class="text-muted size-12">${item.Author}</small>
+                                                </p>
+                                            </div>
+                                          
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>   
+                            `)}
+            
+            ` : $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'book_empty.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                </div>
+                <div class="empty-state-title">Library Empty</div>
+                <div class="empty-state-text">There is no book available in your library.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                </div>
+            </div>
+            `}
+            `}
+            ` : $h`
+            <div class="row">
+            <div class="col-100">
+            <div class="block margin-vertical text-align-center">
+ <span class="preloader"></span>
+                        </div>
+            </div>
+            </div>
+            `}  
+                                   </div>
+
+                      
+                        <div class="row margin-bottom">
+                            <div class="col-100 text-align-center">
+                                <button class="button button-large button-fill color-white elevation-2">Load more...</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab" id="nav-lists">
+                        <!-- product medsize list  -->
+                        <div class="row margin-bottom-half">
+                                              ${books ? $h`
+            ${books == 'error' ? $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'data-load-error.json'}" autoplay loop background="transparent" speed="1" style="height: 128px; transform: scale(2);"></lottie-player>
+                </div>
+                <div class="empty-state-title">Oops...</div>
+                <div class="empty-state-text">An error occured while loading data.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                    
+                </div>
+            </div>
+            ` : $h`
+            ${books.length ? $h`
+              
+                       
+          
+                    ${books.map((item, index) => $h`
+                           <div class="col-100 medium-50 ">
+                                <div class="card margin-bottom">
+                                    <div class="card-content card-content-padding" @click="${() => book_page(item)}">
+                                        <div class="row">
+                                            <div class="col-auto position-relative">
+                                                <div
+                                                    class="position-absolute right-0 padding-horizontal z-index-1">
+                                                             ${item.AccessType === 2 && $h`
+                                                    <button
+                                                        class="button button-small button-28 roudned-circle elevation-2 elevation-orange text-color-white bg-color-red">
+                                                        <i class="icon material-icons font-size-20 vm">lock</i>
+                                                    </button>
+                                                    `}
+                                                </div>
+                                                <figure class="avatar avatar-80 rounded-15 border">
+                                                    <img src="${item.BookCover}" alt="" class="w-100" />
+                                                </figure>
+                                            </div>
+                                            <div class="col position-relative">
+                                                <div class="position-absolute right-0 no-padding z-index-1">
+                                                     ${item.AccessType === 1 && $h`
+                                             <div class="chip bg-theme margin-right">
+                                            </div>
+                                            `}
+                                           ${item.AccessType === 2 && $h`
+                                               <div class="chip bg-theme margin-right" style="background:#0149D1!important;">
+                              <i class="icon material-icons font-size-20 color-white">workspace_premium</i>
+                            </div>
+                                            `}
+                                                   
+                                                </div>
+                                                <p class="no-margin-bottom"><small class="text-muted size-12 " style="color:#000!important;">${item.BookTitle}</small>
+                                                </p>
+                                                <h5 style="color:#000!important;">${item.BookCategory}</h5>
+                                                <a class="link">
+                                                    <i class="bi bi-person-circle margin-right-half"></i> ${item.Author}
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                             `)}
+            
+            ` : $h`
+             <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'book_empty.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                </div>
+                <div class="empty-state-title">Library Empty</div>
+                <div class="empty-state-text">There is no book available in your library.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-orange" @click="${loadData}">Retry</button>
+                </div>
+            </div>
+            `}
+            `}
+            ` : $h`
+               <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${window.config.app.lottieiurlbase + 'book_empty.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                </div>
+                <div class="empty-state-title">Loading..</div>
+                <div class="empty-state-text">Please Wait</div> 
+            </div>
+            `}  
+                     
+                                 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</template>
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        //var token = localStorage.getItem("WaoCardUserToken");
+        let books = null;
+        let bookcount = null;
+        const getdata = localStorage.getItem("BoldScholarUserData");
+        const userdata = JSON.parse(getdata);
+        console.log(userdata);
+        let userid = userdata.Id;
+        const subscribed = userdata.subscribed;
+
+      let loadData = function() {
+    app.preloader.show('color-orange');
+    books = null;
+    $update();
+    
+    var myHeaders = new Headers();
+    var formdata = new FormData();
+    //formdata.append("server_key", window.config.app.server_key);
+    formdata.append("userId", userid);
+    
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    $f7.request({
+        url: 'https://boldscholar.com/api/booksapi/getmylibrarybooks?userId=' + userid ,
+        method: 'GET',
+        headers: myHeaders,
+        data: formdata,
+        dataType: 'json',
+        redirect: 'follow'
+      
+    })
+    .then(function(response) {
+       app.preloader.hide();
+       books = response.data.Books.length ? response.data.Books : [];
+       bookcount = books.length;
+        console.log(response);
+        $update();
+    })
+    .catch(function(response) {
+        books = 'error';
+        $update();
+    });
+}
+
+        let toggleAddtoLibrary = function(id, state) {
+
+    books.forEach(function(book) {
+        if (book.BookId == id) {
+            book.InLibrary = state ? true : false;
+           var bookid = id;
+          
+            var data = new FormData();
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function() {
+                if (this.readyState === 4) {
+                    console.log(this.responseText);
+                    app.toast.show({
+                        text: state ? 'Book Added to library' : 'Book Removed from library',
+                        icon: state ? '<i class="icon material-icons color-red">favorite</i>' : '<i class="icon material-icons color-gray">favorite</i>',
+                        position: 'center'
+                    });
+                }
+            });
+
+            xhr.open("POST", "https://boldscholar.com/api/booksapi/addtolibrary?Id="+ bookid + "&userId="+ userid);
+            xhr.send();
+        }
+    });
+}      
+    let book_page = (item) =>{
+      console.log(item);
+      console.log(subscribed);
+        if(item.AccessType === 2 && subscribed === false ){
+          app.dialog.create({
+          title: 'No Access',
+          text: 'Please Subscribe to a premuim plan to access book',
+          buttons: [
+            {
+              text: 'Cancel',
+            },
+            {
+              text: '<div  class="confirm elevation-3 color-orange" >Subsribe</div>',
+          
+            },
+            
+          ],
+            backdrop: true,
+            closeByBackdropClick: false,
+              onClick: function (dialog, index) {
+            if(index === 0){
+                //Button 1 clicked
+                console.log('1');
+            }
+            else if(index === 1){
+                //Button 2 clicked
+                console.log('2');
+                
+app.views.current.router.navigate('/pricing/', {
+                    reloadCurrent: true, // Refresh the current page
+                    ignoreCache: true // Ignore caching for the new page
+});	  
+                
+              //  app.views.current.router.navigate('/thankyou3/');
+            }
+            else if(index === 2){
+                //Button 3 clicked
+                console.log('3');
+            }
+        },
+        }).open();
+         
+            
+        }else{
+       localStorage.setItem("BoldscholarBookData",JSON.stringify(item));   
+      app.views.current.router.navigate('/book-page/', {
+                    reloadCurrent: true, // Refresh the current page
+});	    
+          
+     }     
+          
+      }
+        $on('pageBeforeIn', function() {
+            loadData();
+           // getEvents();
+        });
+
+        return $render;
+    }
+</script>

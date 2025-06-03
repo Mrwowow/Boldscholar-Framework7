@@ -1,0 +1,698 @@
+<template>
+<div class="page page-profile" data-name="profile">
+    <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="button button-fill color-white button-44 back">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+            </div>
+            <div class="title text-color-white">
+                <h5>Profile</h5>
+            </div>
+            <div class="right">
+               
+            </div>
+        </div>
+    </div>
+    <!-- main page content -->
+    <div class="page-content">
+        <div class="row">
+            <div class="col-100 profile-page">
+                <div class="clearfix"></div>
+               
+                
+
+                <div class="row margin-vertical padding-vertical">
+                    <div class="col-60 align-self-center">
+                        <h1 class="margin-bottom-half"><span class="fw-light text-secondary">@${username}</span><br />
+                        </h1>
+                        <p class="text-secondary size-12">${name}</p>
+                    </div>
+
+                    <div class="col align-self-center">
+                        <figure class="avatar avatar-100 rounded-20 padding-half-sm bg-color-white elevation-2">
+                            ${avatar && $h`
+                            <img src="https://boldscholar.com/${avatar}" alt="" class="rounded-18" /> 
+                            `} 
+                             ${!avatar && $h`
+                            <img src="img/user1.jpg" alt="" class="rounded-18" /> 
+                            `}
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- buttons -->
+       <div class="row margin-bottom">   
+     <div class="col-100">
+ <p class="segmented segmented-strong">
+          <button class="button ${activeStrongButton===0 ? 'button-active' : '' }" @click=${()=>
+            setStrongButton(0)}>My Library</button>
+          <button class="button ${activeStrongButton===1 ? 'button-active' : '' }" @click=${()=>
+            setStrongButton(1)}>Subscription</button>
+          
+          <span class="segmented-highlight"></span>
+         </p>
+         </div>
+        </div>
+        <div class="toolbar" style="display:none">
+    <div class="toolbar-inner">
+      <a href="#tab-1" class="tab-link tab0 tab-link-active">Tab 1</a>
+      <a href="#tab-2" class="tab-link tab1">Tab 2</a>
+      <a href="#tab-3" class="tab-link tab2">Tab 3</a>
+    </div>
+  </div>
+  <div class="tabs-animated-wrap">
+    <div class="tabs">
+      <div id="tab-1" class="tab tab-active">
+             <div class="block">
+             <div class="row margin-bottom">
+            <div class="col-100 medium-50">
+             <div class="list margin-bottom">
+                    <ul>
+                        <li class="list-item bg-color-white">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="card">
+                                        <div class="card-body padding-half-sm">
+                                            <div class="avatar avatar-50 coverimg rounded-15">
+                                                <img src="img/user1.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center no-padding-left">
+                                    <p class="mb-1"><b>Ankit Trivedi</b>, <b>John MAcMillan</b> and <b>36 others</b>
+                                        are also order from same restaurant </p>
+                                    <p class="size-12 text-secondary">2 Days ago</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item bg-blue-light text-align-center">
+                            <div class="text-center text-muted">This month</div>
+                        </li>
+                        <li class="list-item bg-color-white">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="card">
+                                        <div class="card-body padding-half-sm">
+                                            <div class="avatar avatar-50 coverimg rounded-15">
+                                                <img src="img/user3.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center no-padding-left">
+                                    <p class="mb-1"><b>Willy</b> Will deliver your order</p>
+                                    <p class="size-12 text-secondary">last week</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item bg-color-white">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="card">
+                                        <div class="card-body padding-half-sm">
+                                            <div class="avatar avatar-50 coverimg rounded-15">
+                                                <img src="img/user1.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center no-padding-left">
+                                    <p class="mb-1"><b>johnson</b> will deliver your order</p>
+                                    <p class="size-12 text-secondary">2 Week ago</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item bg-color-white">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="card">
+                                        <div class="card-body padding-half-sm">
+                                            <div class="avatar avatar-50 coverimg rounded-15">
+                                                <img src="img/user2.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center no-padding-left">
+                                    <p class="mb-1"><b>Morgans</b> will deliver your order</p>
+                                    <p class="size-12 text-secondary">2 Week ago</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item bg-color-white">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="card">
+                                        <div class="card-body padding-half-sm">
+                                            <div class="avatar avatar-50 coverimg rounded-15">
+                                                <img src="img/user3.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center no-padding-left">
+                                    <p class="mb-1"><b>Silvasaa </b> is now available to take your order. tap to
+                                        continue order in your cart.</p>
+                                    <p class="size-12 text-secondary">3 Week ago</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item bg-blue-light text-align-center">
+                            <div class="text-center text-muted">Earlier</div>
+                        </li>
+                        <li class="list-item bg-color-white">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="card">
+                                        <div class="card-body padding-half-sm">
+                                            <div class="avatar avatar-50 coverimg rounded-15">
+                                                <img src="img/user2.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center no-padding-left">
+                                    <p class="mb-1"><b>Alic Boddy</b> will deliver your order</p>
+                                    <p class="size-12 text-secondary">1 month ago</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-item bg-color-white">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="card">
+                                        <div class="card-body padding-half-sm">
+                                            <div class="avatar avatar-50 coverimg rounded-15">
+                                                <img src="img/user3.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center no-padding-left">
+                                    <p class="mb-1"><b>John</b> will deliver your order</p>
+                                    <p class="size-12 text-secondary">2 month ago</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                 </div>
+                 </div>
+          
+        </div>
+     
+      </div>
+      <div id="tab-2" class="tab">
+     <div class="block">
+               <!-- My Frequent Payments -->
+        <div class="row margin-bottom">
+    
+            <div class="col">
+                <h6 class="title">Connection Request</h6>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-100 medium-50">
+                <div class="card overflow-hidden margin-bottom">
+                    <figure class="no-margin no-padding position-absolute no-padding right-0 w-50 h-100 coverimg">
+                        <img src="img/image2.jpg" alt="" />
+                    </figure>
+                    <div class="card-content card-content-padding no-padding">
+                        <div class="row no-margin-horizontal">
+                            <div class="col-65 padding-vertical aftercircle">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <a href="/profile/" class="card text-align-center">
+                                            <div class="card-content card-content-padding padding-half-sm">
+                                                <div
+                                                    class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                                </div>
+                                                <figure class="avatar avatar-60 elevation-2 rounded-18">
+                                                    <img src="img/user4.jpg" alt="" />
+                                                </figure>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col align-self-center no-padding-horizontal">
+                                        <p class="text-secondary size-10 no-margin-bottom">Send Money</p>
+                                        <p class="margin-bottom-half">John Winsels</p>
+                                        <p>150.00
+                                            <small class="text-color-green">18.2
+                                                <i class="bi bi-arrow-up"></i>
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-100 medium-50">
+                <div class="card overflow-hidden margin-bottom">
+                    <figure class="no-margin no-padding position-absolute no-padding right-0 w-50 h-100 coverimg">
+                        <img src="img/image3.jpg" alt="" />
+                    </figure>
+                    <div class="card-content card-content-padding no-padding">
+                        <div class="row no-margin-horizontal">
+                            <div class="col-65 padding-vertical aftercircle">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="card text-align-center">
+                                            <div class="card-content card-content-padding padding-half-sm">
+                                                <div
+                                                    class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                                </div>
+                                                <figure class="avatar avatar-60 elevation-2 rounded-18">
+                                                    <img src="img/company5.png" alt="" />
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col align-self-center no-padding-horizontal">
+                                        <p class="text-secondary size-10 no-margin-bottom">Transportation</p>
+                                        <p class="margin-bottom-half">ID0582Max</p>
+                                        <p>320.00
+                                            <small class="text-color-green">1.65
+                                                <i class="bi bi-arrow-up"></i>
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+         </div>
+      <div id="tab-3" class="tab">
+        <div class="block">
+             <!-- user list -->
+        <div class="list media-list no-margin">
+            <div>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user1.jpg" alt="" class="rounded-12"/>
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Ajinkya McMohan<br /><small class="text-muted">
+                                        <i class="bi bi-check-all text-color-blue"></i>Hello!</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">Just now</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user2.jpg" alt="" class="rounded-12"/>
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Elizabeth<br /><small class="text-muted">
+                                    <i class="bi bi-check-all text-color-blue"></i>Hi, how are you?</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">35 sec</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user3.jpg" alt="" class="rounded-12"/>
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Simen D'souza<br /><small class="text-muted">
+                                    <i class="bi bi-check-all text-color-blue"></i>Thank you!</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">2 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user1.jpg" alt="" class="rounded-12"/>
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Krish Mehta<br /><small class="text-muted">
+                                    <i class="bi bi-check-all text-color-green"></i> Received</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">5 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user1.jpg" alt="" class="rounded-12"/>
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Ajinkya McMohan<br /><small class="text-muted">
+                                        <i class="bi bi-check-all text-color-blue"></i>Hello!</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">Just now</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user2.jpg" alt="" class="rounded-12" />
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Elizabeth<br /><small class="text-muted">
+                                    <i class="bi bi-check-all text-color-blue"></i>Hi, how are you?</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">35 sec</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user3.jpg" alt="" class="rounded-12" />
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Simen D'souza<br /><small class="text-muted">
+                                    <i class="bi bi-check-all text-color-blue"></i>Thank you!</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">2 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/messages/" class="item-content color-inherit">
+                    <div class="item-media">
+                        <figure class="avatar avatar-50 rounded-15 bg-color-white padding-half-sm elevation-2">
+                            <img src="img/user1.jpg" alt="" class="rounded-12" />
+                        </figure>
+                    </div>
+                    <div class="item-inner">
+                        <div class="row">
+                            <div class="col">
+                                <p>Krish Mehta<br /><small class="text-muted">
+                                    <i class="bi bi-check-all text-color-green"></i> Received</small>
+                                </p>
+                            </div>
+                            <div class="col-auto text-align-right">
+                                <p class="text-muted small">5 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- location map-->
+        <div class="row margin-bottom" style="display:none;">
+            <div class="col-100">
+                <div class="card elevation-2">
+                    <div class="card-content card-content-padding">
+                        <figure class="w-100">
+                            <img src="img/map@2x.png" class="mw-100" alt="" />
+                        </figure>
+                        <div class="row">
+                            <div class="col">
+                                <p class="">Jon Winsels</p>
+                                <p class="text-secondary small"></p>
+                            </div>
+                            <div class="col-auto align-self-center">
+                                <button class="button button-link color-white button-44">
+                                    <i class="bi bi-arrow-up-right-circle size-22"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+  
+
+        <!-- People -->
+        <div class="row margin-bottom-half" style="display:none;">
+            <div class="col">
+                <h6 class="title">People</h6>
+            </div>
+            <div class="col-auto">
+                <a href="/userlist/" class="small">View More</a>
+            </div>
+        </div>
+        <div class="row margin-bottom" style="display:none;">
+            <div class="col-100 no-padding-horizontal">
+                <!-- swiper users connections -->
+                <div class="swiper-container connectionwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                    </div>
+                                    <figure class="avatar avatar-80 elevation-2 rounded-18">
+                                        <img src="img/user4.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="position-absolute right-0 no-padding bg-color-red z-index-1 online-status">
+                                    </div>
+                                    <figure class="avatar avatar-80 elevation-2 rounded-20">
+                                        <img src="img/user2.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="position-absolute right-0 no-padding bg-color-yellow z-index-1 online-status">
+                                    </div>
+                                    <figure class="avatar avatar-80 elevation-2 rounded-20">
+                                        <img src="img/user3.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                    </div>
+                                    <figure class="avatar avatar-80 elevation-2 rounded-20">
+                                        <img src="img/user1.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                    </div>
+                                    <figure class="avatar avatar-80 elevation-2 rounded-20">
+                                        <img src="img/user4.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar avatar-80 elevation-2 rounded-20">
+                                        <img src="img/user2.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <div
+                                        class="position-absolute right-0 no-padding bg-color-green z-index-1 online-status">
+                                    </div>
+                                    <figure class="avatar avatar-80 elevation-2 rounded-20">
+                                        <img src="img/user3.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="/profile/" class="card text-align-center">
+                                <div class="card-content card-content-padding padding-half-sm">
+                                    <figure class="avatar avatar-80 elevation-2 rounded-20">
+                                        <img src="img/user1.jpg" alt="" />
+                                    </figure>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</template>
+<style>
+    .button-active{
+        
+        background-color: #000;
+        color: orange;
+    }
+
+</style>
+<script>
+      export default (props,{ $, $on, $f7, $f7router, $update }) => {
+       const authorId = JSON.parse(localStorage.getItem("BoldscholarAuthorId")); 
+          console.log(authorId);
+       const getdata = localStorage.getItem("BoldScholarUserData");
+        const userdata = JSON.parse(getdata);
+        console.log(userdata);
+          const name = userdata.fullName;
+          const username = userdata.UserName;
+          const email = userdata.Email;
+          const userid =  userdata.Id;
+          const phone =  userdata.PhoneNumber;
+          const avatar = userdata.photo; 
+          const subscription = userdata.subscribed;
+          let activeStrongButton = null;
+          let authorBooks = null;
+          let author = null;
+
+          
+          
+        
+          
+     
+         
+       const setStrongButton = (index) => {
+      activeStrongButton = index;
+    var myLink = document.querySelector('.tab'+index);
+
+// Simulate a click event on the link
+myLink.click();
+      $update();
+    }   
+       
+    let loadData = function() {
+    $update();
+    
+    var myHeaders = new Headers();
+    var formdata = new FormData();
+    formdata.append("userId", authorId);
+    
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    $f7.request({
+        url: 'https://boldscholar.com/api/general/GetUserProfile',
+        method: 'GET',
+        headers: myHeaders,
+        data: formdata,
+        redirect: 'follow'
+      
+    })
+    .then(function(response) {
+       author = response;
+        
+      authorBooks = author.Books;
+     
+        console.log(response.data);
+        $update();
+    })
+    .catch(function(response) {
+        author = 'error';
+        $update();
+    });
+}
+    
+
+     $on('pageInit', () => {
+         
+           loadData();
+        
+         
+       
+     })
+
+    return $render;
+  
+  };
+    
+
+</script>
